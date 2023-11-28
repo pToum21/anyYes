@@ -5,7 +5,7 @@ const productData = [
         id: 1,
         game_name: 'The Legend of Zelda',
         console_name:'Nintendo Entertainment System',
-        console_brand:'NES',
+        console_brand:'Nintendo',
         year: 1987,
         condition: 'CIB',
         price: 145.73,
@@ -18,7 +18,7 @@ const productData = [
         id: 2,
         game_name: 'N/A',
         console_name:'Nintendo Switch',
-        console_brand:'Switch',
+        console_brand:'Nintendo',
         year: 2023,
         condition: "Sealed",
         price: 299.99,
@@ -31,7 +31,7 @@ const productData = [
         id:3,
         game_name: 'N/A',
         console_name:'Gameboy Advance SP',
-        console_brand:'Gameboy Advance',
+        console_brand:'Nintendo',
         year: 2003,
         condition: 'Used',
         price: 79.99,
@@ -63,7 +63,7 @@ const productData = [
         price: 12.93,
         color: 'black',
         is_special_edition: false,
-        user_id: 5,
+        user_id: 2,
         category_id: 2
     }
 ]

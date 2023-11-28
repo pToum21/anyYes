@@ -9,8 +9,8 @@ const userData = [
     },
     {
         id: 2,
-        user_name: 'ryantheartist',
-        email: 'ryanryanryan@gmail.com',
+        user_name: 'ryan',
+        email: 'ryan@gmail.com',
         password: 'password'
     },
     {
