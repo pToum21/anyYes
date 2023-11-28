@@ -8,3 +8,7 @@ const categoryData = [{
     id: 2,
     category_name: 'Game'
 }]
+
+const seedCategory = () => Category.bulkCreate(categoryData);
+
+module.exports = seedCategory;
