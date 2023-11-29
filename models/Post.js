@@ -59,10 +59,10 @@ Post.init(
                 key: 'id'
             }
         },
-        product_id: {
+        user_id: {
             type: DataTypes.STRING,
             references: {
-                model: 'product',
+                model: 'user',
                 key: 'id'
             }
         }
