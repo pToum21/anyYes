@@ -1,4 +1,3 @@
-
 const {Order, User, Listing, Category} = require('../models')
 
 const router = require('express').Router();

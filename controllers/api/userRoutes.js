@@ -1,75 +1,74 @@
+//require the router method of express so we dont have to bring in the entirety of express each time.
 const router = require('express').Router();
+// import the User model
 const { User } = require('../../models');
 
 // sign up new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
+        const newUser = await User.create(req.body);
 
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = newUser.id;
             req.session.logged_in = true;
 
-            res.status(200).json(userData);
-        })
-    } catch (err) {
-       
-        res.status(400).json(err)
+            res.status(200).json(newUser);
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'could not create user' });
     }
 });
 
 // log in user
 router.post('/login', async (req, res) => {
     try {
-        // find user by email
-        const userData = await User.findOne({ where: { email: req.body.email } });
-        
-        // verify the users credientials
-        if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password, please try again.' });
+        const userLogin = User.findOne(
+            {
+                where: {
+                    email: req.body.email
+                }
+            });
+
+        //check if user exists
+        if (!userLogin) {
+            res.status(404).json({ message: 'login failed' });
             return;
-        }
+        };
 
-        // verify password
-        const validPassword = await userData.checkPassword(req.body.password);
-
-        // display message if password is wrong
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password, please try again.' });
+        //if pw is wrong
+        const pw = await userLogin.checkPassword(req.body.password)
+        if (!pw) {
+            res.status(404).json({ message: 'login failed' });
             return;
-        }
+        };
 
-        // once verified user is logged in 
+
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = newUser.id;
             req.session.logged_in = true;
 
-            res.status(200).json({ user: userData, message: 'YOU ARE LOGGED IN!' })
+            res.status(200).json({ message: 'user logged in' });
         })
 
-
-    } catch (err) {
-        
-        res.status(400).json(err)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'login failed' });
     }
 });
 
-// logout user
+//logout
 router.post('/logout', async (req, res) => {
-    try {
-        if (req.session.logged_in) {
-            req.session.destroy(() => {
-                res.status(204).end();
-            })
-        } else {
-            res.status(404).end();
-        }
-    } catch (err) {
-        res.status(400).json(err)
-    }
-})
-
-
-
+    if (req.session.logged_in) {
+        //destroys user session
+        req.session.destroy(() => {
+            //placed in a function to ensure session is destroyed first
+            res.status(204).end()
+        });
+    } else {
+        console.log('logout failed')
+        res.status(400).end()
+    };
+});
 
 module.exports = router;
