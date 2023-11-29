@@ -8,7 +8,7 @@ class Order extends Model { }
 Order.init(
     {
         status: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         reference_number: {
