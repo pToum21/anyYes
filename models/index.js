@@ -1,5 +1,5 @@
 const User = require('./User');
-const Post = require('./Post');
+const Post = require('./Product');
 const Product = require('./Product');
 const Category = require('./Category');
 
