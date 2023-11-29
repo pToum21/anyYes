@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize')
 
 const sequelize = require('../config/connection')
 
-class Post extends Model { }
+class Product extends Model { }
 
-Post.init(
+Product.init(
     {
         title: {
             type: DataTypes.STRING
@@ -72,8 +72,8 @@ Post.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
+        modelName: 'product',
     }
 );
 
-module.exports = Post;
+module.exports = Product;
