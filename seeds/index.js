@@ -21,6 +21,7 @@ const seedAll = async () => {
   await seedUser();
   console.log('\n----- USERS SEEDED -----\n');
 
+  // process.exit(0) ensures the Node.js process will terminate immediately and return the exit code to the operating system gracefully.
   process.exit(0);
 };
 

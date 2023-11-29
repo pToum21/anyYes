@@ -24,6 +24,13 @@ Post.init(
                 key: 'id'
             }
         },
+        product_id: {
+            type: DataTypes.STRING,
+            references: {
+                model: 'product',
+                key: 'id'
+            }
+        }
 
     },
     {
