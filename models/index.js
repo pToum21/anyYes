@@ -1,32 +1,32 @@
 const User = require('./User');
-const Post = require('./Product');
-const Product = require('./Product');
+const Listing = require('./Listing');
 const Category = require('./Category');
+const Order = require('./Order');
 
 //establish associations
+//User has no relation to Category
 
-User.hasMany(Post,
+User.hasMany(Listing,
     { foreignKey: 'user_id' });
-Post.belongsTo(User,
-    { foreignKey: 'user_id' });
-
-User.hasMany(Product,
-    { foreignKey: 'user_id' });
-Product.belongsTo(User,
+Listing.belongsTo(User,
     { foreignKey: 'user_id' });
 
-
-Post.hasOne(Product,
-    { foreignKey: 'product_id' });
-Product.belongsTo(Post,
-    { foreignKey: 'product_id' });
-
-Product.hasMany(Category,
+Listing.hasOne(Category,
     { foreignKey: 'category_id' });
-Category.belongsToMany(Product,
+Category.belongsToMany(Listing,
     { foreignKey: 'category_id' });
 
-module.exports = { User, Post, Product, Category };
+Order.hasOne(User,
+    { foreignKey: 'user_id' });
+User.hasMany(Order,
+    { foreignKey: 'user_id' });
+
+Order.hasMany(Listing,
+    { foreignKey: 'listing_id' });
+Listing.belongsTo(Order,
+    { foreignKey: 'listing_id' });
+
+module.exports = { User, Listing, Category, Order };
 
 
 
