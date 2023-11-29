@@ -11,20 +11,21 @@ User.hasMany(Listing,
 Listing.belongsTo(User,
     { foreignKey: 'user_id' });
 
-Listing.hasOne(Category,
+Listing.belongsTo(Category,
     { foreignKey: 'category_id' });
-Category.belongsToMany(Listing,
+Category.hasMany(Listing,
     { foreignKey: 'category_id' });
 
-Order.hasOne(User,
+Order.belongsTo(User,
     { foreignKey: 'user_id' });
 User.hasMany(Order,
     { foreignKey: 'user_id' });
 
-Order.hasMany(Listing,
+Order.belongsTo(Listing,
     { foreignKey: 'listing_id' });
-Listing.belongsTo(Order,
+Listing.hasOne(Order,
     { foreignKey: 'listing_id' });
+
 
 module.exports = { User, Listing, Category, Order };
 

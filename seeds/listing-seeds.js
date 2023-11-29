@@ -1,6 +1,6 @@
-const { Post } = require('../models')
+const { Listing } = require('../models')
 
-const postData = [
+const listingData = [
     {
         id: 1,
         title: 'The Legend of Zelda for the NES',
@@ -85,6 +85,6 @@ const postData = [
 
 //*will product_id always match post id?
 
-const seedPost = () => Post.bulkCreate(postData);
+const seedListing = () => Listing.bulkCreate(listingData);
 
-module.exports = seedPost;
+module.exports = seedListing;

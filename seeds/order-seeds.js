@@ -23,8 +23,8 @@ const orderData = [
 
 ];
 
-const seedOrders = () => {
-    Order.bulkCreate(orderData)
+const seedOrder = () => {
+   return Order.bulkCreate(orderData)
 };
 
-module.exports = seedOrders;
+module.exports = seedOrder;
