@@ -10,7 +10,7 @@ Listing.init(
             type: DataTypes.STRING
         },
         description: {
-            type: DataTypes.TEXT(5000)
+            type: DataTypes.TEXT
         },
         date_created: {
             type: DataTypes.DATE,
