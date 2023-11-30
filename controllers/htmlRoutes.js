@@ -4,12 +4,7 @@ const router = require('express').Router();
 
 const withAuth = require('../utils/auth');
 
-router.get('/login', async (req, res) => {
-   if (req.session.logged_in) {
-       res.redirect('/')
-   }
-   res.render('login')
-})
+
 
 //homepage
 router.get('/', async (req, res) => {
@@ -23,7 +18,7 @@ router.get('/', async (req, res) => {
 
       const listings = listingData.map((listing) => listing.get({ plain: true }));
 
-      res.render('home', { listings });
+      res.render('home', { listings, logged_in: req.session.logged_in });
 
    } catch (error) {
       console.log('trouble rendering all listings');
@@ -31,6 +26,14 @@ router.get('/', async (req, res) => {
    }
 
 });
+
+router.get('/login', async (req, res) => {
+   if (req.session.logged_in) {
+       res.redirect('/')
+       return;
+   }
+   res.render('login')
+})
 
 //viewing listings of all games
 router.get('/games', async (req, res) => {
@@ -42,7 +45,10 @@ router.get('/games', async (req, res) => {
          }
       });
       const games = gamesData.map((game) => game.get({ plain: true }));
-      res.render('games', { games });
+      res.render('games', { 
+         games,
+         logged_in: req.session.logged_in
+      });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'No games showing.' });
@@ -88,7 +94,7 @@ router.get('/consoles', async (req, res) => {
       });
       const consoleListings = consolesData.map((individualConsole) => individualConsole.get({ plain: true }));
 
-      res.render('consoles', { consoleListings });
+      res.render('consoles', { consoleListings,  logged_in: req.session.logged_in });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'List of consoles is not showing.' });
