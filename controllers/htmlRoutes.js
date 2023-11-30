@@ -43,7 +43,6 @@ router.get('/games', async (req, res) => {
 })
 
 router.get('/games/:id', async (req, res) => {
-   console.log('hello')
    try {
       
       const gamesData = await Listing.findByPk(req.params.id, {
