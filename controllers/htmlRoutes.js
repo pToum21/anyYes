@@ -44,12 +44,19 @@ router.get('/games/:id', async (req, res) => {
    try {
 
       const gamesData = await Listing.findByPk(req.params.id, {
-         include: User,
+         include: [User, Category],
+         where: {
+            category_id: '2'
+         }
       });
-      console.log(gamesData)
+      //find a way to filter listing table so user cannot see literally any item despite being in wrong path (game or console)
+      console.log('req.params.id:', req.params.id);
+      console.log('type', typeof req.params.id);
+      console.log('category_id:', '2');
+      console.log('type', typeof gamesData.category_id);
       const games = gamesData.get({ plain: true })
       console.log(games)
-      res.render('game', {
+      res.render('oneGame', {
          ...games
       })
    } catch (error) {
@@ -59,7 +66,7 @@ router.get('/games/:id', async (req, res) => {
 });
 
 router.get('/consoles', async (req, res) => {
-   
+
    try {
       const consolesData = await Listing.findAll({
          include: Category,
@@ -68,13 +75,32 @@ router.get('/consoles', async (req, res) => {
          }
       });
       const consoleListings = consolesData.map((individualConsole) => individualConsole.get({ plain: true }));
-     
+
       res.render('consoles', { consoleListings });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'list of consoles is not showing' });
    }
 });
+
+
+router.get('/consoles/:id', async (req, res) => {
+   try {
+
+      const itemsData = await Listing.findByPk(req.params.id, {
+         include: User,
+      });
+      const item = itemsData.get({ plain: true })
+
+      res.render('oneConsole', {
+         ...item
+      })
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'single game is not showing' });
+   }
+}
+);
 
 module.exports = router;
 
