@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
 
 
         req.session.save(() => {
-            req.session.user_id = newUser.id;
+            req.session.user_id = userLogin.id;
             req.session.logged_in = true;
 
             res.status(200).json({ message: 'user logged in' });
@@ -59,16 +59,21 @@ router.post('/login', async (req, res) => {
 
 //logout
 router.post('/logout', async (req, res) => {
+   try {
     if (req.session.logged_in) {
         //destroys user session
         req.session.destroy(() => {
             //placed in a function to ensure session is destroyed first
             res.status(204).end()
         });
-    } else {
-        console.log('logout failed')
-        res.status(400).end()
-    };
+    }
+    else {
+        res.status(404).end()
+    }
+   } catch (error) {
+    console.log('logout failed')
+    res.status(400).end()
+   }   
 });
 
 module.exports = router;
