@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       res.status(500).json({ message: 'no listings showing' });
    }
 
-})
+});
 
 router.get('/games', async (req, res) => {
    try {
@@ -30,8 +30,7 @@ router.get('/games', async (req, res) => {
          where: {
             category_id: 2
          }
-      })
-
+      });
       const games = gamesData.map((game) => game.get({ plain: true }))
       console.log(games)
       res.render('games', { games })
@@ -39,14 +38,14 @@ router.get('/games', async (req, res) => {
       console.log(error);
       res.status(500).json({ message: 'no games showing' });
    }
-})
+});
 
 router.get('/games/:id', async (req, res) => {
    try {
 
       const gamesData = await Listing.findByPk(req.params.id, {
          include: User,
-      })
+      });
       console.log(gamesData)
       const games = gamesData.get({ plain: true })
       console.log(games)
@@ -59,7 +58,8 @@ router.get('/games/:id', async (req, res) => {
    }
 });
 
-router.get('/consoles'), async (req, res) => {
+router.get('/consoles', async (req, res) => {
+   
    try {
       const consolesData = await Listing.findAll({
          include: Category,
@@ -68,14 +68,13 @@ router.get('/consoles'), async (req, res) => {
          }
       });
       const consoleListings = consolesData.map((individualConsole) => individualConsole.get({ plain: true }));
+     
       res.render('consoles', { consoleListings });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'list of consoles is not showing' });
-      
    }
-
-}
+});
 
 module.exports = router;
 
