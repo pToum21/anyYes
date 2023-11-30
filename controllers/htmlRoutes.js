@@ -2,6 +2,8 @@ const { Order, User, Listing, Category } = require('../models')
 
 const router = require('express').Router();
 
+const withAuth = require('../utils/auth');
+
 //homepage
 router.get('/', async (req, res) => {
    try {
@@ -14,15 +16,16 @@ router.get('/', async (req, res) => {
 
       const listings = listingData.map((listing) => listing.get({ plain: true }));
 
-      res.render('home', { listings })
+      res.render('home', { listings });
 
    } catch (error) {
       console.log('trouble rendering all listings');
-      res.status(500).json({ message: 'no listings showing' });
+      res.status(500).json({ message: 'No listings showing.' });
    }
 
 });
 
+//viewing listings of all games
 router.get('/games', async (req, res) => {
    try {
       const gamesData = await Listing.findAll({
@@ -31,15 +34,15 @@ router.get('/games', async (req, res) => {
             category_id: 2
          }
       });
-      const games = gamesData.map((game) => game.get({ plain: true }))
-      console.log(games)
-      res.render('games', { games })
+      const games = gamesData.map((game) => game.get({ plain: true }));
+      res.render('games', { games });
    } catch (error) {
       console.log(error);
-      res.status(500).json({ message: 'no games showing' });
+      res.status(500).json({ message: 'No games showing.' });
    }
 });
 
+//viewing one game listing
 router.get('/games/:id', async (req, res) => {
    try {
 
@@ -50,27 +53,23 @@ router.get('/games/:id', async (req, res) => {
             category_id: 2
          }
       });
-      //find a way to filter listing table so user cannot see literally any item despite being in wrong path (game or console)
-      console.log('req.params.id:', req.params.id);
-      console.log('type', typeof req.params.id);
-      console.log('category_name:', req.params.category);
-      console.log('type', typeof req.params.category);
 
       if (!gamesData) {
-         return res.status(404).json({ message: 'Game not found' });
+         return res.status(404).json({ message: 'Game not found.' });
       }
 
-      const games = gamesData.get({ plain: true })
- 
+      const games = gamesData.get({ plain: true });
+
       res.render('oneGame', {
          ...games
-      })
+      });
    } catch (error) {
       console.log(error);
-      res.status(500).json({ message: 'single game is not showing' });
+      res.status(500).json({ message: 'This game does not exist.' });
    }
 });
 
+//viewing listings of all consoles
 router.get('/consoles', async (req, res) => {
 
    try {
@@ -85,11 +84,11 @@ router.get('/consoles', async (req, res) => {
       res.render('consoles', { consoleListings });
    } catch (error) {
       console.log(error);
-      res.status(500).json({ message: 'list of consoles is not showing' });
+      res.status(500).json({ message: 'List of consoles is not showing.' });
    }
 });
 
-
+//viewing listing of one console
 router.get('/consoles/:id', async (req, res) => {
    try {
 
@@ -105,17 +104,49 @@ router.get('/consoles/:id', async (req, res) => {
          return res.status(404).json({ message: 'console not found' });
       }
 
-      const item = itemsData.get({ plain: true })
+      const item = itemsData.get({ plain: true });
 
       res.render('oneConsole', {
          ...item
-      })
+      });
    } catch (error) {
       console.log(error);
-      res.status(500).json({ message: 'single console is not showing' });
+      res.status(500).json({ message: 'This console does not exist.' });
    }
 }
 );
+
+//view user dashboard
+//**add withauth back in after login page is made
+router.get('/:user_name', async (req, res) => {
+   try {
+
+      const userData = await User.findOne({
+         where: {
+            user_name: req.params.user_name
+         },
+         include: [Listing, Order]
+      });
+
+      if (!userData) {
+         return res.status(404).json({ message: 'Oh, no! User does not exist!' })
+      };
+
+      const user = userData.get({ plain: true });
+
+      res.render('userpage', {
+         user,
+         listings: user.Listings,
+         orders: user.Orders
+         // add this back in after login page is made
+         // logged_in: req.session.logged_in
+      })
+
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'User could not load.' });
+   }
+})
 
 module.exports = router;
 
