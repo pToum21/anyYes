@@ -23,39 +23,31 @@ router.post('/', async (req, res) => {
 // log in user
 router.post('/login', async (req, res) => {
     try {
-        const userLogin = User.findOne(
-            {
-                where: {
-                    email: req.body.email
-                }
-            });
+        const userData = await User.findOne({ where: {email: req.body.email}})
 
-        //check if user exists
-        if (!userLogin) {
-            res.status(404).json({ message: 'login failed' });
+        if (!userData) {
+            res.status(400).json({ message: 'Incorrect email or password'})
             return;
-        };
+        }
 
-        //if pw is wrong
-        const pw = await userLogin.checkPassword(req.body.password)
-        if (!pw) {
-            res.status(404).json({ message: 'login failed' });
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({message: 'incorrect email or password'})
             return;
-        };
-
+        }
 
         req.session.save(() => {
-            req.session.user_id = userLogin.id;
-            req.session.logged_in = true;
+            req.session.user_id = userData.id,
+            req.session.loggedIn = true;
 
-            res.status(200).json({ message: 'user logged in' });
+            res.status(200).json({ user: userData, message: 'You are logged in'})
         })
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'login failed' });
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err.message)
     }
-});
+})
 
 //logout
 router.post('/logout', async (req, res) => {
