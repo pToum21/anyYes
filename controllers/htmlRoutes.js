@@ -26,29 +26,36 @@ router.get('/', async (req, res) => {
 router.get('/games', async (req, res) => {
    try {
       const gamesData = await Listing.findAll({
+         
          include: Category,
          where: {
-            id: 'category_name'
+            category_id: 2
          }
+         
       })
-      const games = gamesData.map((game) => game.get({ plain: true }))
-      res.render('games', games)
-   } catch (error) {
       
+      const games = gamesData.map((game) => game.get({ plain: true }))
+      console.log(games)
+      res.render('games', {games})
+   } catch (error) {
+      console.log(error)
    }
 })
 
 router.get('/games/:id', async (req, res) => {
    try {
+      
       const gamesData = await Listing.findByPk(req.params.id, {
          include: User,
       })
+      console.log(gamesData)
       const games = gamesData.get({ plain: true})
+      console.log(games)
       res.render('game', {
          ...games
       })
    } catch (error) {
-     console.log(error) 
+      console.log(error)
    }
 })
 
