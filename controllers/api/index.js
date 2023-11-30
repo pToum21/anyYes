@@ -4,10 +4,13 @@ const listingRoutes = require('./listingRoutes')
 const categoryRoutes = require('./categoryRoutes')
 const orderRoutes = require('./orderRoutes')
 
+
 router.use('/users', userRoutes);
 router.use('/listings', listingRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/orders', orderRoutes);
+
+
 
 
 

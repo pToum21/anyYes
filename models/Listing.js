@@ -52,6 +52,9 @@ Listing.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
+        image:{
+            type: DataTypes.BLOB
+        },
         category_id: {
             type: DataTypes.INTEGER,
             references: {
