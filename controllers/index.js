@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer')
 const htmlRoutes = require('./htmlRoutes')
 const apiRoutes = require('./api')
-
+const dashboardRoutes = require('./dashboardRoutes')
 // const storage = multer.diskStorage({
 //     destination: '../models/listing',
 //     filename: (req, file, cb) => {
@@ -12,5 +12,5 @@ const apiRoutes = require('./api')
 
 router.use('/', htmlRoutes);
 router.use('/api', apiRoutes);
-
+router.use('/userPage', dashboardRoutes);
 module.exports = router;
