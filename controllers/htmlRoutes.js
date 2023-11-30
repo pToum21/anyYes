@@ -38,7 +38,7 @@ router.get('/games', async (req, res) => {
    }
 })
 
-router.get('games/:id', async (req, res) => {
+router.get('/games/:id', async (req, res) => {
    try {
       const gamesData = await Listing.findByPk(req.params.id, {
          include: User,
@@ -48,7 +48,7 @@ router.get('games/:id', async (req, res) => {
          ...games
       })
    } catch (error) {
-      
+     console.log(error) 
    }
 })
 
