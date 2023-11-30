@@ -13,6 +13,7 @@ Order.init(
         },
         reference_number: {
             type: DataTypes.STRING,
+            //generate alphanumeric string in js
         },
         created_at: {
             type: DataTypes.DATE,
@@ -21,6 +22,7 @@ Order.init(
         },
         address: {
             type: DataTypes.STRING
+            //maybe use maps api
         },
 
         listing_id: {

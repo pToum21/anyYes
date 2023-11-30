@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Category } = require('../../models');
 
-
-
 router.post('/', async (req, res) => {
   try {
     const categoryData = await Category.create(req.body);
