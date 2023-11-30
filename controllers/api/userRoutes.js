@@ -23,25 +23,25 @@ router.post('/', async (req, res) => {
 // log in user
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: {email: req.body.email}})
+        const userData = await User.findOne({ where: { email: req.body.email } })
 
         if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password'})
+            res.status(400).json({ message: 'Incorrect email or password' })
             return;
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res.status(400).json({message: 'incorrect email or password'})
+            res.status(400).json({ message: 'incorrect email or password' })
             return;
         }
 
         req.session.save(() => {
             req.session.user_id = userData.id,
-            req.session.loggedIn = true;
+                req.session.logged_in = true;
 
-            res.status(200).json({ user: userData, message: 'You are logged in'})
+            res.status(200).json({ user: userData, message: 'You are logged in' })
         })
     } catch (err) {
         console.log(err)
@@ -51,21 +51,17 @@ router.post('/login', async (req, res) => {
 
 //logout
 router.post('/logout', async (req, res) => {
-   try {
-    if (req.session.logged_in) {
-        //destroys user session
-        req.session.destroy(() => {
-            //placed in a function to ensure session is destroyed first
-            res.status(204).end()
-        });
+    try {
+        if (req.session.logged_in) {
+            req.session.destroy(() => {
+                res.status(204).end();
+            })
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        res.status(400).json(err)
     }
-    else {
-        res.status(404).end()
-    }
-   } catch (error) {
-    console.log('logout failed')
-    res.status(400).end()
-   }   
-});
+})
 
 module.exports = router;

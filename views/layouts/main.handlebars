@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <title>Document</title>
 
@@ -11,18 +12,19 @@
 
 <body>
     <nav>
+
         <a href="/">home</a>
-
-
-
         <a href="/games">games</a>
         <a href="/consoles">consoles</a>
-        <a href="/login">login</a>
+        {{#if logged_in}}
         <button class="no-button" id="logout">logout</button>
-        {{!-- need if statement to show userpage link when logged in, as well as logout --}}
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+        
     </nav>
 
-    
+
 
 
 
@@ -33,8 +35,9 @@
 
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script scr="/js/logout.js"></script>
-    
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
