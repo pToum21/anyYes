@@ -11,23 +11,24 @@ const withAuth = require('../utils/auth');
 router.get('/:user_name', async (req, res) => {
    try {
 
-      const userData = await User.findOne({
+      const userData = await Listing.findAll({
          where: {
-            user_name: req.params.user_name
+            user_id: req.session.user_id
          },
-         include: [Listing, Order]
+         include: [User, Order]
       });
 
       if (!userData) {
          return res.status(404).json({ message: 'Oh, no! User does not exist!' })
       };
 
-      const user = userData.get({ plain: true });
-
+      const users = userData.map(u => u.get({ plain: true }));
+      console.log(users);
       res.render('profile', {
-         user,
-         listings: user.Listings,
-         orders: user.Orders
+         users,
+         logged_in: req.session.logged_in
+         // listings: user.Listings,
+         // orders: user.Orders
          // add this back in after login page is made
          // logged_in: req.session.logged_in
       })
