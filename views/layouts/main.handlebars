@@ -17,8 +17,11 @@
         <a href="/">home</a>
         <a href="/games">games</a>
         <a href="/consoles">consoles</a>
+        
         {{#if logged_in}}
+        <a href="/profile">profile</a>
         <button class="no-button" id="logout">logout</button>
+        
         {{else}}
         <a href="/login">login</a>
         {{/if}}
