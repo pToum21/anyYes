@@ -1,11 +1,30 @@
 <h1> hi </h1>
 <p> {{ myListings.[0].user.user_name }}</p>
+<button id="sell-post">Sell</button>
+
+<form class="" id="myForm" style="display: none;">
+
+  <div class="">
+    <h3>Sell any game or console:</h3>
+      <div class="">
+        <label for="">Title:</label>
+        <input class="form-input" type="text" id="post-title" name="post-title" />
+      </div>
+      <div class="">
+        <label for="">Description:</label>
+        <textarea class="form-input" id="post-body" name="post-body"></textarea>
+      </div>
+
+      <div class="">
+        <button id="" type="submit" class="" style="color:#fff">Yes! Submit</button>
+      </div>
+</form>
+
 {{#each myListings }}
-
-
 <div>
     
     <h2>One listing: {{ title }}</h2>
     <p> Order was made on {{ order.created_at }}</p>
+
 </div>
 {{/each}}
