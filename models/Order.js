@@ -9,11 +9,13 @@ Order.init(
     {
         status: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: false
         },
         reference_number: {
             type: DataTypes.STRING,
             //generate alphanumeric string in js
+            //uuidv4 generate a reference number
         },
         created_at: {
             type: DataTypes.DATE,

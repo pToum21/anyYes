@@ -56,7 +56,7 @@ router.get('/games', async (req, res) => {
 });
 
 //viewing one game listing
-router.get('/games/:id', async (req, res) => {
+router.get('/:category/:id', async (req, res) => {
    try {
 
       const gamesData = await Listing.findOne({
