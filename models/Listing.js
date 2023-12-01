@@ -31,7 +31,8 @@ Listing.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                isNumeric: true
+                isNumeric: true,
+                len: [4]
             }
         },
         condition: {
