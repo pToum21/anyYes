@@ -12,5 +12,5 @@ const dashboardRoutes = require('./dashboardRoutes')
 
 router.use('/', htmlRoutes);
 router.use('/api', apiRoutes);
-router.use('/userPage', dashboardRoutes);
+router.use('/profile', dashboardRoutes);
 module.exports = router;
