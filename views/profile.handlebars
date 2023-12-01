@@ -11,7 +11,7 @@
     {{!-- listing title --}}
     <div class="" id="ls-title">
       <label for="">Title:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <input class="form-input" type="text" id="ls-title" name="post-title" />
     </div>
 
     {{!-- listing description --}}
@@ -56,7 +56,11 @@
     {{!-- condition --}}
     <div class="" id="ls-condition">
       <label for="">Condition:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <select id="cond-dropdown" name="condition">
+        <option value="new">NEW</option>
+        <option value="used">USED</option>
+        <option value="damaged">DAMAGED</option>
+      </select>
     </div>
 
     {{!-- price --}}
@@ -68,19 +72,40 @@
     {{!-- color --}}
     <div class="" id="ls-color">
       <label for="">Color:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <select id="clr-dropdown" name="color">
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="orangle">Orange</option>
+        <option value="purple">Purple</option>
+        <option value="brown">Brown</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+      </select>
     </div>
 
     {{!-- special edition? --}}
     <div class="" id="ls-special">
-      <label for="">Is this a special edition?</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="">Is this a special edition?</label> <br>
+      <input type="radio" id="sp-yes" name="sp-ed" value="yes">
+      <label for="yes">Yes</label><br>
+      <input type="radio" id="sp-no" name="sp-ed" value="no">
+      <label for="no">No</label><br>
     </div>
 
     {{!-- image --}}
     <div class="" id="ls-image">
       <label for="">Upload image here:</label>
       <input class="form-input" type="text" id="post-title" name="post-title" />
+
+      <form action="/action_page.php">
+        <input type="file" id="myFile" name="filename">
+        <input type="submit">
+      </form>
+      
     </div>
 
 
