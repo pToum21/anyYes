@@ -24,7 +24,7 @@ router.get('/:user_name', async (req, res) => {
 
       const user = userData.get({ plain: true });
 
-      res.render('userpage', {
+      res.render('profile', {
          user,
          listings: user.Listings,
          orders: user.Orders
