@@ -53,7 +53,7 @@ Listing.init(
             allowNull: false
         },
         image:{
-            type: DataTypes.BLOB
+            type: DataTypes.BLOB('medium') //gives up to 16mb
         },
         category_id: {
             type: DataTypes.INTEGER,
