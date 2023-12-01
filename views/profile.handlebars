@@ -7,90 +7,94 @@
   <div class="">
     <h3>Sell any game or console:</h3>
     {{!-- all the fields and their input forms --}}
-    
+
     {{!-- listing title --}}
-      <div class="" id="ls-title">
-        <label for="">Title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-      
-      {{!-- listing description --}}
-      <div class="" id="ls-des">
-        <label for="">Description:</label>
-        <textarea class="form-input" id="post-body" name="post-body"></textarea>
-      </div>
+    <div class="" id="ls-title">
+      <label for="">Title:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- date posted will should be rendered on the actual listing, nothing for that in form --}}
+    {{!-- listing description --}}
+    <div class="" id="ls-des">
+      <label for="">Description:</label>
+      <textarea class="form-input" id="post-body" name="post-body"></textarea>
+    </div>
+
+    {{!-- date posted will should be rendered on the actual listing, nothing for that in form --}}
 
 
-      {{!-- category dropdown --}}
-      <div class="" id="ls-category">
-        <label for="">Category:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- category dropdown --}}
+    <div class="" id="ls-category">
+      <label for="">What kind of item are you selling?</label>
+      <select id="cat-dropdown" name="category">
+        <option value="console">Console</option>
+        <option value="game">Game</option>
+        {{!-- <option value="accessory">Accessory</option> --}}
+      </select>
+    </div>
 
-      {{!-- item name; js condition for this will be "if category is game, pass the value
-      of this following form into game_name. if category is console, pass user input value
-      into console_name --}}
-      <div class="" id="ls-name">
-        <label for="">Item Name:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- item name; js condition for this will be "if category is game, pass the value
+    of this following form into game_name. if category is console, pass user input value
+    into console_name --}}
+    <div class="" id="ls-name">
+      <label for="">Item Name:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- console_brand; company name --}}
-      <div class="" id="ls-brand">
-        <label for="">Brand Name:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- console_brand; company name --}}
+    <div class="" id="ls-brand">
+      <label for="">Brand Name:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- year item came out --}}
-      <div class="" id="ls-year">
-        <label for="">Year Item Released:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- year item came out --}}
+    <div class="" id="ls-year">
+      <label for="">Year Item Released:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- condition --}}
-      <div class="" id="ls-condition">
-        <label for="">Condition:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- condition --}}
+    <div class="" id="ls-condition">
+      <label for="">Condition:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- price --}}
-      <div class="" id="ls-price">
-        <label for="">Price:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- price --}}
+    <div class="" id="ls-price">
+      <label for="">Price:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- color --}}
-      <div class="" id="ls-color">
-        <label for="">Color:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- color --}}
+    <div class="" id="ls-color">
+      <label for="">Color:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- special edition? --}}
-      <div class="" id="ls-special">
-        <label for="">Is this a special edition?</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
+    {{!-- special edition? --}}
+    <div class="" id="ls-special">
+      <label for="">Is this a special edition?</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
 
-      {{!-- image --}}
-      <div class="" id="ls-image">
-        <label for="">Upload image here:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
-      </div>
-    
+    {{!-- image --}}
+    <div class="" id="ls-image">
+      <label for="">Upload image here:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </div>
+
 
     {{!-- submit button for making a listing form --}}
-      <div class="">
-        <button id="" type="submit" class="" style="color:#fff">Yes! Submit</button>
-      </div>
+    <div class="">
+      <button id="" type="submit" class="" style="color:#fff">Yes! Submit</button>
+    </div>
 </form>
 
 {{#each myListings }}
 <div>
-    
-    <h2>One listing: {{ title }}</h2>
-    <p> Order was made on {{ order.created_at }}</p>
+
+  <h2>One listing: {{ title }}</h2>
+  <p> Order was made on {{ order.created_at }}</p>
 
 </div>
 {{/each}}
