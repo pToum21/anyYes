@@ -10,14 +10,14 @@
 
     {{!-- listing title --}}
     <div class="" id="ls-title">
-      <label for="">Title:</label>
-      <input class="" type="text" id="title" name="ls-title" />
+      <label for="title">Title:</label>
+      <input class="" type="text" id="title" name="title" />
     </div>
 
     {{!-- listing description --}}
     <div class="" id="ls-des">
-      <label for="">Description:</label>
-      <textarea class="" id="description" name="ls-des"></textarea>
+      <label for="description">Description:</label>
+      <textarea class="" id="description" name="description"></textarea>
     </div>
 
     {{!-- date posted will should be rendered on the actual listing, nothing for that in form --}}
@@ -25,8 +25,8 @@
 
     {{!-- category dropdown --}}
     <div class="" id="ls-category">
-      <label for="">What kind of item are you selling?</label>
-      <select id="cat-dropdown" name="category">
+      <label for="cat-drop">What kind of item are you selling?</label>
+      <select id="cat-drop" name="category_name">
         <option value="console">Console</option>
         <option value="game">Game</option>
         {{!-- <option value="accessory">Accessory</option> --}}
@@ -37,26 +37,26 @@
     of this following form into game_name. if category is console, pass user input value
     into console_name --}}
     <div class="" id="ls-name">
-      <label for="">Item Name:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="item">Item Name:</label>
+      <input class="" type="text" id="item" name="item_name" />
     </div>
 
     {{!-- console_brand; company name --}}
     <div class="" id="ls-brand">
-      <label for="">Brand Name:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="brand">Brand Name:</label>
+      <input class="" type="text" id="brand" name="console_brand" />
     </div>
 
     {{!-- year item came out --}}
     <div class="" id="ls-year">
-      <label for="">Year Item Released:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="year">Year Item Released:</label>
+      <input type="number" id="year" name="year" min="1950" max="2014" value = "2014"/>
     </div>
 
     {{!-- condition --}}
     <div class="" id="ls-condition">
-      <label for="">Condition:</label>
-      <select id="cond-dropdown" name="condition">
+      <label for="cond-drop">Condition:</label>
+      <select id="cond-drop" name="condition">
         <option value="new">NEW</option>
         <option value="used">USED</option>
         <option value="damaged">DAMAGED</option>
@@ -65,14 +65,14 @@
 
     {{!-- price --}}
     <div class="" id="ls-price">
-      <label for="">Price:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="price">Price:</label>
+      <input class="" type="text" id="price" name="price" />
     </div>
 
     {{!-- color --}}
     <div class="" id="ls-color">
-      <label for="">Color:</label>
-      <select id="clr-dropdown" name="color">
+      <label for="clr-drop">Color:</label>
+      <select id="clr-drop" name="color">
         <option value="black">Black</option>
         <option value="white">White</option>
         <option value="red">Red</option>
@@ -89,20 +89,21 @@
 
     {{!-- special edition? --}}
     <div class="" id="ls-special">
-      <label for="">Is this a special edition?</label> <br>
+      <label for="sp-ed">Is this a special edition?</label> <br>
       <input type="radio" id="sp-yes" name="sp-ed" value="yes">
-      <label for="yes">Yes</label><br>
+      <label for="sp-yes">Yes</label><br>
       <input type="radio" id="sp-no" name="sp-ed" value="no">
-      <label for="no">No</label><br>
+      <label for="sp-no">No</label><br>
     </div>
 
     {{!-- image --}}
     <div class="" id="ls-image">
-      <label for="">Upload image here:</label>
-      <input class="form-input" type="text" id="post-title" name="post-title" />
+      <label for="img-up">Upload image here:</label>
+      <input class="" type="text" id="img-up" name="image" />
 
+{{!-- need frontend js to implement checks to ensure user only uploads inages --}}
       <form action="/action_page.php">
-        <input type="file" id="myFile" name="filename">
+        <input type="file" id="myFile" name="filename" accept="image/*">
         <input type="submit">
       </form>
 
@@ -111,7 +112,7 @@
 
     {{!-- submit button for making a listing form --}}
     <div class="">
-      <button id="" type="submit" class="" style="color:#fff">Yes! Submit</button>
+      <button id="ls-submit" type="submit" class="" style="color:#fff">Yes! Submit</button>
     </div>
 </form>
 
