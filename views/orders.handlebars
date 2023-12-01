@@ -1,0 +1,25 @@
+<body>
+    <h1>Order Details</h1>
+
+    {{#each order}}
+    <div>
+        <p>Order: {{reference_number}}</p>
+        <p>User: {{user_id}}</p>
+        {{!-- try to find new if statement to have consoe name and or game name --}}
+        <p>Listing: {{listing.title}}</p>
+
+    </div>
+
+    {{/each}}
+
+    {{#unless order.length}}
+    <p>No order found.</p>
+    {{/unless}}
+
+</body>
+
+<footer>
+    <h2>
+
+    </h2>
+</footer>
