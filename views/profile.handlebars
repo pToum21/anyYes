@@ -1,10 +1,11 @@
 <h1> hi </h1>
+<p> {{ myListings.[0].user.user_name }}</p>
+{{#each myListings }}
 
-<p> {{ this.user_name }}</p>
 
 <div>
-    {{#each users }}
+    
     <h2>One listing: {{ title }}</h2>
-    <p> Order was made on {{ orders.created_at }}</p>
+    <p> Order was made on {{ order.created_at }}</p>
 </div>
 {{/each}}
