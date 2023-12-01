@@ -1,6 +1,6 @@
 const { Order, User, Listing } = require('../models')
 const router = require('express').Router();
-router.get('/orders/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const orderData = await Order.findAll({
 
@@ -13,9 +13,10 @@ router.get('/orders/:id', async (req, res) => {
         if (!orderData) {
             return res.status(404).json({ message: 'Orders Empty' });
         }
-        const order = orderData.get({ plain: true });
+        const order = orderData.map((o) => o.get({ plain: true }));
+        console.log(order)
         res.render('orders', {
-            ...order
+            order, logged_in: req.session.logged_in
         });
     } catch (error) {
         console.log(error);
@@ -23,3 +24,5 @@ router.get('/orders/:id', async (req, res) => {
     }
 }
 );
+
+module.exports = router;
