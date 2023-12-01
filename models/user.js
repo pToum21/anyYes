@@ -13,7 +13,7 @@ User.init(
         user_name: {
             type: DataTypes.STRING,
             allowNull: false,
-            // unique: true, if we can have people search other users
+            unique: true
         },
         email: {
             type: DataTypes.STRING,
