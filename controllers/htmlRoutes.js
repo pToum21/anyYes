@@ -29,8 +29,8 @@ router.get('/', async (req, res) => {
 
 router.get('/login', async (req, res) => {
    if (req.session.logged_in) {
-       res.redirect('/')
-       return;
+      res.redirect('/')
+      return;
    }
    res.render('login')
 })
@@ -45,7 +45,7 @@ router.get('/games', async (req, res) => {
          }
       });
       const games = gamesData.map((game) => game.get({ plain: true }));
-      res.render('games', { 
+      res.render('games', {
          games,
          logged_in: req.session.logged_in
       });
@@ -94,7 +94,7 @@ router.get('/consoles', async (req, res) => {
       });
       const consoleListings = consolesData.map((individualConsole) => individualConsole.get({ plain: true }));
 
-      res.render('consoles', { consoleListings,  logged_in: req.session.logged_in });
+      res.render('consoles', { consoleListings, logged_in: req.session.logged_in });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'List of consoles is not showing.' });
@@ -128,6 +128,25 @@ router.get('/consoles/:id', async (req, res) => {
    }
 }
 );
+
+router.get('/cart/:id', async (req, res) => {
+   try {
+      const cartData = await Listing.findByPk(req.params.id)
+
+      if (!cartData) {
+         return res.status(404).json({ message: 'cart not found' });
+      }
+
+      const cart = cartData.get({ plain: true })
+
+      res.render('cart', {
+         ...cart
+      });
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'This cart does not exist.' });
+   }
+})
 
 
 
