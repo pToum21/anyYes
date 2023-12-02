@@ -1,14 +1,4 @@
-const addPhoto = async (title, description, category, item, brand, year, condition, price, color, isSpecialEdition) => {
-    console.log(title)
-    console.log(description)
-    console.log(category)
-    console.log(item)
-    console.log(brand)
-    console.log(year)
-    console.log(condition)
-    console.log(price)
-    console.log(color)
-    console.log(isSpecialEdition)
+const addPhoto = async () => {
 
     const fileInput = document.querySelector('#myFile');
     const formData = new FormData();
@@ -25,6 +15,9 @@ const addPhoto = async (title, description, category, item, brand, year, conditi
     formData.append('price', document.querySelector('#price').value.trim());
     formData.append('color', document.querySelector('#clr-drop').value.trim());
     formData.append('is_special_edition', document.querySelector('input[name="is_special_edition"]:checked').value.trim());
+
+    const category = formData.append('category', document.querySelector('#cat-drop').value.trim());
+    console.log(category);
 
     for (const value of formData.values()) {
         console.log(value);
@@ -96,7 +89,7 @@ const addListing = async (event) => {
 
     if (response.ok) {
         console.log('nice');
-        addPhoto(title, description, category, item, brand, year, condition, price, color, isSpecialEdition); // Call the addPhoto function after the listing is added
+        addPhoto(); // Call the addPhoto function after the listing is added
     } else {
         alert('Failed to make a listing, Try again');
     }
