@@ -1,6 +1,6 @@
 <h1> hi </h1>
 <p> {{ myListings.[0].user.user_name }}</p>
-<button id="sell-post">Sell</button>
+<button id="sell-post" >Sell</button>
 
 <form class="" id="listing-form" style="display: block;">
 
@@ -36,14 +36,18 @@
     {{!-- item name; js condition for this will be "if category is game, pass the value
     of this following form into game_name. if category is console, pass user input value
     into console_name --}}
-    <div class="" id="ls-name">
+    {{!-- <div class="" id="ls-name">
       <label for="item">Item Name:</label>
+      <input class="" type="text" id="item" name="item_name" />
+    </div> --}}
+      <div class="" id="ls-name">
+      <label for="item">Game Name:<br>If not selling a game, leave blank.</label>
       <input class="" type="text" id="item" name="item_name" />
     </div>
 
     {{!-- console_brand; company name --}}
     <div class="" id="ls-brand">
-      <label for="brand">Brand Name:</label>
+      <label for="console_brand">Brand Name:</label>
       <input class="" type="text" id="brand" name="console_brand" />
     </div>
 
@@ -90,9 +94,9 @@
     {{!-- special edition? --}}
     <div class="" id="ls-special">
       <label for="sp-ed">Is this a special edition?</label> <br>
-      <input type="radio" id="sp-yes" name="sp-ed" value="yes">
+      <input type="radio" id="sp-yes" name="is_special_edition" value="true">
       <label for="sp-yes">Yes</label><br>
-      <input type="radio" id="sp-no" name="sp-ed" value="no">
+      <input type="radio" id="sp-no" name="is_special_edition" value="false">
       <label for="sp-no">No</label><br>
     </div>
 
@@ -104,14 +108,14 @@
 {{!-- need frontend js to implement checks to ensure user only uploads inages --}}
       <form enctype="multipart/form-data" action="/action_page.php">
         <input type="file" id="myFile" name="filename" accept="image/*">
-        <input id="photo-submit" type="submit">
+        <input id="photo-submit" class="button is-outlined" type="submit">
       </form>
 
     </div>
 
 
     {{!-- submit button for making a listing form --}}
-    <div class="">
+    <div class="button is-info">
       <button id="ls-submit" type="submit" class="" style="color:#fff">Yes! Submit</button>
     </div>
 </form>
