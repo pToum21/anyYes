@@ -1,10 +1,10 @@
 
 // everything writes to the database but console_name and game_name both getting written to
-
 const addListing = async () => {
     const fileInput = document.querySelector('#myFile');
     const formData = new FormData();
 
+    //put values into variables
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
     const category = parseInt(document.querySelector('#cat-drop').value.trim(), 10);
@@ -35,6 +35,7 @@ const addListing = async () => {
     formData.append('title', title);
     formData.append('description', description);
     formData.append('category_id', category);
+    //if category selected matches number, item value from user will go into correct column, leave the other null
     if (category === 1) {
         formData.append('console_name', item);
     } else if (category === 2) {
@@ -63,6 +64,3 @@ const addListing = async () => {
 
 
 document.querySelector('#ls-submit').addEventListener('click', addListing);
-
-// document.querySelector('#photo-submit').addEventListener('click', addPhoto);
-// document.querySelector('#ls-submit').addEventListener('click', addListing)
