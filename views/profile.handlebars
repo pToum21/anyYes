@@ -4,7 +4,7 @@
 
 <form class="" id="listing-form" style="display: block;">
 
-  <div class="">
+  <div data-id="{{id}}" class="full-form">
     <h3>Sell any game or console:</h3>
     {{!-- all the fields and their input forms --}}
 
@@ -117,6 +117,7 @@
     <div class="button is-info">
       <button id="ls-submit" type="submit" class="" style="color:#fff">Yes! Submit</button>
     </div>
+  <div>
 </form>
 
 {{#each myListings }}

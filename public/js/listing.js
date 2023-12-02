@@ -54,8 +54,14 @@ const addListing = async () => {
     });
 
     if (response.ok) {
+
         console.log(response);
         console.log('image posted');
+        const id = document.querySelector('.full-form').getAttribute('data-id')
+        const response = await fetch(`/api/listings/${id}`, {
+           
+        })
+
     } else {
         alert('Failed to upload image, Try again');
     }
