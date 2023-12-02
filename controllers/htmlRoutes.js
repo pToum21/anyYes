@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
 
 });
 
+//login
 router.get('/login', async (req, res) => {
    if (req.session.logged_in) {
       res.redirect('/')
@@ -129,6 +130,7 @@ router.get('/console/:id', async (req, res) => {
 }
 );
 
+//cart
 router.get('/cart/:id', async (req, res) => {
    try {
       const cartData = await Listing.findByPk(req.params.id)
