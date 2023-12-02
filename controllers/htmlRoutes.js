@@ -148,6 +148,24 @@ router.get('/cart', async (req, res) => {
    }
 })
 
+router.post('/cart', async (req, res) => {
+   try {
+      // const { title, description, date_created, game_name, console_name, console_brand, year, condition, price, color, is_special_edition, image, category_id, user_id } = req.body;
+
+        const cartItem = await Listing.findOne({ where: {
+            id: req.session.id
+        }
+        });
+        console.log('Created cart item:', cartItem)
+
+        res.render('cart', {
+            cartItem, 
+        });
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'This cart does not exist.' });
+   }
+})
 
 
 

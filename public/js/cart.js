@@ -11,6 +11,7 @@ const addToCart = async () => {
 
         if (response.ok) {
             console.log('Item added to cart successfully');
+            document.location.replace('/cart');
         } else {
             alert('Error adding to cart');
         }
