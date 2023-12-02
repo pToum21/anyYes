@@ -1,6 +1,6 @@
 <h1> hi </h1>
 <p> {{ myListings.[0].user.user_name }}</p>
-<button id="sell-post">Sell</button>
+<button id="sell-post" >Sell</button>
 
 <form class="" id="listing-form" style="display: block;">
 
@@ -104,7 +104,7 @@
 {{!-- need frontend js to implement checks to ensure user only uploads inages --}}
       <form enctype="multipart/form-data" action="/action_page.php">
         <input type="file" id="myFile" name="filename" accept="image/*">
-        <input id="photo-submit" type="submit">
+        <input id="photo-submit" class="button is-outlined" type="submit">
       </form>
 
     </div>
