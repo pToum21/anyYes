@@ -1,4 +1,15 @@
-const addPhoto = async () => {
+const addPhoto = async (title, description, category, item, brand, year, condition, price, color, isSpecialEdition) => {
+    console.log(title)
+    console.log(description)
+    console.log(category)
+    console.log(item)
+    console.log(brand)
+    console.log(year)
+    console.log(condition)
+    console.log(price)
+    console.log(color)
+    console.log(isSpecialEdition)
+
     const fileInput = document.querySelector('#myFile');
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
@@ -73,7 +84,7 @@ const addListing = async (event) => {
 
     if (response.ok) {
         console.log('nice');
-        addPhoto(); // Call the addPhoto function after the listing is added
+        addPhoto(title, description, category, item, brand, year, condition, price, color, isSpecialEdition); // Call the addPhoto function after the listing is added
     } else {
         alert('Failed to make a listing, Try again');
     }
