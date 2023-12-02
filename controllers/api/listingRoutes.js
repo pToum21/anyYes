@@ -11,9 +11,10 @@ const upload = multer({
 //multer route
 router.post('/file-upload', upload.single('image'), async (req, res) => {
     try {
-        // console.log(req)
         const fileBuffer = req.file.buffer;
-        const { title, price,
+        const {
+            title,
+            price,
             description,
             date_created,
             game_name,
@@ -24,8 +25,10 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             color,
             is_special_edition,
             category_id,
-            user_id } = req.body;
-        console.log(title, console_brand)
+            user_id
+        } = req.body;
+
+        console.log(title, console_brand);
 
         const newListing = await Listing.create({
             title,
@@ -38,22 +41,19 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             console_brand,
             year,
             condition,
-            price,
             color,
             is_special_edition,
             category_id,
             user_id
-
         });
 
-        res.status(200).json({ listing: newListing })
-        res.end()
+        res.status(200).json({ listing: newListing });
+        res.end();
     } catch (error) {
-        console.log(error)
-        res.status(500).json(error.message)
+        console.log(error);
+        res.status(500).json({ error: error.message });
     }
-  
-})
+});
 
 router.get('/:id', async (req, res) => {
     try {
