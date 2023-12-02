@@ -1,5 +1,7 @@
-const addPhoto = async () => {
 
+// everything writes to the database but console_name and game_name both getting written to
+
+const addListing = async () => {
     const fileInput = document.querySelector('#myFile');
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
@@ -8,7 +10,8 @@ const addPhoto = async () => {
     formData.append('title', document.querySelector('#title').value.trim());
     formData.append('description', document.querySelector('#description').value.trim());
     formData.append('category', document.querySelector('#cat-drop').value.trim());
-    formData.append('item', document.querySelector('#item').value.trim());
+    formData.append('game_name', document.querySelector('#item').value.trim());
+    formData.append('console_name', document.querySelector('#item').value.trim());
     formData.append('console_brand', document.querySelector('#brand').value.trim());
     formData.append('year', document.querySelector('#year').value.trim());
     formData.append('condition', document.querySelector('#cond-drop').value.trim());
@@ -16,28 +19,13 @@ const addPhoto = async () => {
     formData.append('color', document.querySelector('#clr-drop').value.trim());
     formData.append('is_special_edition', document.querySelector('input[name="is_special_edition"]:checked').value.trim());
 
-    const category = formData.append('category', document.querySelector('#cat-drop').value.trim());
-    console.log(category);
+
+
+
 
     for (const value of formData.values()) {
         console.log(value);
     }
-
-    const response = await fetch('/api/listings/file-upload', {
-        method: 'POST',
-        body: formData,
-    });
-
-    if (response.ok) {
-        console.log(response);
-        console.log('image posted');
-    } else {
-        alert('Failed to upload image, Try again');
-    }
-};
-
-const addListing = async (event) => {
-    event.preventDefault();
 
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
@@ -63,11 +51,6 @@ const addListing = async (event) => {
         is_special_edition: isSpecialEdition,
     };
 
-    if (category === 'Game') {
-        payload.game_name = item;
-    } else if (category === 'Console') {
-        payload.console_name = item;
-    }
 
     console.log(title)
     console.log(description)
@@ -80,20 +63,26 @@ const addListing = async (event) => {
     console.log(color)
     console.log(isSpecialEdition)
 
+    if (category === 'Game') {
+        payload.game_name = item;
+    } else if (category === 'Console') {
+        payload.console_name = item;
+    }
 
-    const response = await fetch('/api/listings', {
+    const response = await fetch('/api/listings/file-upload', {
         method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-type': 'application/json' },
+        body: formData,
     });
 
     if (response.ok) {
-        console.log('nice');
-        addPhoto(); // Call the addPhoto function after the listing is added
+        console.log(response);
+        console.log('image posted');
     } else {
-        alert('Failed to make a listing, Try again');
+        alert('Failed to upload image, Try again');
     }
 };
+
+
 
 document.querySelector('#ls-submit').addEventListener('click', addListing);
 

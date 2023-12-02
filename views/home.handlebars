@@ -4,12 +4,14 @@
 
 <div>
     <a href="/{{category.category_name}}/{{id}}">
-    <h1 class="title-listing">{{listing.title}}</h1>
+        <h1 class="title-listing">{{listing.title}}</h1>
     </a>
     <p>{{listing.description}} ${{price}}</p>
     <h2>{{category.category_name}}</h2>
+    <img src="data:image/jpeg;base64,{{listing.image}}">
+
+    
 </div>
 
 
 {{/each}}
-
