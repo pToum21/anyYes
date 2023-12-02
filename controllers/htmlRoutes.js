@@ -56,7 +56,7 @@ router.get('/games', async (req, res) => {
 });
 
 //viewing one game listing
-router.get('/games/:id', async (req, res) => {
+router.get('/game/:id', async (req, res) => {
    try {
 
       const gamesData = await Listing.findOne({
@@ -102,7 +102,7 @@ router.get('/consoles', async (req, res) => {
 });
 
 //viewing listing of one console
-router.get('/consoles/:id', async (req, res) => {
+router.get('/console/:id', async (req, res) => {
    try {
 
       const itemsData = await Listing.findOne({
