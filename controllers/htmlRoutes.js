@@ -129,7 +129,7 @@ router.get('/console/:id', async (req, res) => {
 }
 );
 
-router.get('/cart/:id', async (req, res) => {
+router.get('/cart', async (req, res) => {
    try {
       const cartData = await Listing.findByPk(req.params.id)
 
