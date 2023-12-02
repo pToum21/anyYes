@@ -1,35 +1,13 @@
 
 // everything writes to the database but console_name and game_name both getting written to
-
 const addListing = async () => {
     const fileInput = document.querySelector('#myFile');
     const formData = new FormData();
-    formData.append('image', fileInput.files[0]);
 
-    // Append other form fields to the FormData object
-    formData.append('title', document.querySelector('#title').value.trim());
-    formData.append('description', document.querySelector('#description').value.trim());
-    formData.append('category', document.querySelector('#cat-drop').value.trim());
-    formData.append('game_name', document.querySelector('#item').value.trim());
-    formData.append('console_name', document.querySelector('#item').value.trim());
-    formData.append('console_brand', document.querySelector('#brand').value.trim());
-    formData.append('year', document.querySelector('#year').value.trim());
-    formData.append('condition', document.querySelector('#cond-drop').value.trim());
-    formData.append('price', document.querySelector('#price').value.trim());
-    formData.append('color', document.querySelector('#clr-drop').value.trim());
-    formData.append('is_special_edition', document.querySelector('input[name="is_special_edition"]:checked').value.trim());
-
-
-
-
-
-    for (const value of formData.values()) {
-        console.log(value);
-    }
-
+    //put values into variables
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
-    const category = document.querySelector('#cat-drop').value.trim();
+    const category = parseInt(document.querySelector('#cat-drop').value.trim(), 10);
     const item = document.querySelector('#item').value.trim();
     const brand = document.querySelector('#brand').value.trim();
     const year = document.querySelector('#year').value.trim();
@@ -37,19 +15,6 @@ const addListing = async () => {
     const price = document.querySelector('#price').value.trim();
     const color = document.querySelector('#clr-drop').value.trim();
     const isSpecialEdition = document.querySelector('input[name="is_special_edition"]:checked').value.trim();
-
-    const payload = {
-        title,
-        description,
-        category,
-        item,
-        console_brand: brand,
-        year,
-        condition,
-        price,
-        color,
-        is_special_edition: isSpecialEdition,
-    };
 
 
     console.log(title)
@@ -63,11 +28,25 @@ const addListing = async () => {
     console.log(color)
     console.log(isSpecialEdition)
 
-    if (category === 'Game') {
-        payload.game_name = item;
-    } else if (category === 'Console') {
-        payload.console_name = item;
-    }
+
+    formData.append('image', fileInput.files[0]);
+
+    // Append other form fields to the FormData object
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('category_id', category);
+    //if category selected matches number, item value from user will go into correct column, leave the other null
+    if (category === 1) {
+        formData.append('console_name', item);
+    } else if (category === 2) {
+        formData.append('game_name', item);
+    };
+    formData.append('console_brand', brand);
+    formData.append('year', year);
+    formData.append('condition', condition);
+    formData.append('price', price);
+    formData.append('color', color);
+    formData.append('is_special_edition', isSpecialEdition);
 
     const response = await fetch('/api/listings/file-upload', {
         method: 'POST',
@@ -85,6 +64,3 @@ const addListing = async () => {
 
 
 document.querySelector('#ls-submit').addEventListener('click', addListing);
-
-// document.querySelector('#photo-submit').addEventListener('click', addPhoto);
-// document.querySelector('#ls-submit').addEventListener('click', addListing)
