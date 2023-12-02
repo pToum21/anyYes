@@ -1,7 +1,7 @@
 
 
 <header>
-    <h1>{{game.title}}</h1>
+    <h1 id="game-title" class="game-title">{{game.title}}</h1>
 </header>
 
 <main class="game">
@@ -12,7 +12,7 @@
 
     <h2>{{game_name}}</h2>
 
-    <button>Add to Cart</button>
+    <button class="cart-btn">Add to Cart</button>
 
 
     <p>{{price}}</p>
@@ -20,6 +20,8 @@
 
 
     <p>{{description}}</p>
+
+    
 
 
 </main>
@@ -29,3 +31,5 @@
         
     </h3>
 </footer>
+
+<script src="/js/cart.js"></script>
