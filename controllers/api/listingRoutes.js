@@ -49,7 +49,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
         res.status(200).json({ listing: newListing })
         res.end()
     } catch (error) {
-        
+        console.log(error)
         res.status(500).json(error.message)
     }
   
