@@ -102,9 +102,9 @@
       <input class="" type="text" id="img-up" name="image" />
 
 {{!-- need frontend js to implement checks to ensure user only uploads inages --}}
-      <form action="/action_page.php">
+      <form enctype="multipart/form-data" action="/action_page.php">
         <input type="file" id="myFile" name="filename" accept="image/*">
-        <input type="submit">
+        <input id="photo-submit" type="submit">
       </form>
 
     </div>
@@ -124,3 +124,5 @@
 
 </div>
 {{/each}}
+
+<script src="/js/listing.js"></script>
