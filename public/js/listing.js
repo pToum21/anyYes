@@ -3,6 +3,18 @@ const addPhoto = async () => {
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
 
+    // Append other form fields to the FormData object
+    formData.append('title', document.querySelector('#title').value.trim());
+    formData.append('description', document.querySelector('#description').value.trim());
+    formData.append('category', document.querySelector('#cat-drop').value.trim());
+    formData.append('item', document.querySelector('#item').value.trim());
+    formData.append('console_brand', document.querySelector('#brand').value.trim());
+    formData.append('year', document.querySelector('#year').value.trim());
+    formData.append('condition', document.querySelector('#cond-drop').value.trim());
+    formData.append('price', document.querySelector('#price').value.trim());
+    formData.append('color', document.querySelector('#clr-drop').value.trim());
+    formData.append('is_special_edition', document.querySelector('input[name="is_special_edition"]:checked').value.trim());
+
     for (const value of formData.values()) {
         console.log(value);
     }
@@ -52,6 +64,7 @@ const addListing = async (event) => {
     } else if (category === 'Console') {
         payload.console_name = item;
     }
+
     console.log(title)
     console.log(description)
     console.log(category)
@@ -60,7 +73,6 @@ const addListing = async (event) => {
     console.log(year)
     console.log(condition)
     console.log(price)
-    console.log(title)
     console.log(color)
     console.log(isSpecialEdition)
 
