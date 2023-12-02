@@ -25,14 +25,14 @@ const addListing = async (event) => {
 
     const title = document.querySelector('#title').value.trim();
     const description = document.querySelector('#description').value.trim();
-    const category = document.querySelector('#cat-drop');
+    const category = document.querySelector('#cat-drop').value.trim();
     const item = document.querySelector('#item').value.trim();
     const brand = document.querySelector('#brand').value.trim();
     const year = document.querySelector('#year').value.trim();
-    const condition = document.querySelector('#con-drop');
+    const condition = document.querySelector('#cond-drop').value.trim();
     const price = document.querySelector('#price').value.trim();
-    const color = document.querySelector('#clr-drop');
-    const isSpecialEdition = document.querySelector('#ls-special');
+    const color = document.querySelector('#clr-drop').value.trim();
+    const isSpecialEdition = document.querySelector('input[name="sp-ed"]:checked').value.trim();
 
     const payload = {
         title,
@@ -52,6 +52,18 @@ const addListing = async (event) => {
     } else if (category === 'Console') {
         payload.console_name = item;
     }
+    console.log(title)
+    console.log(description)
+    console.log(category)
+    console.log(item)
+    console.log(brand)
+    console.log(year)
+    console.log(condition)
+    console.log(price)
+    console.log(title)
+    console.log(color)
+    console.log(isSpecialEdition)
+
 
     const response = await fetch('/api/listings', {
         method: 'POST',
