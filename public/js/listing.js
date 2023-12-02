@@ -32,19 +32,19 @@ const addListing = async (event) => {
     const condition = document.querySelector('#cond-drop').value.trim();
     const price = document.querySelector('#price').value.trim();
     const color = document.querySelector('#clr-drop').value.trim();
-    const isSpecialEdition = document.querySelector('input[name="sp-ed"]:checked').value.trim();
+    const isSpecialEdition = document.querySelector('input[name="is_special_edition"]:checked').value.trim();
 
     const payload = {
         title,
         description,
         category,
         item,
-        brand,
+        console_brand: brand,
         year,
         condition,
         price,
         color,
-        isSpecialEdition,
+        is_special_edition: isSpecialEdition,
     };
 
     if (category === 'Game') {
