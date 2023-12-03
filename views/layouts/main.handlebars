@@ -4,31 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- Bulma CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    {{!-- Our CSS --}}
     <link rel="stylesheet" href="/css/style.css">
-    
-
     <title>AnyYes</title>
-
 </head>
 
 <body>
-    <nav>
+    <header>
+        <h1>AnyYes</h1>
+        <nav>
 
-        <a href="/">home</a>
-        <a href="/games">games</a>
-        <a href="/consoles">consoles</a>
-        
-        {{#if logged_in}}
-        <a href="/profile">profile</a>
-        <button class="no-button" id="logout">logout</button>
-        <a href="/cart">View Cart</a>
-        
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-        
-    </nav>
+            <a href="/">home</a>
+            <a href="/games">games</a>
+            <a href="/consoles">consoles</a>
+
+            {{#if logged_in}}
+            <a href="/profile">profile</a>
+            <button class="no-button" id="logout">logout</button>
+            <a href="/cart">View Cart</a>
+
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+
+        </nav>
+    </header>
 
 
 
@@ -41,7 +43,7 @@
 
 
 
- <footer >
+    <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="/about">About Us</a>
