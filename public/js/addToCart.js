@@ -1,4 +1,4 @@
-
+//function to add listing item to cart
 const addToCart = () => {
     try {
         const id = window.location.pathname.split('/').pop();
@@ -13,14 +13,15 @@ const addToCart = () => {
             .then((data) => {
                 console.log(data.listing);
                 let userCart = JSON.parse(localStorage.getItem('myCart')) || [];
-                userCart.push(data.listing)
-                localStorage.setItem('myCart', JSON.stringify(userCart))
-
+                userCart.push(data.listing);
+                //include logic in here to prevent duplicate additions.
+                localStorage.setItem('myCart', JSON.stringify(userCart));
             })
 
     } catch (error) {
         console.error(error.message);
     }
 };
-
+// event listener for add to cart button
 document.querySelector('.cart-btn').addEventListener('click', addToCart);
+
