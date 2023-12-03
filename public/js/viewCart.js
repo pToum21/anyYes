@@ -10,5 +10,11 @@ const cart = document.querySelector('#cart-item')
 
 //shows everything in array
 for (i = 0; i < userCart.length; i++) {
-    cart.innerHTML += `<p>${userCart[i].title}</p>`;
+    cart.innerHTML += `<p>${userCart[i].title}, ${userCart[i].description}, ${userCart[i].price},  ${userCart[i].image}</p>`;
 }
+
+const checkOut = async () => {
+    document.location.replace('/checkout')
+}
+
+document.querySelector('#checkout').addEventListener('click', checkOut)
