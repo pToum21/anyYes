@@ -1,4 +1,64 @@
 <h1> hi </h1>
+
+
+<section>
+  <header>LISTINGS:</header>
+  {{#each myListings}}
+  <div>
+    <div>
+      <div>
+        {{this.title}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</section>
+
+
+<section>
+  <header>ORDERS:</header>
+  {{#each order}}
+  <div>
+    <div>
+      <div>
+        {{this.title}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p> {{ myListings.[0].user.user_name }}</p>
 <button id="sell-post">Sell</button>
 
