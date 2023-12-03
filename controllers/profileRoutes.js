@@ -11,7 +11,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
    //use :user_name, + user_name: req.params.user_name
    try {
-
+      console.log
       const userListings = await Listing.findAll({
          where: {
             user_id: req.session.user_id
