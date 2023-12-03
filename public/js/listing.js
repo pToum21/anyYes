@@ -57,13 +57,23 @@ const addListing = async () => {
 
         console.log(response);
         console.log('image posted');
-        const id = document.querySelector('.full-form').getAttribute('data-id')
-        const response = await fetch(`/api/listings/${id}`, {
-           
-        })
+        const id = document.querySelector('.full-form').getAttribute('data-id');
 
-    } else {
-        alert('Failed to upload image, Try again');
+        try {
+            const response = await fetch(`/api/listings/${id}`);
+
+            if (response.ok) {
+                const imageBase64 = await response.text();
+
+                // Assuming imageBase64 is the Base64-encoded image string
+                // Update the UI with the retrieved listing details
+                document.querySelector('#listingImage').src = `data:image/png;base64,${imageBase64}`;
+            } else {
+                console.error(`Failed to fetch listing. Status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Error fetching listing:', error);
+        }
     }
 };
 
