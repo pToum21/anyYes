@@ -34,12 +34,10 @@ router.get('/login', async (req, res) => {
       return;
    }
    res.render('login')
-})
+});
 
 
-
-
-//viewing listings of all consoles
+//viewing listings of all games and consoles
 router.get('/:category', async (req, res) => {
 
    try {
@@ -63,7 +61,7 @@ router.get('/:category', async (req, res) => {
    }
 });
 
-//viewing listing of one console
+//viewing listing of one game or console
 router.get('/:category/:id', async (req, res) => {
    try {
       let itemId = 1;
