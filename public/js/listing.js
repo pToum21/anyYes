@@ -57,6 +57,8 @@ const addListing = async () => {
 
         console.log(response);
         console.log('image posted');
+    } else {
+        console.log('error on listing.js')
     }
 };
 
