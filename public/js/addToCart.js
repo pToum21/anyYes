@@ -1,3 +1,13 @@
+//custom function to prevent duplicate items being added to array
+const isDuplicate = (title, cart) => {
+    const lowerCaseTitle = title.toLowerCase();
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].title.toLowerCase() === lowerCaseTitle) {
+            return true;
+        }
+    }
+    return false;
+};
 //function to add listing item to cart
 const addToCart = () => {
     try {
@@ -11,11 +21,14 @@ const addToCart = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log(data.listing);
+                console.log(data.listing.title);
                 let userCart = JSON.parse(localStorage.getItem('myCart')) || [];
-                userCart.push(data.listing);
-                //include logic in here to prevent duplicate additions.
-                localStorage.setItem('myCart', JSON.stringify(userCart));
+
+                //prevent duplicates in local storage
+                if (!isDuplicate(data.listing.title, userCart)) {
+                    userCart.push(data.listing);
+                    localStorage.setItem('myCart', JSON.stringify(userCart));
+                }
             })
 
     } catch (error) {
