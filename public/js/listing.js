@@ -54,10 +54,9 @@ const addListing = async () => {
     });
 
     if (response.ok) {
+
         console.log(response);
         console.log('image posted');
-    } else {
-        alert('Failed to upload image, Try again');
     }
 };
 
