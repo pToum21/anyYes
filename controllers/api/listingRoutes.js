@@ -58,6 +58,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const listingId = req.params.id;
+        console.log('this is what im logging' + listingId)
 
         // Assuming you have a method like 'findByPk' on your Listing model
         const foundListing = await Listing.findByPk(listingId);

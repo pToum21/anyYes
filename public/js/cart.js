@@ -1,20 +1,23 @@
 
-const addToCart = async () => {
+const addToCart = () => {
     try {
-        
+        const id = window.location.pathname.split('/').pop();
+        console.log(id);
 
-        const response = await fetch(`/cart`, {
-            method: 'POST',
-            body: JSON.stringify({}),
-            headers: { 'Content-type': 'application/json' }
-        });
+        fetch(`/api/listings/${id}`, {
+            method: 'GET'
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                console.log(data.listing);
+                let userCart = JSON.parse(localStorage.getItem('myCart')) || [];
+                userCart.push(data.listing)
+                localStorage.setItem('myCart', JSON.stringify(userCart))
 
-        if (response.ok) {
-            console.log('Item added to cart successfully');
-            document.location.replace('/cart');
-        } else {
-            alert('Error adding to cart');
-        }
+            })
+
     } catch (error) {
         console.error(error.message);
     }
