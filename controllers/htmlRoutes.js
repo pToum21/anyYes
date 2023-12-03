@@ -93,6 +93,7 @@ router.get('/:category/:id', async (req, res) => {
 }
 );
 
+// **ryan: i think we can delete these route handlers since cart is handled by local storage
 router.get('/cart', async (req, res) => {
    try {
       const cartData = await Listing.findByPk(req.params.id)
