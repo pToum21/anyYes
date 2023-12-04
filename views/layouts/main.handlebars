@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{!-- Bulma CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    {{!-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
     {{!-- Our CSS --}}
     <link rel="stylesheet" href="/css/style.css">
     <title>AnyYes</title>
 </head>
 
 <body>
-
     {{!-- navigation bar --}}
     <nav class="navbar">
         {{!-- app/brand name --}}
         <div class="navbar-brand">
             <a href="/" class="nav-item">
-                <h1>AnyYes</h1>
+                <h1 id="anyyes" class="">AnyYes</h1>
             </a>
             {{!-- burger must be last child of navbar-brand --}}
             <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -36,7 +39,9 @@
 
                 {{#if logged_in}}
                 <a href="/profile" class="nav-item px-2">Profile </a><br>
-                <button class="no-button nav-item px-2" id="logout">Quit</button><br>
+                <a class="nav-item px-2">
+                    <button class="no-button" id="logout">Quit</button><br>
+                </a>
                 <a href="/cart" class=" nav-item px-2">View Cart</a>
 
                 {{else}}
@@ -47,16 +52,7 @@
 
     </nav>
 
-
-
-
-
-
-
     {{{body}}}
-
-
-
 
     <footer>
         <div class="footer-content">
@@ -71,7 +67,8 @@
     </footer>
 
     <script src="/js/navBurger.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{!--
+    <script src="https://cdn.tailwindcss.com"></script> --}}
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
