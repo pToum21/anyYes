@@ -38,7 +38,7 @@ router.get('/login', async (req, res) => {
 
 
 //viewing listings of all games and consoles
-router.get('/:category', async (req, res) => {
+router.get('/category/:category', async (req, res) => {
 
    try {
       let itemId = 1;

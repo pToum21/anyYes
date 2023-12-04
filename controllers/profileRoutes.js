@@ -9,10 +9,9 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-   
    //use :user_name, + user_name: req.params.user_name
    try {
-      console.log
+
       const userListings = await Listing.findAll({
          where: {
             user_id: req.session.user_id
@@ -25,15 +24,13 @@ router.get('/', async (req, res) => {
       };
 
       const myListings = userListings.map(u => u.get({ plain: true }));
-      console.log(myListings)
-
       res.render('profile', {
          myListings,
-         logged_in: req.session.logged_in,
-         // listings: myListings.Listings,
-         // orders: myListings.Orders,
+         logged_in: req.session.logged_in
+         // listings: user.Listings,
+         // orders: user.Orders
          // add this back in after login page is made
-        
+         // logged_in: req.session.logged_in
       })
 
    } catch (error) {
@@ -57,7 +54,6 @@ router.get('/orders/:id', async (req, res) => {
        }
        const order = orderData.map((o) => o.get({ plain: true }));
        console.log(order)
-       
        res.render('profile', {
            order, logged_in: req.session.logged_in
        });
