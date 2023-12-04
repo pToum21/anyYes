@@ -84,8 +84,7 @@ router.get('/:id', async (req, res) => {
                 is_special_edition: foundListing.is_special_edition,
                 category_id: foundListing.category_id,
                 user_id: foundListing.user_id,
-                // image: foundListing.image ? foundListing.image.toString('base64') : null
-                image: foundListing.image
+                image: foundListing.image ? foundListing.image.toString('base64') : null
             }
             
         });
