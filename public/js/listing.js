@@ -16,17 +16,28 @@ const addListing = async () => {
     const color = document.querySelector('#clr-drop').value.trim();
     const isSpecialEdition = document.querySelector('input[name="is_special_edition"]:checked').value.trim();
 
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        const fileExtension = fileName.split('.').pop().toLowerCase();
 
-    console.log(title)
-    console.log(description)
-    console.log(category)
-    console.log(item)
-    console.log(brand)
-    console.log(year)
-    console.log(condition)
-    console.log(price)
-    console.log(color)
-    console.log(isSpecialEdition)
+        // Array of allowed image file extensions
+        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+
+        if (allowedExtensions.indexOf(fileExtension) === -1) {
+
+            alert("Please upload a valid image file (jpg, jpeg, png, gif).");
+            return;
+        }
+
+        // Append the image file to FormData
+        formData.append('image', fileInput.files[0]);
+    } else {
+
+        alert("Please select an image file.");
+        return;
+    }
+
 
 
     formData.append('image', fileInput.files[0]);
@@ -56,7 +67,7 @@ const addListing = async () => {
     if (response.ok) {
 
         console.log(response);
-        console.log('image posted');
+        
     } else {
         console.log('error on listing.js')
     }
