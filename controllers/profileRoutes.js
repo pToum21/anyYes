@@ -9,7 +9,7 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-   
+   console.log('hi')
    //use :user_name, + user_name: req.params.user_name
    try {
 
