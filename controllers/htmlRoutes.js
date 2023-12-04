@@ -66,7 +66,9 @@ router.get('/category/:category', async (req, res) => {
             } else {
                listing.image = null
             }
+            console.log(items);
          })
+         
 
          res.render('consoles', { items, logged_in: req.session.logged_in });
 
