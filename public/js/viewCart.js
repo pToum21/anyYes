@@ -10,7 +10,9 @@ const cart = document.querySelector('#cart-item')
 
 //shows everything in array
 for (i = 0; i < userCart.length; i++) {
-    cart.innerHTML += `<p>${userCart[i].title}, ${userCart[i].description}, ${userCart[i].price},  ${userCart[i].image}</p>`;
+    cart.innerHTML += `<p>${userCart[i].title}, ${userCart[i].description}, ${userCart[i].price}</p>
+    <img src="data:image/jpeg;base64,${userCart[i].image}" />
+    `;
 }
 
 const checkOut = async () => {

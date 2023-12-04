@@ -1,4 +1,4 @@
-<h1> hi </h1>
+<h1> hi {{ myListings.[0].user.user_name }}</h1>
 
 
 <section>
@@ -7,7 +7,17 @@
   <div>
     <div>
       <div>
-        {{this.title}}
+        <img src="{{image}}" >
+        {{title}}
+      </div>
+      <div>
+        {{description}}
+      </div>
+      <div>
+        {{price}}
+      </div>
+      <div>
+        
       </div>
     </div>
   </div>
@@ -21,7 +31,7 @@
   <div>
     <div>
       <div>
-        {{this.title}}
+        {{title}}
       </div>
     </div>
   </div>
@@ -59,8 +69,8 @@
 
 
 
-<p> {{ myListings.[0].user.user_name }}</p>
-<button id="sell-post">Sell</button>
+
+
 
 <form class="" id="listing-form" style="display: block;">
 
