@@ -94,43 +94,43 @@ router.get('/category/:category/:id', async (req, res) => {
 );
 
 // **ryan: i think we can delete these route handlers since cart is handled by local storage
-router.get('/cart', async (req, res) => {
-   try {
-      const cartData = await Listing.findByPk(req.params.id)
+// router.get('/cart', async (req, res) => {
+//    try {
+//       const cartData = await Listing.findByPk(req.params.id)
 
-      if (!cartData) {
-         return res.status(404).json({ message: 'cart not found' });
-      }
+//       if (!cartData) {
+//          return res.status(404).json({ message: 'cart not found' });
+//       }
 
-      const cart = cartData.get({ plain: true })
+//       const cart = cartData.get({ plain: true })
 
-      res.render('cart', {
-         ...cart
-      });
-   } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'This cart does not exist.' });
-   }
-})
+//       res.render('cart', {
+//          ...cart
+//       });
+//    } catch (error) {
+//       console.log(error);
+//       res.status(500).json({ message: 'This cart does not exist.' });
+//    }
+// })
 
-router.post('/cart', async (req, res) => {
-   try {
-      // const { title, description, date_created, game_name, console_name, console_brand, year, condition, price, color, is_special_edition, image, category_id, user_id } = req.body;
+// router.post('/cart', async (req, res) => {
+//    try {
+//       // const { title, description, date_created, game_name, console_name, console_brand, year, condition, price, color, is_special_edition, image, category_id, user_id } = req.body;
 
-        const cartItem = await Listing.findOne({ where: {
-            id: req.session.id
-        }
-        });
-        console.log('Created cart item:', cartItem)
+//         const cartItem = await Listing.findOne({ where: {
+//             id: req.session.id
+//         }
+//         });
+//         console.log('Created cart item:', cartItem)
 
-        res.render('cart', {
-            cartItem, 
-        });
-   } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'This cart does not exist.' });
-   }
-})
+//         res.render('cart', {
+//             cartItem, 
+//         });
+//    } catch (error) {
+//       console.log(error);
+//       res.status(500).json({ message: 'This cart does not exist.' });
+//    }
+// })
 
 
 
