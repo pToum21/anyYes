@@ -74,7 +74,7 @@ const listingData = [
         console_name:'Sega Genesis',
         console_brand: 'Sega',
         year: 1991,
-        condition: 'used',
+        condition: 'Used',
         price: 12.93,
         color: 'black',
         is_special_edition: false,
