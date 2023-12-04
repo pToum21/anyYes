@@ -1,15 +1,17 @@
-  <h1> Any Consoles? </h1>
+<h1> Any Consoles? </h1>
 
 {{#each items}}
 <div>
-    <a href="/category/{{category.category_name}}/{{id}}">
+
+  <a href="/category/{{category.category_name}}/{{id}}">
     <h2> {{ title }}</h2>
-    </a>
-    <p>{{ price }}</p>
-    <br>
-    <br>
-    <h3>{{ console_name }}</h3>
-    <p>{{ description }}</p>
+  </a>
+  <p>{{ price }}</p>
+  <br>
+  <img src="data:image/png;base64,{{image}}" />
+  <br>
+  <h3>{{ console_name }}</h3>
+  <p>{{ description }}</p>
 
 </div>
 {{/each}}

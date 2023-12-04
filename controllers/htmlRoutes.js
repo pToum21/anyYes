@@ -60,6 +60,14 @@ router.get('/category/:category', async (req, res) => {
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
 
+         items.forEach(listing => {
+            if (listing.image) {
+               listing.image = listing.image.toString('base64')
+            } else {
+               listing.image = null
+            }
+         })
+
          res.render('consoles', { items, logged_in: req.session.logged_in });
 
       } else if (req.params.category === 'games') {
@@ -73,10 +81,18 @@ router.get('/category/:category', async (req, res) => {
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
 
+         items.forEach(listing => {
+            if (listing.image) {
+               listing.image = listing.image.toString('base64')
+            } else {
+               listing.image = null
+            }
+         })
+
          res.render('games', { items, logged_in: req.session.logged_in });
 
       } else {
-         res.status(404).json({message: 'no category of that nature exists.'});
+         res.status(404).json({ message: 'no category of that nature exists.' });
       }
 
    } catch (error) {
