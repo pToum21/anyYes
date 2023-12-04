@@ -44,7 +44,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             color,
             is_special_edition,
             category_id,
-            user_id
+            user_id: req.session.user_id
         });
 
         res.status(200).json({ listing: newListing });
