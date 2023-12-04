@@ -29,31 +29,27 @@ const addListing = async () => {
     console.log(isSpecialEdition)
 
 
-    // if (fileInput.files.length > 0) {
-    //     const fileName = fileInput.files[0].name;
-    //     const fileExtension = fileName.split('.').pop().toLowerCase();
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        const fileExtension = fileName.split('.').pop().toLowerCase();
 
-    //     // Array of allowed image file extensions
-    //     const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        // Array of allowed image file extensions
+        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
         
-    //     if (allowedExtensions.indexOf(fileExtension) === -1) {
+        if (allowedExtensions.indexOf(fileExtension) === -1) {
             
-    //         alert("Please upload a valid image file (jpg, jpeg, png, gif).");
-    //         return; 
-    //     }
+            alert("Please upload a valid image file (jpg, jpeg, png, gif).");
+            return; 
+        }
 
-    //     // Append the image file to FormData
-    //     formData.append('image', fileInput.files[0]);
-    // } else {
+        // Append the image file to FormData
+        formData.append('image', fileInput.files[0]);
+    } else {
         
-    //     alert("Please select an image file.");
-    //     return; // Stop further execution
-    // }
-
-
-
-    formData.append('image', fileInput.files[0]);
+        alert("Please select an image file.");
+        return; // Stop further execution
+    }
 
     // Append other form fields to the FormData object
     formData.append('title', title);
