@@ -39,8 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve a blank favicon to avoid errors
-app.get('/favicon.ico', (req, res) => res.status(204));
+
 
 app.use(routes);
 
