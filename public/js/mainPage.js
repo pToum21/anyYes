@@ -2,6 +2,26 @@
 
 const burger = document.querySelector('#burger');
 const navMenu = document.querySelector('#menu');
+const searchBar = document.querySelector('#searchBar');
+const searchBtn = document.querySelector('#search-btn')
+
+searchBtn.addEventListener('click', searchForItems)
+
+
+function searchForItems() {
+    event.preventDefault()
+var userInput = searchBar.value;
+console.log(userInput)
+
+
+//     fetch() 
+// .then()
+// .then()
+}
+
+
+
+
 
 burger.addEventListener('click', () => {
     navMenu.classList.toggle('is-active');
