@@ -62,7 +62,7 @@ router.get('/category/:category', async (req, res) => {
 });
 
 //viewing listing of one game or console
-router.get('/:category/:id', async (req, res) => {
+router.get('/category/:category/:id', async (req, res) => {
    try {
       let itemId = 1;
       if(req.params.category === 'game'){
