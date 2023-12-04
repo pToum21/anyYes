@@ -55,6 +55,8 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
     }
 });
 
+
+// i dont think we need this route anymore
 router.get('/:id', async (req, res) => {
     try {
         const listingId = req.params.id;
@@ -94,6 +96,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 // posts the listing
 router.post('/', async (req, res) => {

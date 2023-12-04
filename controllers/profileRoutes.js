@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
       };
 
       let myListings = userListings.map(u => u.get({ plain: true }));
+
       myListings.forEach(listing => {
          if (listing.image) {
             listing.image = listing.image.toString('base64')

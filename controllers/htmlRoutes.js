@@ -18,6 +18,14 @@ router.get('/', async (req, res) => {
 
       const listings = listingData.map((listing) => listing.get({ plain: true }));
 
+      listings.forEach(listing => {
+         if (listing.image) {
+            listing.image = listing.image.toString('base64')
+         } else {
+            listing.image = null
+         }
+      })
+
       res.render('home', { listings, logged_in: req.session.logged_in });
 
    } catch (error) {
