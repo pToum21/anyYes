@@ -60,6 +60,7 @@ router.get('/category/:category', async (req, res) => {
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
 
+         // this isnt working for some reason fix when you get back
          items.forEach(listing => {
             if (listing.image) {
                listing.image = listing.image.toString('base64')
