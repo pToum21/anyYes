@@ -9,7 +9,8 @@ body {
 }
 
 nav {
-    background-color: rgb(55, 92, 125) !important;
+    /* background-color: #375c7d !important; */
+    background: linear-gradient(#243748, #2c4962, #375c7d) !important;
 }
 
 a {
@@ -29,6 +30,15 @@ div {
     margin-bottom: 20px;
 }
 
+#anyyes, #anyyes:hover {
+    font-family: 'Bungee Shade';
+    font-size: 4rem;
+    font-style:normal;
+}
+
+#burger {
+    background-color: transparent;
+}
 #logout {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
@@ -39,4 +49,7 @@ div {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+#menu {
+    background-color: transparent;
 }

@@ -36,17 +36,17 @@ const addListing = async () => {
         // Array of allowed image file extensions
         const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
-        
+
         if (allowedExtensions.indexOf(fileExtension) === -1) {
-            
+
             alert("Please upload a valid image file (jpg, jpeg, png, gif).");
-            return; 
+            return;
         }
 
         // Append the image file to FormData
         formData.append('image', fileInput.files[0]);
     } else {
-        
+
         alert("Please select an image file.");
         return; // Stop further execution
     }
