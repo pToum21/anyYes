@@ -12,25 +12,40 @@
 </head>
 
 <body>
-    <header>
-        <h1>AnyYes</h1>
-        <nav>
 
-            <a href="/">home</a>
-            <a href="/category/games">games</a>
-            <a href="/category/consoles">consoles</a>
+    {{!-- navigation bar --}}
+    <nav class="navbar">
+        {{!-- app/brand name --}}
+        <div class="navbar-brand">
+            <a href="/" class="nav-item">
+                <h1>AnyYes</h1>
+            </a>
+            {{!-- burger must be last child of navbar-brand --}}
+            <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        {{!-- actual nav links --}}
+        <div id="menu" class="navbar-menu">
+            <div class="navbar-end">
+                <a href="/" class="nav-item px-2">Home </a><br>
+                <a href="/category/games" class="nav-item px-2">Games </a><br>
+                <a href="/category/consoles" class="nav-item px-2">Consoles </a><br>
 
-            {{#if logged_in}}
-            <a href="/profile">profile</a>
-            <button class="no-button" id="logout">logout</button>
-            <a href="/cart">View Cart</a>
+                {{#if logged_in}}
+                <a href="/profile" class="nav-item px-2">Profile </a><br>
+                <button class="no-button nav-item px-2" id="logout">Quit</button><br>
+                <a href="/cart" class=" nav-item px-2">View Cart</a>
 
-            {{else}}
-            <a href="/login">login</a>
-            {{/if}}
+                {{else}}
+                <a href="/login" class="nav-item px-2">Start</a>
+                {{/if}}
+            </div>
+        </div>
 
-        </nav>
-    </header>
+    </nav>
 
 
 
@@ -55,7 +70,7 @@
         </div>
     </footer>
 
-
+    <script src="/js/navBurger.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
