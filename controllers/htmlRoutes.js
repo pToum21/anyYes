@@ -59,7 +59,7 @@ router.get('/category/:category', async (req, res) => {
             }
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
-
+         console.log('hello')
          // this isnt working for some reason fix when you get back
          items.forEach(listing => {
             if (listing.image) {
@@ -69,7 +69,8 @@ router.get('/category/:category', async (req, res) => {
             }
             console.log(items);
          })
-         
+         console.log('help')
+
 
          res.render('consoles', { items, logged_in: req.session.logged_in });
 
