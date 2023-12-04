@@ -16,19 +16,6 @@ const addListing = async () => {
     const color = document.querySelector('#clr-drop').value.trim();
     const isSpecialEdition = document.querySelector('input[name="is_special_edition"]:checked').value.trim();
 
-
-    console.log(title)
-    console.log(description)
-    console.log(category)
-    console.log(item)
-    console.log(brand)
-    console.log(year)
-    console.log(condition)
-    console.log(price)
-    console.log(color)
-    console.log(isSpecialEdition)
-
-
     if (fileInput.files.length > 0) {
         const fileName = fileInput.files[0].name;
         const fileExtension = fileName.split('.').pop().toLowerCase();
@@ -80,7 +67,7 @@ const addListing = async () => {
     if (response.ok) {
 
         console.log(response);
-        console.log('image posted');
+        
     } else {
         console.log('error on listing.js')
     }
