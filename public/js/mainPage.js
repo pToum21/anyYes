@@ -8,15 +8,15 @@ const searchBtn = document.querySelector('#search-btn')
 searchBtn.addEventListener('click', searchForItems)
 
 
-function searchForItems() {
+function searchForItems(event) {
     event.preventDefault()
-var userInput = searchBar.value;
-console.log(userInput)
+    const userInput = searchBar.value;
+    console.log(userInput)
 
 
-//     fetch() 
-// .then()
-// .then()
+    //     fetch() 
+    // .then()
+    // .then()
 }
 
 
