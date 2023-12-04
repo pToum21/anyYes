@@ -9,7 +9,9 @@
     {{!-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Shade&family=Kulim+Park:wght@200&family=Limelight&display=swap"
+        rel="stylesheet">
     {{!-- Our CSS --}}
     <link rel="stylesheet" href="/css/style.css">
     <title>AnyYes</title>
@@ -19,7 +21,7 @@
     {{!-- navigation bar --}}
     <nav class="navbar">
         {{!-- app/brand name --}}
-        <div class="navbar-brand">
+        <div class="navbar-brand ml-4">
             <a href="/" class="nav-item">
                 <h1 id="anyyes" class="">AnyYes</h1>
             </a>
@@ -33,23 +35,22 @@
         {{!-- actual nav links --}}
         <div id="menu" class="navbar-menu">
             <div class="navbar-end">
-                <a href="/" class="nav-item px-2">Home </a><br>
-                <a href="/category/games" class="nav-item px-2">Games </a><br>
-                <a href="/category/consoles" class="nav-item px-2">Consoles </a><br>
+                <a href="/" class="nav-item px-2">Home </a>
+                <a href="/category/games" class="nav-item px-2">Games </a>
+                <a href="/category/consoles" class="nav-item px-2">Consoles </a>
 
                 {{#if logged_in}}
-                <a href="/profile" class="nav-item px-2">Profile </a><br>
-                <a class="nav-item px-2">
-                    <button class="no-button" id="logout">Quit</button><br>
-                </a>
+                <a href="/profile" class="nav-item px-2">Profile </a>
                 <a href="/cart" class=" nav-item px-2">View Cart</a>
+                <a class="nav-item px-2">
+                    <button class="no-button" id="logout">Quit</button>
+                </a>
 
                 {{else}}
                 <a href="/login" class="nav-item px-2">Start</a>
                 {{/if}}
             </div>
         </div>
-
     </nav>
 
     {{{body}}}

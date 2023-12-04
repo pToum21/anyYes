@@ -1,3 +1,4 @@
+/* elements */
 body {
     background-color: rgb(143, 63, 63);
     margin: 0;
@@ -6,6 +7,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: black;
+    font-family: 'Kulim Park';
+
 }
 
 nav {
@@ -14,7 +17,7 @@ nav {
 }
 
 a {
-    color:bisque !important;
+    color: bisque !important;
 }
 
 a:hover {
@@ -22,34 +25,57 @@ a:hover {
     font-weight: bolder;
 }
 
-footer {
-    margin-top: 100px;
+h1 {
+    font-family: 'Limelight';
+    font-size: 2rem;
+    color: bisque;
 }
 
 div {
     margin-bottom: 20px;
 }
 
-#anyyes, #anyyes:hover {
+/* ids */
+#anyyes,
+#anyyes:hover {
     font-family: 'Bungee Shade';
     font-size: 4rem;
-    font-style:normal;
+    font-style: normal;
 }
 
 #burger {
     background-color: transparent;
 }
+
 #logout {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
     background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
+
 #menu {
     background-color: transparent;
+}
+/* #menu .nav-item:nth-of-type(odd) {
+    background-color: #243748;
+}
+#menu .nav-item:nth-of-type(even) {
+    background-color: #375c7d;
+}
+#menu .nav-item {
+    display: block;
+    width: 100%;
+ 
+  } */
+
+/* classes */
+.navbar-burger {
+    height: 6.25rem;
+    width: 5.25rem;
 }
