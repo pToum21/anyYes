@@ -4,20 +4,32 @@ const router = require('express').Router();
 
 const withAuth = require('../utils/auth');
 
+const { Op } = require('sequelize');
 
 
 //homepage
 router.get('/', async (req, res) => {
    try {
-
-      const listingData = await Listing.findAll({
+      console.log(req.query.q)
+      const query = req.query.q ? {
+         where: {
+            title: {
+               [Op.like]: `%${req.query.q}%`
+            }
+         },
+         include: Category,
+         order: [['date_created', 'DESC']]
+      } : {
          include: Category,
          limit: 3,
          order: [['date_created', 'DESC']]
-      });
+      }
+      console.log(query)
+      const listingData = await Listing.findAll(query);
+
 
       const listings = listingData.map((listing) => listing.get({ plain: true }));
-
+console.log(listings)
       listings.forEach(listing => {
          if (listing.image) {
             listing.image = listing.image.toString('base64')
@@ -150,7 +162,14 @@ router.get('/cart', async (req, res) => {
    }
 });
 
-
+router.get('/searchResults', async (req, res) => {
+   try {
+      res.render('searchResults');
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'No results for this input' });
+   }
+});
 
 
 module.exports = router;
