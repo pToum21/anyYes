@@ -10,56 +10,35 @@ const { Op } = require('sequelize');
 //homepage
 router.get('/', async (req, res) => {
    try {
-      console.log(req.query.q)
-      const query = req.query.q ? {
-         where: {
-            title: {
-               [Op.like]: `%${req.query.q}%`
-            }
-         },
-         include: Category,
-         order: [['date_created', 'DESC']]
-      } : {
-         include: Category,
-         limit: 3,
-         order: [['date_created', 'DESC']]
-      }
-      console.log(query)
-      const listingData = await Listing.findAll(query);
-
-
-      const listings = listingData.map((listing) => listing.get({ plain: true }));
-      console.log(listings)
-      listings.forEach(listing => {
-         if (listing.image) {
-            listing.image = listing.image.toString('base64')
-         } else {
-            listing.image = null
-         }
-      })
-
-      res.render('home', { listings, logged_in: req.session.logged_in });
-
-   } catch (error) {
-      console.log('trouble rendering all listings');
-      res.status(500).json({ message: 'No listings showing.' });
-   }
-
-});
-
-// get for all listings to show on home
-router.get('/', async (req, res) => {
-   try {
-      const query = {
+      let query = {
          include: Category,
          order: [['date_created', 'DESC']]
       };
 
-      const listingData = await Listing.findAll(query);
+      if (req.query.q) {
+         query.where = {
+            title: {
+               [Op.like]: `%${req.query.q}%`
+            }
+         };
+      }
 
-      const allOtherListings = listingData.map((listing) => listing.get({ plain: true }));
+      const allListingData = await Listing.findAll(query);
+      const allListings = allListingData.map((listing) => listing.get({ plain: true }));
 
-      allOtherListings.forEach(listing => {
+      const listings = allListings.slice(0, 3); // Take the first 3 listings
+
+      listings.forEach(listing => {
+         if (listing.image) {
+            listing.image = listing.image.toString('base64');
+         } else {
+            listing.image = null;
+         }
+      });
+
+      const otherListings = allListings.slice(3); // Exclude the first 3 listings
+
+      otherListings.forEach(listing => {
          if (listing.image) {
             listing.image = listing.image.toString('base64');
          } else {
@@ -68,16 +47,18 @@ router.get('/', async (req, res) => {
       });
 
       res.render('home', {
-         allOtherListings,
+         listings: listings,
+         allOtherListings: otherListings,
          logged_in: req.session.logged_in
       });
 
    } catch (error) {
-      console.log(error)
-      console.log('Trouble rendering all listings');
+      console.log(error);
+      console.log('Trouble rendering listings');
       res.status(500).json({ message: 'No listings showing.' });
    }
 });
+
 
 //login
 router.get('/login', async (req, res) => {
