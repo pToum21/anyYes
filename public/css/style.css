@@ -32,10 +32,11 @@ h1 {
 }
 
 footer {
-    background-image: ("../photos/test.PNG");
+    background-image: url("../photos/mario-gif_1.gif");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
+    height: 200px;
 }
 
 
