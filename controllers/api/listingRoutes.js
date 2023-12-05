@@ -88,9 +88,9 @@ router.get('/:id', async (req, res) => {
                 user_id: foundListing.user_id,
                 image: foundListing.image ? foundListing.image.toString('base64') : null
             }
-            
+
         });
-       
+
     } catch (error) {
         console.log(error)
         res.status(500).json({ error: error.message });

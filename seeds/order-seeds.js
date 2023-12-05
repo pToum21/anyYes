@@ -24,7 +24,7 @@ const orderData = [
 ];
 
 const seedOrder = () => {
-   return Order.bulkCreate(orderData)
+    return Order.bulkCreate(orderData)
 };
 
 module.exports = seedOrder;
