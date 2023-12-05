@@ -17,13 +17,16 @@
 
 
 
-    {{#if (equal listing.user_id req.session.user_id)}}
+    {{!-- {{#if (equal listing.user_id req.session.user_id)}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
+    {{else}} --}}
+
+    {{#ifCond logged_in sold listing.user_id  req.session.user_id}}
     <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
     {{else}}
-    {{#ifCond logged_in sold}}
     <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
     {{/ifCond}}
-    {{/if}}
+    {{!-- {{/if}} --}}
 
 
     <p>{{price}}</p>

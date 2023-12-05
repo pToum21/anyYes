@@ -9,10 +9,10 @@ module.exports = {
     return x === y;
   },
 
-  ifCond: function (v1, v2, options) {
+  ifCond: function (v1, v2, v3, v4, options) {
     console.log("hellooo", !v2)
     console.log('yoo', v1)
-    if (v1 && !v2) {
+    if (v1 && !v2 && v3 === v4) {
       return options.fn(this);
     }
     return options.inverse(this);
