@@ -12,6 +12,7 @@ const cart = document.querySelector('#cart-item')
 for (i = 0; i < userCart.length; i++) {
     cart.innerHTML += `<p>${userCart[i].title}, ${userCart[i].description}, ${userCart[i].price}</p>
     <img src="data:image/jpeg;base64,${userCart[i].image}" />
+    <button id="checkout-btn">Checkout</button>
     `;
 }
 
@@ -20,3 +21,4 @@ const checkOut = async () => {
 }
 
 document.querySelector('#checkout').addEventListener('click', checkOut)
+document.querySelector('#checkout-btn').addEventListener('click',)
