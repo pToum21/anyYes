@@ -33,9 +33,14 @@
         <div>
             <a href="/category/{{category.category_name}}/{{id}}">
                 <strong>
-                    <p>{{allOtherListings.title}}</p>
+                    <p>{{title}}</p>
                 </strong>
             </a>
+            <p>{{price}}</p>
+            <p>{{description}}</p>
+            <p>{{condition}} {{category.category_name}}</p>
+            <img id="listingImage" src="data:image/png;base64,{{image}}"
+                style="height:50%; display: block; margin: auto;" />
         </div>
     </div>
 
