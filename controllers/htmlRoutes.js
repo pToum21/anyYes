@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
 });
 
 // get for all listings to show on home
-router.get('/all', async (req, res) => {
+router.get('/', async (req, res) => {
    try {
       const query = {
          include: Category,
@@ -73,6 +73,7 @@ router.get('/all', async (req, res) => {
       });
 
    } catch (error) {
+      console.log(error)
       console.log('Trouble rendering all listings');
       res.status(500).json({ message: 'No listings showing.' });
    }
