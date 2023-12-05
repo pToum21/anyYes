@@ -9,15 +9,15 @@ module.exports = {
     return x === y;
   },
 
-  ifCond: function (v1, v2, v3, v4, options) {
-    console.log("hellooo", !v2)
-    console.log('yoo', v1)
-    if (v1 && !v2 && v3 === v4) {
+  ifCond: function (logged_in, sold, user_id1, user_id2, options) {
+    if (!logged_in || sold || user_id1 === user_id2) {
+      return options.inverse(this);
+    } else {
       return options.fn(this);
     }
-    return options.inverse(this);
-    
   }
+
 };
+
 
 //used in singlePost.handlebars to see if post's user id matches the current user's id
