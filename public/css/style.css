@@ -1,6 +1,7 @@
 /* elements */
 body {
-    background-color: rgb(143, 63, 63);
+    /* background-color: rgb(143, 63, 63); */
+    background-image: url("../photos/brickr.png");
     margin: 0;
     padding: 0;
     display: flex;
