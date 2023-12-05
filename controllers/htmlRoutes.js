@@ -130,6 +130,8 @@ router.get('/category/:category/:id', async (req, res) => {
 
       const item = itemsData.get({ plain: true });
 
+      
+
       res.render(`${specificPage}`, {
          ...item
       });
