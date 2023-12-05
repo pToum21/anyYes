@@ -67,7 +67,7 @@ router.get('/all', async (req, res) => {
          }
       });
 
-      res.render('allListings', {
+      res.render('home', {
          listings: allOtherListings,
          logged_in: req.session.logged_in
       });
@@ -201,16 +201,6 @@ router.get('/cart', async (req, res) => {
       res.status(500).json({ message: 'This cart does not exist.' });
    }
 });
-
-router.get('/searchResults', async (req, res) => {
-   try {
-      res.render('searchResults');
-   } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'No results for this input' });
-   }
-});
-
 
 module.exports = router;
 
