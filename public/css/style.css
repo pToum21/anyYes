@@ -31,6 +31,13 @@ h1 {
     color: bisque;
 }
 
+footer {
+    background-image: url("../photos/mario-gif_1.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    height: 200px;
+}
 
 
 /* ids */
