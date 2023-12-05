@@ -14,6 +14,9 @@ router.get('/', async (req, res) => {
 
         const listing = dbRes.get({ plain: true });
 
+        // 4242424242424242 this is the card number to enter to test
+        // an future date for exp date works
+        // an 3 digit for cvc works
         const session = await stripe.checkout.sessions.create({
             line_items: [
                 {
