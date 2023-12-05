@@ -31,6 +31,12 @@ h1 {
     color: bisque;
 }
 
+footer {
+    background-image: ("../photos/test.PNG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
 
 
 /* ids */

@@ -55,8 +55,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
     }
 });
 
-
-// i dont think we need this route anymore
+//get individual listing
 router.get('/:id', async (req, res) => {
     try {
         const listingId = req.params.id;
