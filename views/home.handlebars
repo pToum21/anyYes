@@ -1,17 +1,19 @@
+<hero></hero>
+
 <h1 class="p-3"> LISTINGS </h1>
-<main class="columns m-3">
+<main id="recent" class="columns m-3">
     {{#each listings as |listing|}}
     <div id="listing" class="column m-3 p-5">
         <div id="inner-listing" class="p-3">
         <a href="/category/{{category.category_name}}/{{id}}">
             <strong>
-                <p class="title-listing">{{listing.title}}</p>
+                <p style="height:10%">{{listing.title}}</p>
             </strong>
         </a>
-        <p>${{price}}</p>
-        <p>{{listing.description}}</p>
-        <p>{{listing.condition}} {{category.category_name}}</p>
-        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        <p style="height:10%">${{price}}</p>
+        <p style="height:20%">{{listing.description}}</p>
+        <p style="height:10%">{{listing.condition}} {{category.category_name}}</p>
+        <img id="listingImage" src="data:image/png;base64,{{image}}" style="height:50%; display: block; margin: auto;" />
         {{log image 'this is'}}
     </div>
     </div>

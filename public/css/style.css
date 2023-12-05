@@ -40,6 +40,7 @@ footer {
     background-position: center;
     background-repeat: repeat;
     height: 300px;
+    width:100vw;
 }
 
 
@@ -57,8 +58,9 @@ footer {
 
 #inner-listing {
     background-color: rgba(250, 234, 214, 0.4);
-    border: 2px double antiquewhite;
+    border: 10px double antiquewhite;
     border-radius: 25px;
+    height: 100%;
 }
 
 #listing {
