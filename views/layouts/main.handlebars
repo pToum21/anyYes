@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Shade&family=Kulim+Park:wght@200&family=Limelight&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Shade&family=Kulim+Park:wght@200;400;700&family=Limelight&display=swap"
         rel="stylesheet">
     {{!-- Our CSS --}}
     <link rel="stylesheet" href="/css/style.css">
@@ -33,7 +33,7 @@
             </a>
         </div>
         {{!-- search bar --}}
-        <div class="field is-grouped nav-item m-5 px-6" id="search">
+        <div class="field is-grouped nav-item ml-6 mt-5 px-3" id="search">
             <p class="control is-expanded">
                 <input class="input" id="search-bar" type="text" placeholder="Search for ANYITEM">
             </p>
@@ -54,7 +54,7 @@
 
                 {{#if logged_in}}
                 <a href="/profile" class="nav-item px-2">Profile</a>
-                <a href="/cart" class=" nav-item px-2">View Cart</a>
+                <a href="/cart" class=" nav-item px-2">Cart</a>
                 <a class="nav-item px-2">
                     <button class="no-button" id="logout">Quit</button>
                 </a>
@@ -70,16 +70,12 @@
     {{{body}}}
 
     <footer>
-       <h2> hi </h2>
-        <br>
-        <br>
-        <br>
-        <p>hello</p>
+
         {{!-- <div class="footer-content">
             <p>&copy; 2023 AnyYes. All rights reserved.</p>
             <br>
             <div class="footer-img">
-                <img src="/photos/mario-gif_1.gif">
+                <img src="/photos/mario-gif_1.gif" style="width:100vw">
             </div>
         </div> --}}
     </footer>

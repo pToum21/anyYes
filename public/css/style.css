@@ -1,6 +1,8 @@
 /* elements */
 body {
-    background-color: rgb(143, 63, 63);
+    /* background-color: rgb(143, 63, 63); */
+    background-image: url("../photos/brickr.png");
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,6 +10,7 @@ body {
     min-height: 100vh;
     color: black;
     font-family: 'Kulim Park';
+    font-weight: 700;
 
 }
 
@@ -33,10 +36,11 @@ h1 {
 
 footer {
     background-image: url("../photos/mario-gif_1.gif");
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     background-repeat: repeat;
-    height: 200px;
+    height: 300px;
+    width:100vw;
 }
 
 
@@ -51,6 +55,20 @@ footer {
 #burger {
     background-color: transparent;
 }
+
+#inner-listing {
+    background-color: rgba(250, 234, 214, 0.4);
+    border: 10px double antiquewhite;
+    border-radius: 25px;
+    height: 100%;
+}
+
+#listing {
+    background-color: rgba(250, 234, 214, 0.3);
+    border-radius: 25px;
+    box-shadow: 20px 20px 3px 3px black; 
+}
+
 
 #logout {
     /* removes default HTML button styling */
@@ -74,6 +92,8 @@ footer {
 
 
 /* classes */
+
+
 .navbar-burger {
     height: 6.25rem;
     width: 5.25rem;
