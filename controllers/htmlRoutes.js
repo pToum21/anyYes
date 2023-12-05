@@ -129,11 +129,18 @@ router.get('/category/:category/:id', async (req, res) => {
       }
 
       const item = itemsData.get({ plain: true });
-
+      if (item.image) {
+         item.image = item.image.toString('base64')
+      } else {
+         item.image = null
+      }
+   
       
 
       res.render(`${specificPage}`, {
-         ...item
+         ...item,
+         currentId: req.session.user_id,
+         logged_in: req.session.logged_in
       });
    } catch (error) {
       console.log(error);
@@ -145,7 +152,7 @@ router.get('/category/:category/:id', async (req, res) => {
 // **ryan: i think we can delete these route handlers since cart is handled by local storage
 router.get('/cart', async (req, res) => {
    try {
-      res.render('cart');
+      res.render('cart', {logged_in: req.session.logged_in});
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'This cart does not exist.' });
