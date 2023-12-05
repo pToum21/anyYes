@@ -53,7 +53,7 @@ Listing.init(
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        image:{
+        image: {
             type: DataTypes.BLOB('medium') //gives up to 16mb
         },
         category_id: {

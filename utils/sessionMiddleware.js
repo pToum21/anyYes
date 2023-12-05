@@ -1,3 +1,4 @@
+//this doesnt seem to work
 module.exports = (req, res, next) => {
     console.log("Session ID:", req.session.id);
     console.log("Session Expiry:", req.session.cookie.expires);

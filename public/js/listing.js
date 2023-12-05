@@ -25,14 +25,14 @@ const addListing = async (event) => {
         title === '' ||
         description === '' ||
         isNaN(category) ||
-        category <= 0 ||  
+        category <= 0 ||
         item === '' ||
         brand === '' ||
         year === '' ||
-        isNaN(year) ||    
+        isNaN(year) ||
         condition === '' ||
         price === '' ||
-        isNaN(price) ||   
+        isNaN(price) ||
         color === '' ||
         isSpecialEdition === null ||
         fileInput.files.length === 0
