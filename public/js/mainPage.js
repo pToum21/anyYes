@@ -26,24 +26,24 @@ function searchForItems(event) {
     //         }
     //     })
     //     .then(function (data) {
-           
-            
+
+
     //         let matchingTitles = [];
 
     //         for (let i = 0; i < data.listings.length; i++) {
     //             const title = data.listings[i].title;
 
     //             console.log(title);
-            
+
     //             if (title.toLowerCase().includes(userInput.toLowerCase())) {
     //                 matchingTitles.push(data.listings[i].title);
     //                 console.log('we found a match');
     //             }
     //         }
-            
+
     //         // Move console logs outside of the loop to see the final result
     //         console.log(matchingTitles);
-            
+
     //         // Check if there are matching titles before redirecting
     //         if (matchingTitles.length > 0) {
     //             // Set the content of searchDiv after the loop
@@ -56,12 +56,8 @@ function searchForItems(event) {
     //     .catch(function (err) {
     //         console.error(err);
     //     });
-      
-}
 
-
-
-
+};
 
 
 burger.addEventListener('click', () => {
@@ -78,6 +74,5 @@ burger.addEventListener('click', () => {
         }
         item.style.display = 'block';
         item.style.width = '100%';
-        // item.setAttribute('style', 'line-height: normal');
     });
 });

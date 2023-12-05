@@ -1,32 +1,82 @@
 <section class="hero is-success is-halfheight my-5" id="hero-banner">
-  <div class="hero-body">
-    <div id="banner-text" class="p-3">
-      <p class="subtitle">
-        Any game? Any console?
-      </p>
-      <p class="title">
-        <strong>AnyYes.</strong>
-      </p>
+    <div class="hero-body">
+        <div id="banner-text" class="p-3">
+            <p class="subtitle">
+                Any game? Any console?
+            </p>
+            <p class="title">
+                <strong>AnyYes.</strong>
+            </p>
+        </div>
     </div>
-  </div>
 </section>
+
+{{!-- <section>
+    <div id="slider">
+
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-16by9 is-covered">
+                    <img src="/photos/pxlart-3.jpeg" alt="Pixel Art" />
+                </figure>
+            </div>
+            <div class="card-content slider-text">
+                <div class="is-size-5 box">
+                   Hey!
+                </div>
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="card-image">
+                <figure class="image is-16by9 is-covered">
+                    <img src="/photos/pxlart-4.jpeg" alt="Pixel Fantasy" />
+                </figure>
+            </div>
+            <div class="card-content slider-text">
+                <div class="is-size-5 box">
+                    Hi.
+                </div>
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="card-image">
+                <figure class="image is-16by9 is-covered">
+                    <img src="/photos/pxlart-2.gif" alt="Zelda Pixel Art" />
+                </figure>
+            </div>
+            <div class="card-content slider-text">
+                <div class="is-size-5 box">
+                    Hello.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> --}}
+
+
 
 <h1 class="p-3"> LISTINGS </h1>
 <main id="recent" class="columns m-3">
     {{#each listings as |listing|}}
     <div id="listing" class="column m-3 p-5">
         <div id="inner-listing" class="p-3">
-        <a href="/category/{{category.category_name}}/{{id}}">
-            <strong>
-                <p style="height:10%">{{listing.title}}</p>
-            </strong>
-        </a>
-        <p style="height:10%">${{price}}</p>
-        <p style="height:20%">{{listing.description}}</p>
-        <p style="height:10%">{{listing.condition}} {{category.category_name}}</p>
-        <img id="listingImage" src="data:image/png;base64,{{image}}" style="height:50%; display: block; margin: auto;" />
-        {{log image 'this is'}}
-    </div>
+            <a href="/category/{{category.category_name}}/{{id}}">
+                <strong>
+                    <p style="height:10%">{{listing.title}}</p>
+                </strong>
+            </a>
+            <p style="height:10%">${{price}}</p>
+            <p style="height:20%">{{listing.description}}</p>
+            <p style="height:10%">{{listing.condition}} {{category.category_name}}</p>
+            <img id="listingImage" src="data:image/png;base64,{{image}}"
+                style="height:50%; display: block; margin: auto;" />
+            {{log image 'this is'}}
+        </div>
     </div>
     {{/each}}
 </main>
+
+
