@@ -1,4 +1,5 @@
 //this doesnt seem to work
+// this is supposed to redirect the user to login page once their cookie expires, it is called inside of server.js
 module.exports = (req, res, next) => {
     console.log("Session ID:", req.session.id);
     console.log("Session Expiry:", req.session.cookie.expires);

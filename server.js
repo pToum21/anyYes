@@ -16,7 +16,7 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     // cookie expires after 30 min
-    maxAge: 60000,
+    maxAge: 1800000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict'
@@ -30,7 +30,7 @@ const sess = {
 
 app.use(session(sess));
 
-
+// this is in the utils folder
 app.use(sessionMiddleware);
 
 
