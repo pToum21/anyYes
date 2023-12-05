@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
                         product_data: {
                             name: req.query.name,
                             description: listing.description,
-                            images: [listing.image.toString('base64')]
                         }
 
                     },
