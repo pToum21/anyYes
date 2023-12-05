@@ -13,9 +13,10 @@ module.exports = {
     console.log("hellooo", !v2)
     console.log('yoo', v1)
     if (v1 && !v2) {
-      options.fn(this);
+      return options.fn(this);
     }
-    options.inverse(this);
+    return options.inverse(this);
+    
   }
 };
 

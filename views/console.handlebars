@@ -11,16 +11,20 @@
     <h2>{{console_name}}</h2>
 
     <img id="listingImage" src="data:image/png;base64,{{image}}" />
-    {{!-- {{#if (equal listing.user_id req.session.user_id)}} --}}
-    {{!-- <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
-    {{/if}} --}}
 
-    {{#ifCond logged_in sold}}
+
+    {{!-- <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button> --}}
+
+
+
+    {{#if (equal listing.user_id req.session.user_id)}}
     <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
     {{else}}
-    <h1>{{logged_in}}</h1>
-    <h1>{{sold}}</h1>
+    {{#ifCond logged_in sold}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
     {{/ifCond}}
+    {{/if}}
+
 
     <p>{{price}}</p>
 
