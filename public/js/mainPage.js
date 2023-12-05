@@ -2,7 +2,7 @@
 
 const burger = document.querySelector('#burger');
 const navMenu = document.querySelector('#menu');
-const searchBar = document.querySelector('#searchBar');
+const searchBar = document.querySelector('#search-bar');
 const searchBtn = document.querySelector('#search-btn')
 
 searchBtn.addEventListener('click', searchForItems)
@@ -37,5 +37,6 @@ burger.addEventListener('click', () => {
         }
         item.style.display = 'block';
         item.style.width = '100%';
+        // item.setAttribute('style', 'line-height: normal');
     });
 });

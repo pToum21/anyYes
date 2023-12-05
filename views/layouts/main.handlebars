@@ -32,26 +32,28 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
+
+        <div class="field is-grouped nav-item m-5 px-6" id="search">
+            <p class="control is-expanded">
+                <input class="input" id="search-bar" type="text" placeholder="Search for ANYITEM">
+            </p>
+            <p class="control">
+                <a class="button is-info" id="search-btn">
+                    Search
+                </a>
+            </p>
+        </div>
+
         {{!-- actual nav links --}}
         <div id="menu" class="navbar-menu">
-            <div class="navbar-end">
-                <form action="/search" method="GET" class="navbar-item">
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input class="input" id="searchBar" type="text" name="query" placeholder="Game">
-                        </div>
-                        <div class="control">
-                            <button type="submit" class="button is-info" id="search-btn">Search</button>
-                        </div>
-                    </div>
-                </form>
 
+            <div class="navbar-end">
                 <a href="/" class="nav-item px-2">Home </a><br>
                 <a href="/category/games" class="nav-item px-2">Games </a><br>
                 <a href="/category/consoles" class="nav-item px-2">Consoles </a><br>
 
                 {{#if logged_in}}
-                <a href="/profile" class="nav-item px-2">Profile </a>
+                <a href="/profile" class="nav-item px-2">Profile</a>
                 <a href="/cart" class=" nav-item px-2">View Cart</a>
                 <a class="nav-item px-2">
                     <button class="no-button" id="logout">Quit</button>
@@ -61,6 +63,7 @@
                 <a href="/login" class="nav-item px-2">Start</a>
                 {{/if}}
             </div>
+        </div>
         </div>
     </nav>
 
