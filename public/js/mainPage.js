@@ -3,10 +3,11 @@
 const burger = document.querySelector('#burger');
 const navMenu = document.querySelector('#menu');
 const searchBar = document.querySelector('#search-bar');
-const searchBtn = document.querySelector('#search-btn');
+const searchBtn = document.querySelector('#search-btn')
+
+searchBtn.addEventListener('click', searchForItems)
 
 
-//function for getting search information
 function searchForItems(event) {
     event.preventDefault();
     const userInput = searchBar.value;
@@ -65,8 +66,6 @@ function searchForItems(event) {
 
 burger.addEventListener('click', () => {
     navMenu.classList.toggle('is-active');
-    navMenu.classList.remove('m-5');
-    navMenu.classList.remove('p-2');
     navMenu.setAttribute('style', 'text-align: center')
 
     const navItems = document.querySelectorAll('#menu .nav-item');
@@ -79,5 +78,6 @@ burger.addEventListener('click', () => {
         }
         item.style.display = 'block';
         item.style.width = '100%';
+        // item.setAttribute('style', 'line-height: normal');
     });
 });
