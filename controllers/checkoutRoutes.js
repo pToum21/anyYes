@@ -12,6 +12,14 @@ router.get('/', async (req, res) => {
             }
         });
 
+        const updateItem = await Listing.update({
+            sold: true
+        }, {
+            where: {
+                title: req.query.name,
+
+            }
+        })
         const listing = dbRes.get({ plain: true });
 
         // 4242424242424242 this is the card number to enter to test
