@@ -10,42 +10,55 @@ const { Op } = require('sequelize');
 //homepage
 router.get('/', async (req, res) => {
    try {
-      console.log(req.query.q)
-      const query = req.query.q ? {
-         where: {
+      let query = {
+         include: Category,
+         order: [['date_created', 'DESC']]
+      };
+
+      if (req.query.q) {
+         query.where = {
             title: {
                [Op.like]: `%${req.query.q}%`
             }
-         },
-         include: Category,
-         order: [['date_created', 'DESC']]
-      } : {
-         include: Category,
-         limit: 3,
-         order: [['date_created', 'DESC']]
+         };
       }
-      console.log(query)
-      const listingData = await Listing.findAll(query);
 
+      const allListingData = await Listing.findAll(query);
+      const allListings = allListingData.map((listing) => listing.get({ plain: true }));
 
-      const listings = listingData.map((listing) => listing.get({ plain: true }));
-console.log(listings)
+      const listings = allListings.slice(0, 3); // Take the first 3 listings
+
       listings.forEach(listing => {
          if (listing.image) {
-            listing.image = listing.image.toString('base64')
+            listing.image = listing.image.toString('base64');
          } else {
-            listing.image = null
+            listing.image = null;
          }
-      })
+      });
 
-      res.render('home', { listings, logged_in: req.session.logged_in });
+      const otherListings = allListings.slice(3); // Exclude the first 3 listings
+
+      otherListings.forEach(listing => {
+         if (listing.image) {
+            listing.image = listing.image.toString('base64');
+         } else {
+            listing.image = null;
+         }
+      });
+
+      res.render('home', {
+         listings: listings,
+         allOtherListings: otherListings,
+         logged_in: req.session.logged_in
+      });
 
    } catch (error) {
-      console.log('trouble rendering all listings');
+      console.log(error);
+      console.log('Trouble rendering listings');
       res.status(500).json({ message: 'No listings showing.' });
    }
-
 });
+
 
 //login
 router.get('/login', async (req, res) => {
@@ -146,8 +159,8 @@ router.get('/category/:category/:id', async (req, res) => {
       } else {
          item.image = null
       }
-   
-      
+
+
 
       res.render(`${specificPage}`, {
          ...item,
@@ -164,22 +177,12 @@ router.get('/category/:category/:id', async (req, res) => {
 // **ryan: i think we can delete these route handlers since cart is handled by local storage
 router.get('/cart', async (req, res) => {
    try {
-      res.render('cart', {logged_in: req.session.logged_in});
+      res.render('cart', { logged_in: req.session.logged_in });
    } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'This cart does not exist.' });
    }
 });
-
-router.get('/searchResults', async (req, res) => {
-   try {
-      res.render('searchResults');
-   } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'No results for this input' });
-   }
-});
-
 
 module.exports = router;
 

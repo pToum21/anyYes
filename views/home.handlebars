@@ -77,6 +77,27 @@
         </div>
     </div>
     {{/each}}
+
+
 </main>
 
 
+
+
+
+
+<div class="allotherlistings">
+    {{#each allOtherListings}}
+    <div>
+        <a href="/category/{{category.category_name}}/{{id}}">
+            <strong>
+                <p>{{title}}</p>
+            </strong>
+        </a>
+        <p>{{price}}</p>
+        <p>{{description}}</p>
+        <p>{{condition}} {{category.category_name}}</p>
+        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+    </div>
+    {{/each}}
+</div>
