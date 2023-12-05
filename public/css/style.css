@@ -31,9 +31,7 @@ h1 {
     color: bisque;
 }
 
-div {
-    margin-bottom: 20px;
-}
+
 
 /* ids */
 #anyyes,
@@ -62,20 +60,14 @@ div {
 #menu {
     background-color: transparent;
 }
-/* #menu .nav-item:nth-of-type(odd) {
-    background-color: #243748;
+#menu.navbar-menu.is-active {
+    line-height: normal;
 }
-#menu .nav-item:nth-of-type(even) {
-    background-color: #375c7d;
-}
-#menu .nav-item {
-    display: block;
-    width: 100%;
- 
-  } */
+
 
 /* classes */
 .navbar-burger {
     height: 6.25rem;
     width: 5.25rem;
 }
+
