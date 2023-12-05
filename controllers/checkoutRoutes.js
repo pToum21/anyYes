@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: `${YOUR_DOMAIN}/success`,
+            success_url: `${YOUR_DOMAIN}/checkout/success`,
             cancel_url: `${YOUR_DOMAIN}/cancel.html`,
         });
 
