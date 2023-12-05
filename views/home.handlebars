@@ -18,8 +18,28 @@
             {{log image 'this is'}}
         </div>
     </div>
-    <div class="allotherlistings">
-        
-    </div>
     {{/each}}
+
+
+
+
+
+
+
+
+
+    {{#each allOtherListings}}
+    <div class="allotherlistings">
+        <div>
+            <a href="/category/{{category.category_name}}/{{id}}">
+                <strong>
+                    <p>{{allOtherListings.title}}</p>
+                </strong>
+            </a>
+        </div>
+    </div>
+
+    {{/each}}
+
+
 </main>
