@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
         // 4242424242424242 this is the card number to enter to test
         // an future date for exp date works
         // an 3 digit for cvc works
+        // use any full name and zipcode
         const session = await stripe.checkout.sessions.create({
             line_items: [
                 {
