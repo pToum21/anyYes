@@ -17,7 +17,8 @@ const addListing = async (event) => {
     const condition = document.querySelector('#cond-drop').value.trim();
     const price = document.querySelector('#price').value.trim();
     const color = document.querySelector('#clr-drop').value.trim();
-    const isSpecialEdition = document.querySelector('input[name="is_special_edition"]:checked').value.trim();
+    const isSpecialEditionInput = document.querySelector('input[name="is_special_edition"]:checked');
+    const isSpecialEdition = isSpecialEditionInput ? isSpecialEditionInput.value.trim() : '';
 
     // Check if any of the required fields are blank or not valid
     if (
@@ -88,8 +89,8 @@ const addListing = async (event) => {
 
     // Check if the response is successful
     if (response.ok) {
-        console.log(response);
         console.log('Image posted successfully');
+        location.reload()
     } else {
         console.log('Error on listing.js');
     }
