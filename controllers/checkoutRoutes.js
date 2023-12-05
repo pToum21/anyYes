@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
             ],
             mode: 'payment',
             success_url: `${YOUR_DOMAIN}/checkout/success`,
-            cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+            cancel_url: `${YOUR_DOMAIN}/checkout/cancel`,
         });
 
         res.redirect(303, session.url);
@@ -50,6 +50,15 @@ router.get('/', async (req, res) => {
 router.get('/success', async (req, res) => {
     try {
         res.render('checkout', { logged_in: req.session.logged_in });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'This cart does not exist.' });
+    }
+});
+
+router.get('/cancel', async (req, res) => {
+    try {
+        res.render('cancelcheckout', { logged_in: req.session.logged_in });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'This cart does not exist.' });
