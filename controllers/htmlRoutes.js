@@ -47,6 +47,37 @@ console.log(listings)
 
 });
 
+// get for all listings to show on home
+router.get('/all', async (req, res) => {
+   try {
+      const query = {
+         include: Category,
+         order: [['date_created', 'DESC']]
+      };
+
+      const listingData = await Listing.findAll(query);
+
+      const allOtherListings = listingData.map((listing) => listing.get({ plain: true }));
+
+      allOtherListings.forEach(listing => {
+         if (listing.image) {
+            listing.image = listing.image.toString('base64');
+         } else {
+            listing.image = null;
+         }
+      });
+
+      res.render('allListings', {
+         listings: allOtherListings,
+         logged_in: req.session.logged_in
+      });
+
+   } catch (error) {
+      console.log('Trouble rendering all listings');
+      res.status(500).json({ message: 'No listings showing.' });
+   }
+});
+
 //login
 router.get('/login', async (req, res) => {
    if (req.session.logged_in) {
