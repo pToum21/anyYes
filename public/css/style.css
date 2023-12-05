@@ -60,6 +60,7 @@ h1 {
 #menu {
     background-color: transparent;
 }
+
 #menu.navbar-menu.is-active {
     line-height: normal;
 }
@@ -70,4 +71,3 @@ h1 {
     height: 6.25rem;
     width: 5.25rem;
 }
-

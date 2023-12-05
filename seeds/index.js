@@ -11,7 +11,7 @@ const seedAll = async () => {
 
   await seedUser();
   console.log('\n----- USERS SEEDED -----\n');
-  
+
   await seedCategory();
   console.log('\n----- CATEGORIES SEEDED -----\n');
 
