@@ -1,12 +1,13 @@
 //mobile menu
 const burger = document.querySelector('#burger');
 const navMenu = document.querySelector('#menu');
+const navbar = document.querySelector('.navbar');
 
 burger.addEventListener('click', () => {
     navMenu.classList.toggle('is-active');
     navMenu.setAttribute('style', 'text-align: center');
     navMenu.classList.remove('m-5', 'p-2');
-
+    navbar.classList.remove('p-4');
     const navItems = document.querySelectorAll('#menu .nav-item');
 
     navItems.forEach(function (item, index) {
