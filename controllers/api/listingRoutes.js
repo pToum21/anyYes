@@ -28,7 +28,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             user_id
         } = req.body;
 
-        console.log(title, console_brand);
+       
 
         const newListing = await Listing.create({
             title,
@@ -50,7 +50,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
         res.status(200).json({ listing: newListing });
         res.end();
     } catch (error) {
-        console.log(error);
+        
         res.status(500).json({ error: error.message });
     }
 });
@@ -58,7 +58,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const listingId = req.params.id;
-        console.log('this is what im logging' + listingId)
+        
 
         // Assuming you have a method like 'findByPk' on your Listing model
         const foundListing = await Listing.findByPk(listingId);
@@ -88,7 +88,7 @@ router.get('/:id', async (req, res) => {
             }
         });
     } catch (error) {
-        console.log(error)
+        
         res.status(500).json({ error: error.message });
     }
 });
@@ -102,7 +102,7 @@ router.post('/', async (req, res) => {
         })
         res.status(200).json(listingData);
     } catch (error) {
-        console.log(error)
+        
         res.status(500).json(error.message)
     }
 });
