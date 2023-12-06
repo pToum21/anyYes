@@ -38,7 +38,8 @@
         {{!-- search bar --}}
         <div class="field is-grouped nav-item ml-6 mt-5 px-3" id="search">
             <p class="control is-expanded">
-                <input class="input is-medium is-fullwidth" id="search-bar" type="text" placeholder="Search for ANYITEM">
+                <input class="input is-medium is-fullwidth" id="search-bar" type="text"
+                    placeholder="Search for ANYITEM">
             </p>
             <p class="control">
                 <a class="button is-info is-medium" id="search-btn">
@@ -63,7 +64,11 @@
                 </a>
 
                 {{else}}
-                <a href="/login" class="nav-item px-2">Start</a>
+                <a class="js-modal-trigger nav-item px-2">
+                    <button class="no-button" id="login-nav" data-target="login-modal">Start</button>
+                </a>
+                {{!-- <a href="/login" class="js-modal-trigger nav-item px-2" data-target="login-modal"
+                    id="login-nav">Start</a> --}}
                 {{/if}}
             </div>
         </div>
@@ -76,8 +81,105 @@
         {{!-- bg image in css --}}
     </footer>
 
+    {{!-- modal for login/signup --}}
+    <div class="modal" id="login-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+
+
+                {{!-- forms --}}
+
+
+                <form class="login-form" action="#">
+                    <div>
+                        <label for="email" class="">Email address</label>
+                        <div class="mt-2">
+                            <input id="email" name="email" type="email" autocomplete="email" required class="">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="password"
+                                class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                            <div class="text-sm">
+                                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot
+                                    password?</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                required
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="login-form flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+                            in</button>
+                    </div>
+                </form>
+
+                <p class="mt-10 text-center text-sm text-gray-500">
+                    Not a member?
+                    <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day
+                        free
+                        trial</a>
+                </p>
+        </div>
+
+
+
+        <h2>Signup</h2>
+
+        <form class="form signup-form space-y-6" action="#" method="POST">
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+                <div class="mt-2">
+                    <input id="name-signup" name="name" type="name" autocomplete="name" required
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div class="mt-2">
+                    <input id="email-signup" name="email" type="email" autocomplete="current-email" required
+                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                <div class="text-sm">
+                </div>
+            </div>
+            <div class="mt-2">
+                <input id="password-signup" name="password" type="password" autocomplete="current-password" required
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+            <div
+                class="form-group flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <button class="btn btn-primary" type="submit">Signup</button>
+            </div>
+        </form>
+
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button">Cancel</button>
+        </footer> --}}
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
     {{!-- js links --}}
-   
+
     {{!-- logic for occurences in main.hbs --}}
     <script src="/js/mainPage.js"></script>
     {{#if logged_in}}
