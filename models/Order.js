@@ -1,6 +1,8 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes, Sequelize } = require('sequelize')
 
 const sequelize = require('../config/connection')
+
+const {v4:uuidv4} = require('uuid')
 
 
 class Order extends Model { }
@@ -13,7 +15,8 @@ Order.init(
             defaultValue: false
         },
         reference_number: {
-            type: DataTypes.STRING,
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4
             //generate alphanumeric string in js
             //uuidv4 generate a reference number
         },
