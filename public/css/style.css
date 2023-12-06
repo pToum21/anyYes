@@ -30,6 +30,11 @@ h1 {
     font-size: 2rem;
     color: bisque;
 }
+h2 {
+    font-family: 'Limelight';
+    font-size: 1.5rem;
+    color: bisque;
+}
 
 footer {
     background-image: url("../photos/mario-gif_1.gif");

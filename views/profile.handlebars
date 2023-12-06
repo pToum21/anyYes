@@ -1,29 +1,27 @@
-<h1> hi {{ myListings.[0].user.user_name }}</h1>
+<h1 class="py-3"> Welcome, {{ userName }}.</h1>
 
-
-<section>
-  <header>LISTINGS:</header>
+<h2>Here are your listings:</h2>
+<div class="is-multiline columns is-centered mx-3 p-6">
   {{#each myListings}}
-  <div>
+
+  <div id="other-listing" class="column m-3 p-6 is-3" style="line-height: 1.5">
+    {{!-- need to fix link/access category --}}
+    <a href="/category/{{category.category_name}}/{{id}}">
+      <strong>
+        <p class="my-2">{{title}}</p>
+      </strong>
+    </a>
+    <p class="my-2">{{price}}</p>
+    <p class="my-2">{{condition}} {{category.category_name}}</p>
+    <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
+      <img id="listingImage" src="data:image/png;base64,{{image}}" />
+    </div>
     <div>
-      <div>
-        <img src="data:image/png;base64,{{image}}" />
-        {{title}}
-      </div>
-      <div>
-        {{description}}
-      </div>
-      <div>
-        {{price}}
-      </div>
-      <div>
-        <!-- Add the delete button with data-id attribute -->
-        <button class="delete-btn" data-id="{{id}}">Delete</button>
-      </div>
+      <button class="delete-btn my-3" data-id="{{id}}">Delete</button>
     </div>
   </div>
   {{/each}}
-</section>
+</div>
 
 
 <section>
@@ -133,7 +131,7 @@
         <option value="used">USED</option>
         <option value="damaged">DAMAGED</option>
         <option value="CIB">COMPLETE IN BOX</option>
-        
+
       </select>
     </div>
 
