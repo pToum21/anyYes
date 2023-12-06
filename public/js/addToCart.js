@@ -1,5 +1,4 @@
 //custom function to prevent duplicate items being added to array
-// credit this function to xpert ai in readme
 // Define the isDuplicate function
 const isDuplicate = (title, cart) => {
     const lowerCaseTitle = title.toLowerCase();
