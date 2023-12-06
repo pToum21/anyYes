@@ -21,16 +21,6 @@ burger.addEventListener('click', () => {
 });
 
 
-
-// splide logic for carousel
-var splide = new Splide('.splide', {
-    type: 'loop',
-    perPage: 1,
-    autoplay: true,
-    speed: 500,
-});
-splide.mount();
-
 //search feature
 const searchBar = document.querySelector('#search-bar');
 const searchBtn = document.querySelector('#search-btn');
