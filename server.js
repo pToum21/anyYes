@@ -19,7 +19,7 @@ const sess = {
     maxAge: 1800000,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict'
+    sameSite: 'none'
   },
   resave: false,
   saveUninitialized: true,
@@ -31,7 +31,7 @@ const sess = {
 app.use(session(sess));
 
 // this is in the utils folder
-app.use(sessionMiddleware);
+// app.use(sessionMiddleware);
 
 
 const hbs = exphbs.create({ helpers });
