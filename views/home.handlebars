@@ -1,34 +1,44 @@
-<hero></hero>
+{{!-- splide carousel --}}
+<section class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                    <img src="/photos/pxlart-3.jpeg" class="crsl-img">
+                </li>
+                <li class="splide__slide">
+                    <img src="/photos/pxlart-4.png" class="crsl-img">
+                </li>
+                <li class="splide__slide">
+                    <img src="/photos/pxlart-2.gif" class="crsl-img">
+                </li>
+            </ul>
+        </div>     
+    </section>
 
+{{!-- three most recent listings --}}
 <h1 class="p-3"> LISTINGS </h1>
 <main id="recent" class="columns m-3">
     {{#each listings as |listing|}}
     <div id="listing" class="column m-3 p-5">
         <div id="inner-listing" class="p-3">
-            <a href="/category/{{category.category_name}}/{{id}}">
+            <a href="/category/{{category.category_name}}/{{id}}" class ="my-2">
                 <strong>
                     <p style="height:10%">{{listing.title}}</p>
                 </strong>
             </a>
-            <p style="height:10%">${{price}}</p>
-            <p style="height:20%">{{listing.description}}</p>
-            <p style="height:10%">{{listing.condition}} {{category.category_name}}</p>
+            <p style="height:10%" class ="my-2">${{price}}</p>
+            <p style="height:20%" class ="my-2">{{listing.description}}</p>
+            <p style="height:10%" class ="my-2">{{listing.condition}} {{category.category_name}}</p>
             <img id="listingImage" src="data:image/png;base64,{{image}}"
-                style="height:50%; display: block; margin: auto;" />
+                style="height:50%; display: block; margin: auto;" class ="my-2" />
             {{log image 'this is'}}
         </div>
     </div>
     {{/each}}
-
-
 </main>
 
-
-
-
-
-
-<div class="allotherlistings">
+{{!-- all other listings --}}
+<section class="allotherlistings">
     {{#each allOtherListings}}
     <div>
         <a href="/category/{{category.category_name}}/{{id}}">
@@ -42,4 +52,4 @@
         <img id="listingImage" src="data:image/png;base64,{{image}}" />
     </div>
     {{/each}}
-</div>
+</section>

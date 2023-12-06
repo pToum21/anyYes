@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{!-- Bulma CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    {{!-- splide css --}}
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-sea-green.min.css">
     {{!-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,19 +73,14 @@
     {{{body}}}
 
     <footer>
-
-        {{!-- <div class="footer-content">
-            <p>&copy; 2023 AnyYes. All rights reserved.</p>
-            <br>
-            <div class="footer-img">
-                <img src="/photos/mario-gif_1.gif" style="width:100vw">
-            </div>
-        </div> --}}
+        {{!-- bg image in css --}}
     </footer>
 
+    {{!-- js links --}}
+    {{!-- splide cdn and direct code for carousel --}}
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    {{!-- logic for occurences in main.hbs --}}
     <script src="/js/mainPage.js"></script>
-    {{!--
-    <script src="https://cdn.tailwindcss.com"></script> --}}
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
