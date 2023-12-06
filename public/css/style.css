@@ -1,6 +1,5 @@
 /* elements */
 body {
-    /* background-color: rgb(143, 63, 63); */
     background-image: url("../photos/brickr.png");
     background-size: cover;
     margin: 0;
@@ -15,7 +14,6 @@ body {
 }
 
 nav {
-    /* background-color: #375c7d !important; */
     background: linear-gradient(#243748, #2c4962, #375c7d) !important;
 }
 
@@ -56,6 +54,7 @@ footer {
     background-color: rgba(250, 234, 214, 0.3);
     border-radius: 25px;
 }
+
 #burger {
     background-color: transparent;
 }
@@ -80,7 +79,6 @@ footer {
     box-shadow: 20px 20px 3px 3px black; 
 }
 
-
 #logout {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
@@ -103,7 +101,6 @@ footer {
 
 
 /* classes */
-
 .crsl-img {
     border-radius: 25px;
 }

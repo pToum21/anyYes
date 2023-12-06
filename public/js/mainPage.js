@@ -33,7 +33,7 @@ splide.mount();
 
 //search feature
 const searchBar = document.querySelector('#search-bar');
-const searchBtn = document.querySelector('#search-btn')
+const searchBtn = document.querySelector('#search-btn');
 searchBtn.addEventListener('click', searchForItems);
 
 function searchForItems(event) {
