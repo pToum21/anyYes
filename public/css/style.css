@@ -1,6 +1,5 @@
 /* elements */
 body {
-    /* background-color: rgb(143, 63, 63); */
     background-image: url("../photos/brickr.png");
     background-size: cover;
     margin: 0;
@@ -11,11 +10,9 @@ body {
     color: black;
     font-family: 'Kulim Park';
     font-weight: 700;
-
 }
 
 nav {
-    /* background-color: #375c7d !important; */
     background: linear-gradient(#243748, #2c4962, #375c7d) !important;
 }
 
@@ -40,7 +37,7 @@ footer {
     background-position: center;
     background-repeat: repeat;
     height: 300px;
-    width:100vw;
+    width: 100vw;
 }
 
 
@@ -56,8 +53,15 @@ footer {
     background-color: rgba(250, 234, 214, 0.3);
     border-radius: 25px;
 }
+
 #burger {
     background-color: transparent;
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #hero-banner {
@@ -77,9 +81,8 @@ footer {
 #listing {
     background-color: rgba(250, 234, 214, 0.3);
     border-radius: 25px;
-    box-shadow: 20px 20px 3px 3px black; 
+    box-shadow: 20px 20px 3px 3px black;
 }
-
 
 #logout {
     /* removes default HTML button styling */
@@ -101,9 +104,15 @@ footer {
     line-height: normal;
 }
 
+#other-listing {
+    background-color: rgba(250, 234, 214, 0.4);
+    border: 5px double antiquewhite;
+    border-radius: 25px;
+    /* height: 100%; */
+}
+
 
 /* classes */
-
 .crsl-img {
     border-radius: 25px;
 }
@@ -114,15 +123,26 @@ footer {
 }
 
 .splide {
-   padding: 0rem;
+    padding: 0rem;
 }
+
 .splide__arrow svg {
     fill: antiquewhite !important;
+}
+
+/* credit xpert ai */
+.splide__slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* mquery for carousel */
 @media only screen and (min-device-width : 768px) {
     .splide {
         padding: 3rem;
-     }
+    }
 }

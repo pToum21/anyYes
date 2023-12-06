@@ -1,19 +1,25 @@
 {{!-- splide carousel --}}
 <section class="splide" aria-label="Splide Basic HTML Example">
-        <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="/photos/pxlart-3.jpeg" class="crsl-img">
-                </li>
-                <li class="splide__slide">
-                    <img src="/photos/pxlart-4.png" class="crsl-img">
-                </li>
-                <li class="splide__slide">
-                    <img src="/photos/pxlart-2.gif" class="crsl-img">
-                </li>
-            </ul>
-        </div>     
-    </section>
+    <div class="splide__track">
+        <ul class="splide__list">
+            <li class="splide__slide">
+                <img src="/photos/pxlart-3.jpeg" class="crsl-img">
+            </li>
+            <li class="splide__slide">
+                <img src="/photos/pxlart-4.png" class="crsl-img">
+            </li>
+            <li class="splide__slide">
+                <img src="/photos/pxlart-2.gif" class="crsl-img">
+            </li>
+             <li class="splide__slide">
+                <img src="/photos/pxlart.png" class="crsl-img">
+            </li>
+            <li class="splide__slide">
+                <img src="/photos/pxlart-5.png" class="crsl-img">
+            </li>
+        </ul>
+    </div>
+</section>
 
 {{!-- three most recent listings --}}
 <h1 class="p-3"> LISTINGS </h1>
@@ -21,35 +27,48 @@
     {{#each listings as |listing|}}
     <div id="listing" class="column m-3 p-5">
         <div id="inner-listing" class="p-3">
-            <a href="/category/{{category.category_name}}/{{id}}" class ="my-2">
+            <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
                 <strong>
                     <p style="height:10%">{{listing.title}}</p>
                 </strong>
             </a>
-            <p style="height:10%" class ="my-2">${{price}}</p>
-            <p style="height:20%" class ="my-2">{{listing.description}}</p>
-            <p style="height:10%" class ="my-2">{{listing.condition}} {{category.category_name}}</p>
-            <img id="listingImage" src="data:image/png;base64,{{image}}"
-                style="height:50%; display: block; margin: auto;" class ="my-2" />
-            {{log image 'this is'}}
+            <p style="height:10%" class="my-2">${{price}}</p>
+            <p style="height:10%" class="my-2">{{listing.condition}} {{category.category_name}}</p>
+            <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
+                <img id="listingImage" src="data:image/png;base64,{{image}}" />
+            </div>
         </div>
     </div>
     {{/each}}
 </main>
 
 {{!-- all other listings --}}
-<section class="allotherlistings">
+<section id="allotherlistings" class="columns is-centered mx-3 p-6">
     {{#each allOtherListings}}
-    <div>
+    <div id="other-listing" class="column m-3 p-5 is-one-fifth" style="line-height: 1.5">
         <a href="/category/{{category.category_name}}/{{id}}">
             <strong>
-                <p>{{title}}</p>
+                <p class="my-2">{{title}}</p>
             </strong>
         </a>
-        <p>{{price}}</p>
-        <p>{{description}}</p>
-        <p>{{condition}} {{category.category_name}}</p>
-        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        <p class="my-2">{{price}}</p>
+        <p class="my-2">{{condition}} {{category.category_name}}</p>
+        <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
+            <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        </div>
     </div>
     {{/each}}
 </section>
+
+{{!-- splide logic for carousel --}}
+{{!-- splide cdn and direct code for carousel --}}
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+    var splide = new Splide('.splide', {
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        speed: 500,
+    });
+    splide.mount();
+</script>
