@@ -9,11 +9,11 @@ module.exports = {
     return x === y;
   },
 
-  ifCond: function (logged_in, sold, user_id1, user_id2, options) {
-    if (!logged_in || sold || user_id1 === user_id2) {
-      return options.inverse(this);
+  ifCond: function (sold, user_id1, user_id2) {
+    if (sold || user_id1 === user_id2) {
+      return true;
     } else {
-      return options.fn(this);
+      return false;
     }
   }
 
