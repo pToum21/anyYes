@@ -104,14 +104,13 @@ footer {
 
 /* classes */
 
+.crsl-img {
+    border-radius: 25px;
+}
 
 .navbar-burger {
     height: 6.25rem;
     width: 5.25rem;
-}
-
-.crsl-img {
-    border-radius: 25px;
 }
 
 .splide {
@@ -121,8 +120,8 @@ footer {
     fill: antiquewhite !important;
 }
 
+/* mquery for carousel */
 @media only screen and (min-device-width : 768px) {
-
     .splide {
         padding: 3rem;
      }

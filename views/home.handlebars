@@ -1,16 +1,4 @@
-{{!-- <section class="hero is-success is-halfheight my-5" id="hero-banner">
-    <div class="hero-body">
-        <div id="banner-text" class="p-3">
-            <p class="subtitle">
-                Any game? Any console?
-            </p>
-            <p class="title">
-                <strong>AnyYes.</strong>
-            </p>
-        </div>
-    </div>
-</section> --}}
-
+{{!-- splide carousel --}}
 <section class="splide" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
             <ul class="splide__list">
@@ -24,57 +12,10 @@
                     <img src="/photos/pxlart-2.gif" class="crsl-img">
                 </li>
             </ul>
-        </div>
-        
+        </div>     
     </section>
 
-{{!-- <section>
-    <div id="slider">
-
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-16by9 is-covered">
-                    <img src="/photos/pxlart-3.jpeg" alt="Pixel Art" />
-                </figure>
-            </div>
-            <div class="card-content slider-text">
-                <div class="is-size-5 box">
-                   Hey!
-                </div>
-            </div>
-        </div>
-
-         <div class="card">
-            <div class="card-image">
-                <figure class="image is-16by9 is-covered">
-                    <img src="/photos/pxlart-4.jpeg" alt="Pixel Fantasy" />
-                </figure>
-            </div>
-            <div class="card-content slider-text">
-                <div class="is-size-5 box">
-                    Hi.
-                </div>
-            </div>
-        </div>
-
-         <div class="card">
-            <div class="card-image">
-                <figure class="image is-16by9 is-covered">
-                    <img src="/photos/pxlart-2.gif" alt="Zelda Pixel Art" />
-                </figure>
-            </div>
-            <div class="card-content slider-text">
-                <div class="is-size-5 box">
-                    Hello.
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section> --}}
-
-
-
+{{!-- three most recent listings --}}
 <h1 class="p-3"> LISTINGS </h1>
 <main id="recent" class="columns m-3">
     {{#each listings as |listing|}}
@@ -94,16 +35,10 @@
         </div>
     </div>
     {{/each}}
-
-
 </main>
 
-
-
-
-
-
-<div class="allotherlistings">
+{{!-- all other listings --}}
+<section class="allotherlistings">
     {{#each allOtherListings}}
     <div>
         <a href="/category/{{category.category_name}}/{{id}}">
@@ -117,4 +52,4 @@
         <img id="listingImage" src="data:image/png;base64,{{image}}" />
     </div>
     {{/each}}
-</div>
+</section>
