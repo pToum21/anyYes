@@ -19,7 +19,7 @@ const sess = {
     maxAge: 1800000,
     httpOnly: true,
     secure: false,
-    sameSite: 'none'
+    sameSite: 'lax', 
   },
   resave: false,
   saveUninitialized: true,
