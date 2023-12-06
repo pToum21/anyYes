@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Order, Listing } = require('../models');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const withAuth = require('../utils/auth')
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
@@ -12,14 +13,7 @@ router.get('/', async (req, res) => {
             }
         });
 
-        const updateItem = await Listing.update({
-            sold: true
-        }, {
-            where: {
-                title: req.query.name,
 
-            }
-        })
         const listing = dbRes.get({ plain: true });
 
         // 4242424242424242 this is the card number to enter to test
@@ -44,7 +38,7 @@ router.get('/', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: `${YOUR_DOMAIN}/checkout/success`,
+            success_url: `${YOUR_DOMAIN}/checkout/success?listing_id=${listing.id}`,
             cancel_url: `${YOUR_DOMAIN}/checkout/cancel`,
         });
 
@@ -56,8 +50,28 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/success', async (req, res) => {
+router.get('/success', withAuth, async (req, res) => {
+    const listing_id = req.query.listing_id
+    const user_id = req.session.user_id
     try {
+        const updateItem = await Listing.update({
+            sold: true
+        }, {
+            where: {
+                id: listing_id,
+
+            }
+        });
+
+        const dbRes = await Order.create({
+            user_id: user_id,
+            listing_id: listing_id
+        })
+
+        const order = dbRes.get({plain: true});
+        const orderItem = updateItem.get ({plain: true})
+
+
         res.render('checkout', { logged_in: req.session.logged_in });
     } catch (error) {
         console.log(error);
