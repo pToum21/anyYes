@@ -3,13 +3,25 @@
 {{#each items}}
 <div>
 
-  <a href="/category/{{category.category_name}}/{{id}}">
-    <h2> {{ title }}</h2>
+  {{#if sold}}
+  <strong>
+    <p style="height:10%">SOLD</p>
+  </strong>
+  {{else}}
+  <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+    <strong>
+      <p style="height:10%">{{listing.title}}</p>
+    </strong>
   </a>
+  {{/if}}
   <p>{{ price }}</p>
   <p>{{condition}}</p>
   <br>
-  <img src="data:image/png;base64,{{image}}" />
+  {{#if sold}}
+  <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+  {{else}}
+  <img id="listingImage" src="data:image/png;base64,{{image}}" />
+  {{/if}}
   <br>
   <h3>{{ console_name }}</h3>
   <p>{{ description }}</p>
