@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
          const userName = user.user_name
 
          console.log(userName)
-
+         // if no listing, pass empty array for myListings, userName will show
          res.render('profile', { myListings: [], userName, logged_in: req.session.logged_in })
       }
    } catch (error) {
