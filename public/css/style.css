@@ -111,11 +111,19 @@ footer {
 }
 
 .crsl-img {
-
-   width: 100vw;
     border-radius: 25px;
 }
 
 .splide {
-    width: 100vw;
+   padding: 0rem;
+}
+.splide__arrow svg {
+    fill: antiquewhite !important;
+}
+
+@media only screen and (min-device-width : 768px) {
+
+    .splide {
+        padding: 3rem;
+     }
 }
