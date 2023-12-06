@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 
       // myListings = myListings.map(u => u.image ? u.image.toString('base64'): null)
-      console.log("mylistings", myListings);
+      
       res.render('profile', {
          myListings,
          logged_in: req.session.logged_in
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
       })
 
    } catch (error) {
-      console.log(error);
+      
       res.status(500).json({ message: 'User could not load.' });
    }
 });
@@ -65,12 +65,12 @@ router.get('/orders/:id', async (req, res) => {
          return res.status(404).json({ message: 'Orders Empty' });
       }
       const order = orderData.map((o) => o.get({ plain: true }));
-      console.log(order)
+      
       res.render('profile', {
          order, logged_in: req.session.logged_in
       });
    } catch (error) {
-      console.log(error);
+      
       res.status(500).json({ message: 'Error finding Orders' });
    }
 }
