@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{!-- Bulma CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
+    {{!-- splide css --}}
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-sea-green.min.css">
     {{!-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,11 +72,24 @@
 
     {{{body}}}
 
+    
+
     <footer>
         {{!-- bg image in css --}}
     </footer>
 
     {{!-- js links --}}
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        var splide = new Splide('.splide', {
+            type: 'loop',
+            perPage: 1,
+            autoplay: true,
+            speed: 500,
+        });
+
+        splide.mount();
+    </script>
     <script src="/js/mainPage.js"></script>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>

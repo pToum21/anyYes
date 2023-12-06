@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bulma-carousel": "^4.0.24",
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.3.1",
     "eslint": "^8.54.0",
