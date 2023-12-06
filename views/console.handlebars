@@ -10,12 +10,27 @@
 
     <h2>{{console_name}}</h2>
 
-<img id="listingImage" src="data:image/png;base64,{{image}}"/>
-{{#if (equal user_id currentId)}}
-    <button id="Cart-Btn"class="cart-btn button is-info" style="display:none">Add to Cart</button>
+    <img id="listingImage" src="data:image/png;base64,{{image}}" />
+
+
+    {{!-- <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button> --}}
+
+
+
+    {{!-- {{#if (equal listing.user_id currentId)}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
     {{else}}
-    <button id="-Btn"class="cart-btn button is-info" style="display:block">Add to Cart</button>
-{{/if}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
+    {{/if}} --}}
+    
+
+    {{#if (ifCond sold user_id currentId)}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
+    {{else}}
+    <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
+    {{/if}}
+    
+
 
     <p>{{price}}</p>
 

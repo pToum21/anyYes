@@ -56,6 +56,10 @@ Listing.init(
         image: {
             type: DataTypes.BLOB('medium') //gives up to 16mb
         },
+        sold: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         category_id: {
             type: DataTypes.INTEGER,
             references: {
