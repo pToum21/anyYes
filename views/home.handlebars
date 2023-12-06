@@ -11,7 +11,7 @@
             <li class="splide__slide">
                 <img src="/photos/pxlart-2.gif" class="crsl-img">
             </li>
-             <li class="splide__slide">
+            <li class="splide__slide">
                 <img src="/photos/pxlart.png" class="crsl-img">
             </li>
             <li class="splide__slide">
@@ -27,15 +27,25 @@
     {{#each listings as |listing|}}
     <div id="listing" class="column m-3 p-5">
         <div id="inner-listing" class="p-3">
+            {{#if sold}}
+            <strong>
+                <p style="height:10%">SOLD</p>
+            </strong>
+            {{else}}
             <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
                 <strong>
                     <p style="height:10%">{{listing.title}}</p>
                 </strong>
             </a>
+            {{/if}}
             <p style="height:10%" class="my-2">${{price}}</p>
             <p style="height:10%" class="my-2">{{listing.condition}} {{category.category_name}}</p>
             <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
+                {{#if sold}}
+                <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+                {{else}}
                 <img id="listingImage" src="data:image/png;base64,{{image}}" />
+                {{/if}}
             </div>
         </div>
     </div>
