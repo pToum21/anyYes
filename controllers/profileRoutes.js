@@ -1,7 +1,4 @@
 //view user dashboard
-//**add withauth back in after login page is made
-
-
 const { Order, User, Listing, Category } = require('../models')
 
 const router = require('express').Router();
@@ -33,20 +30,13 @@ router.get('/', async (req, res) => {
          }
       })
 
-
-      // myListings = myListings.map(u => u.image ? u.image.toString('base64'): null)
-      console.log("mylistings", myListings);
       res.render('profile', {
          myListings,
          logged_in: req.session.logged_in
-         // listings: user.Listings,
-         // orders: user.Orders
-         // add this back in after login page is made
-         // logged_in: req.session.logged_in
       })
 
    } catch (error) {
-      console.log(error);
+
       res.status(500).json({ message: 'User could not load.' });
    }
 });
@@ -65,15 +55,34 @@ router.get('/orders/:id', async (req, res) => {
          return res.status(404).json({ message: 'Orders Empty' });
       }
       const order = orderData.map((o) => o.get({ plain: true }));
-      console.log(order)
+
       res.render('profile', {
          order, logged_in: req.session.logged_in
       });
    } catch (error) {
-      console.log(error);
+
       res.status(500).json({ message: 'Error finding Orders' });
    }
 }
 );
+
+router.delete('/:id', withAuth, async (req, res) => {
+   try {
+      // Find the listing by ID
+      const listingData = await Listing.findByPk(req.params.id);
+
+      // If the listing doesn't exist or doesn't belong to the current user, return a 404 error
+      if (!listingData || listingData.user_id !== req.session.user_id) {
+         return res.status(404).json({ message: 'Listing not found or you do not have permission to delete it.' });
+      }
+
+      // Delete the listing
+      await listingData.destroy();
+
+      res.status(200).json({ message: 'Listing deleted successfully.' });
+   } catch (error) {
+      res.status(500).json({ message: 'Error deleting listing.' });
+   }
+});
 
 module.exports = router

@@ -89,12 +89,44 @@ const addListing = async (event) => {
 
     // Check if the response is successful
     if (response.ok) {
-        console.log('Image posted successfully');
+        
         location.reload()
     } else {
         console.log('Error on listing.js');
     }
 };
 
+
+const deleteListing = async (event) => {
+    // Prevent the default button click behavior
+    event.preventDefault();
+
+    // Get the listing ID from the data-id attribute of the clicked button
+    const listingId = event.target.getAttribute('data-id');
+
+    // Confirm with the user before deleting the listing
+    const isConfirmed = confirm('Are you sure you want to delete this listing?');
+
+    if (isConfirmed) {
+        // Send a DELETE request to the server to delete the listing
+        const response = await fetch(`/profile/${listingId}`, {
+            method: 'DELETE',
+        });
+
+        // Check if the response is successful
+        if (response.ok) {
+            // Reload the page or update the UI as needed
+            location.reload();
+        } else {
+            console.log('Error deleting listing');
+        }
+    }
+};
+
+
 // Add a click event listener to the submit button
 document.querySelector('#ls-submit').addEventListener('click', addListing);
+const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach((button) => {
+        button.addEventListener('click', deleteListing);
+    });

@@ -72,10 +72,10 @@ router.get('/success', withAuth, async (req, res) => {
         })
 
         const order = dbRes.get({ plain: true });
-        console.log(listing)
+
         res.render('checkout', { order, listing, logged_in: req.session.logged_in });
     } catch (error) {
-        console.log(error);
+
         res.status(500).json({ message: 'This cart does not exist.' });
     }
 });
@@ -84,7 +84,7 @@ router.get('/cancel', async (req, res) => {
     try {
         res.render('cancelcheckout', { logged_in: req.session.logged_in });
     } catch (error) {
-        console.log(error);
+
         res.status(500).json({ message: 'This cart does not exist.' });
     }
 });

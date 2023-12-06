@@ -11,11 +11,23 @@
             <div>
                 <p class="text-3xl">
                 <div>
+                    {{#if sold}}
+                    <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+                    {{else}}
                     <img id="listingImage" src="data:image/png;base64,{{image}}" />
+                    {{/if}}
                 </div>
+                {{#if sold}}
+                <strong>
+                    <p style="height:10%">SOLD</p>
+                </strong>
+                {{else}}
                 <a href="/category/{{category.category_name}}/{{id}}">
-                    {{title}}
+                    <strong>
+                        <p style="height:10%">{{title}}</p>
+                    </strong>
                 </a>
+                {{/if}}
                 </p>
                 <p>
                     {{description}}

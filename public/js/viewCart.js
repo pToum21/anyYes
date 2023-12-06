@@ -16,13 +16,4 @@ for (i = 0; i < userCart.length; i++) {
     `;
 }
 
-// const checkOut = async () => {
-//     document.location.replace('/checkout')
-// }
-
-// document.querySelector('#checkout').addEventListener('click', checkOut)
-
-document.querySelector('.checkout-btn').addEventListener('click', (event) => {
-    // event.preventDefault();
-
-});
+document.querySelector('.checkout-btn').addEventListener('click', (event) => {});
