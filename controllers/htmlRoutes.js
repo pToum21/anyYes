@@ -6,7 +6,6 @@ const withAuth = require('../utils/auth');
 
 const { Op } = require('sequelize');
 
-
 //homepage
 router.get('/', async (req, res) => {
    try {
@@ -53,8 +52,7 @@ router.get('/', async (req, res) => {
       });
 
    } catch (error) {
-      console.log(error);
-      console.log('Trouble rendering listings');
+      
       res.status(500).json({ message: 'No listings showing.' });
    }
 });
@@ -84,7 +82,7 @@ router.get('/category/:category', async (req, res) => {
             }
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
-         console.log('hello')
+         
 
          items.forEach(listing => {
             if (listing.image) {
@@ -92,9 +90,9 @@ router.get('/category/:category', async (req, res) => {
             } else {
                listing.image = null
             }
-            console.log(items);
+           
          })
-         console.log('help')
+        
 
 
          res.render('consoles', { items, logged_in: req.session.logged_in });
@@ -125,7 +123,7 @@ router.get('/category/:category', async (req, res) => {
       }
 
    } catch (error) {
-      console.log(error);
+     
       res.status(500).json({ message: 'List of consoles is not showing.' });
    }
 });
@@ -168,7 +166,7 @@ router.get('/category/:category/:id', async (req, res) => {
          logged_in: req.session.logged_in
       });
    } catch (error) {
-      console.log(error);
+     
       res.status(500).json({ message: 'This console does not exist.' });
    }
 }
@@ -179,7 +177,7 @@ router.get('/cart', async (req, res) => {
    try {
       res.render('cart', { logged_in: req.session.logged_in });
    } catch (error) {
-      console.log(error);
+      
       res.status(500).json({ message: 'This cart does not exist.' });
    }
 });

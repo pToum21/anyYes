@@ -89,7 +89,7 @@ const addListing = async (event) => {
 
     // Check if the response is successful
     if (response.ok) {
-        console.log('Image posted successfully');
+        
         location.reload()
     } else {
         console.log('Error on listing.js');
