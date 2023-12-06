@@ -83,3 +83,45 @@
 
 
 
+// splide code:
+
+{/* <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+    var splide = new Splide('.splide', {
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        rewindSpeed: 1000,
+    });
+
+    splide.mount();
+</script> */}
+
+{/* <section class="splide" aria-label="Splide Basic HTML Example">
+<div class="splide__track">
+    <ul class="splide__list">
+        <li class="splide__slide">
+            <img src="/photos/pxlart-3.jpeg" class="crsl-img">
+        </li>
+        <li class="splide__slide">
+            <img src="/photos/pxlart-4.png" class="crsl-img">
+        </li>
+        <li class="splide__slide">
+            <img src="/photos/pxlart-2.gif" class="crsl-img">
+        </li>
+    </ul>
+</div>
+<button class="splide__toggle" type="button">
+    <svg class="splide__toggle__play" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="m22 12-20 11v-22l10 5.5z" />
+    </svg>
+    <svg class="splide__toggle__pause" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="m2 1v22h7v-22zm13 0v22h7v-22z" />
+    </svg>
+</button>
+</section> */}
+
+// {{!-- splide css --}}
+// <link rel="stylesheet"
+//     href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-sea-green.min.css">
+

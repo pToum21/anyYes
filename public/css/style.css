@@ -52,8 +52,19 @@ footer {
     font-style: normal;
 }
 
+#banner-text {
+    background-color: rgba(250, 234, 214, 0.3);
+    border-radius: 25px;
+}
 #burger {
     background-color: transparent;
+}
+
+#hero-banner {
+    background-image: url("../photos/pxlart-3.jpeg");
+    background-size: cover;
+    background-position: center;
+    filter: hue-rotate(106deg);
 }
 
 #inner-listing {
@@ -93,8 +104,25 @@ footer {
 
 /* classes */
 
+.crsl-img {
+    border-radius: 25px;
+}
 
 .navbar-burger {
     height: 6.25rem;
     width: 5.25rem;
+}
+
+.splide {
+   padding: 0rem;
+}
+.splide__arrow svg {
+    fill: antiquewhite !important;
+}
+
+/* mquery for carousel */
+@media only screen and (min-device-width : 768px) {
+    .splide {
+        padding: 3rem;
+     }
 }
