@@ -6,7 +6,6 @@ const withAuth = require('../utils/auth');
 
 const { Op } = require('sequelize');
 
-
 //homepage
 router.get('/', async (req, res) => {
    try {
