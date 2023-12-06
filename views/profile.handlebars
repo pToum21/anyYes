@@ -12,8 +12,11 @@
       </a>
       <p class="my-2">{{price}}</p>
       <p class="my-2">{{condition}} {{category.category_name}}</p>
-      <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
+      <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
         <img id="listingImage" src="data:image/png;base64,{{image}}" />
+      </div>
+      <div>
+        <button class="delete-btn" data-id="{{id}}">Delete</button>
       </div>
     </div>
     {{/each}}
@@ -22,7 +25,7 @@
 
 
 <section>
-<h2 class="p-3 bbdouble">Here are your past orders:</h2>
+  <h2 class="p-3 bbdouble">Here are your past orders:</h2>
   {{#each order}}
   <div>
     <div>
