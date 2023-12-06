@@ -38,6 +38,7 @@ const loginNav = document.querySelector('#login-nav');
 const xClose = document.querySelector('.delete')
 const loginModal = document.querySelector('.modal');
 
+//wrapped in if statement, bc otherwise, error will populate in console when user is logged in bc loginNav will not exist.
 if (loginNav) {
     loginNav.addEventListener('click', (event) => {
         // Functions to open and close a modal
