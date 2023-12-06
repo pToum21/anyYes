@@ -4,7 +4,8 @@ const navMenu = document.querySelector('#menu');
 
 burger.addEventListener('click', () => {
     navMenu.classList.toggle('is-active');
-    navMenu.setAttribute('style', 'text-align: center')
+    navMenu.setAttribute('style', 'text-align: center');
+    navMenu.classList.remove('m-5', 'p-2');
 
     const navItems = document.querySelectorAll('#menu .nav-item');
 
@@ -20,19 +21,9 @@ burger.addEventListener('click', () => {
 });
 
 
-
-// splide logic for carousel
-var splide = new Splide('.splide', {
-    type: 'loop',
-    perPage: 1,
-    autoplay: true,
-    speed: 500,
-});
-splide.mount();
-
 //search feature
 const searchBar = document.querySelector('#search-bar');
-const searchBtn = document.querySelector('#search-btn')
+const searchBtn = document.querySelector('#search-btn');
 searchBtn.addEventListener('click', searchForItems);
 
 function searchForItems(event) {

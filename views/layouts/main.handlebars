@@ -22,7 +22,7 @@
 
 <body>
     {{!-- navigation bar --}}
-    <nav class="navbar">
+    <nav class="navbar p-4">
         {{!-- app/brand name --}}
         <div class="navbar-brand ml-4">
             <a href="/" class="nav-item">
@@ -38,10 +38,10 @@
         {{!-- search bar --}}
         <div class="field is-grouped nav-item ml-6 mt-5 px-3" id="search">
             <p class="control is-expanded">
-                <input class="input" id="search-bar" type="text" placeholder="Search for ANYITEM">
+                <input class="input is-medium is-fullwidth" id="search-bar" type="text" placeholder="Search for ANYITEM">
             </p>
             <p class="control">
-                <a class="button is-info" id="search-btn">
+                <a class="button is-info is-medium" id="search-btn">
                     Search
                 </a>
             </p>
@@ -56,8 +56,8 @@
                 <a href="/category/consoles" class="nav-item px-2">Consoles </a><br>
 
                 {{#if logged_in}}
-                <a href="/profile" class="nav-item px-2">Profile</a>
-                <a href="/cart" class=" nav-item px-2">Cart</a>
+                <a href="/profile" class="nav-item px-2">Profile</a><br>
+                <a href="/cart" class=" nav-item px-2">Cart</a><br>
                 <a class="nav-item px-2">
                     <button class="no-button" id="logout">Quit</button>
                 </a>
@@ -77,8 +77,7 @@
     </footer>
 
     {{!-- js links --}}
-    {{!-- splide cdn and direct code for carousel --}}
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+   
     {{!-- logic for occurences in main.hbs --}}
     <script src="/js/mainPage.js"></script>
     {{#if logged_in}}
