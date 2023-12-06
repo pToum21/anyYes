@@ -26,15 +26,12 @@
 
 <section>
   <h2 class="p-3 bbdouble">Here are your past orders:</h2>
-  {{#each order}}
   <div>
+    {{#each orders}}
     <div>
-      <div>
-        {{title}}
-      </div>
+     <p> This is an id number: {{id}} </p>
     </div>
-  </div>
-  {{/each}}
+    {{/each}}
 </section>
 
 
