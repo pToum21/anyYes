@@ -1,40 +1,37 @@
-<h1 class="py-3"> Welcome, {{ userName }}.</h1>
+<h1 class="p-3 has-background-warning-dark"> Welcome, {{ userName }}.</h1>
 
-<h2>Here are your listings:</h2>
-<div class="is-multiline columns is-centered mx-3 p-6">
-  {{#each myListings}}
-
-  <div id="other-listing" class="column m-3 p-6 is-3" style="line-height: 1.5">
-    {{!-- need to fix link/access category --}}
-    <a href="/category/{{category.category_name}}/{{id}}">
-      <strong>
-        <p class="my-2">{{title}}</p>
-      </strong>
-    </a>
-    <p class="my-2">{{price}}</p>
-    <p class="my-2">{{condition}} {{category.category_name}}</p>
-    <div class="image is-128x128  my-2" style="height:50%; display: block; margin: auto;">
-      <img id="listingImage" src="data:image/png;base64,{{image}}" />
+<h2 class="p-3 bbdouble">Here are your listings:</h2>
+<div class="bbdouble">
+  <section class="is-multiline columns is-centered mx-3 p-6">
+    {{#each myListings}}
+    <div id="other-listing" class="column m-3 p-5 is-one-fifth" style="line-height: 1.5">
+      <a href="/category/{{category.category_name}}/{{id}}">
+        <strong>
+          <p class="my-2">{{title}}</p>
+        </strong>
+      </a>
+      <p class="my-2">{{price}}</p>
+      <p class="my-2">{{condition}} {{category.category_name}}</p>
+      <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
+        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+      </div>
+      <div>
+        <button class="delete-btn" data-id="{{id}}">Delete</button>
+      </div>
     </div>
-    <div>
-      <button class="delete-btn my-3" data-id="{{id}}">Delete</button>
-    </div>
-  </div>
-  {{/each}}
+    {{/each}}
+  </section>
 </div>
 
 
 <section>
-  <header>ORDERS:</header>
-  {{#each order}}
+  <h2 class="p-3 bbdouble">Here are your past orders:</h2>
   <div>
+    {{#each orders}}
     <div>
-      <div>
-        {{title}}
-      </div>
+     <p> This is an id number: {{id}} </p>
     </div>
-  </div>
-  {{/each}}
+    {{/each}}
 </section>
 
 
@@ -195,14 +192,15 @@
     <div>
 </form>
 
-{{#each myListings }}
+{{!-- i dont think we need this --}}
+{{!-- {{#each myListings }}
 <div>
 
   <h2>One listing: {{ title }}</h2>
   <p> Order was made on {{ order.created_at }}</p>
 
 </div>
-{{/each}}
+{{/each}} --}}
 
 
 

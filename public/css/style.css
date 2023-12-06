@@ -119,6 +119,10 @@ footer {
 
 
 /* classes */
+.bbdouble {
+    border-bottom: 5px double antiquewhite;;
+}
+
 .crsl-img {
     border-radius: 25px;
 }

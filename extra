@@ -121,13 +121,13 @@
 </button>
 </section> */}
 
-// {{!-- splide css --}}
+<!-- // {{!-- splide css --}}
 // <link rel="stylesheet"
-//     href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-sea-green.min.css">
+//     href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-sea-green.min.css"> -->
 
 
 
-{/* <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<!-- {/* <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 
 <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form class="space-y-6 login-form" action="#">
@@ -202,4 +202,71 @@
 </div>
 
 
-<script src="/js/login.js"></script> */}
+<script src="/js/login.js"></script> */} -->
+
+
+
+
+
+<!-- my attempt to gets orders to show on profile  -->
+router.get('/', async (req, res) => {
+   //use :user_name, + user_name: req.params.user_name
+   try {
+
+      const userListings = await Listing.findAll({
+         where: {
+            user_id: req.session.user_id
+         },
+         include: [
+            {
+            model: User,
+            include: {
+               model: Order
+            }
+         },
+            Order],
+         order: [['date_created', 'DESC']]
+      });
+
+      if (!userListings) {
+         return res.status(404).json({ message: 'Oh, no! User does not exist!' })
+      };
+
+      let myListings = userListings.map(u => u.get({ plain: true }));
+
+      //if statement to render listings for user in profile, but if no listings exist, can still show user_name
+
+      if (myListings.length > 0) {
+         //turns image base 64
+         myListings.forEach(listing => {
+            if (listing.image) {
+               listing.image = listing.image.toString('base64')
+            } else {
+               listing.image = null
+            }
+         });
+
+         const userName = myListings[0].user.user_name;
+
+         const orders = [];
+         myListings.forEach(listing => {
+            if (listing.User && listing.User.Order) {
+               orders.push(...listing.User.Order);
+             }
+         });
+
+         //if there is a listing, we will render myListings and userName to profile.hbs
+         res.render('profile', { myListings, userName, orders, logged_in: req.session.logged_in });
+
+      } else {
+         const user = await User.findByPk(req.session.user_id);
+         const userName = user.user_name
+
+         // if no listing, pass empty array for myListings, userName will show
+         res.render('profile', { myListings: [], userName, orders:[], logged_in: req.session.logged_in })
+      }
+   } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'User could not load.' });
+   }
+});
