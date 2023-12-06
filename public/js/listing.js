@@ -89,7 +89,7 @@ const addListing = async (event) => {
 
     // Check if the response is successful
     if (response.ok) {
-        
+
         location.reload()
     } else {
         console.log('Error on listing.js');
@@ -127,6 +127,25 @@ const deleteListing = async (event) => {
 // Add a click event listener to the submit button
 document.querySelector('#ls-submit').addEventListener('click', addListing);
 const deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', deleteListing);
-    });
+deleteButtons.forEach((button) => {
+    button.addEventListener('click', deleteListing);
+});
+
+//modal logic to add a listing
+const addListingBtn = document.querySelector('#add-ls-btn');
+const xClose = document.querySelector('.delete')
+const addLsModal = document.querySelector('.modal');
+
+//wrapped in if statement, bc otherwise, error will populate in console when user is logged in bc loginNav will not exist.
+
+addListingBtn.addEventListener('click', (event) => {
+    // Functions to open and close a modal
+    event.preventDefault();
+    addLsModal.classList.add('is-active');
+});
+
+
+xClose.addEventListener('click', (event) => {
+    event.preventDefault();
+    addLsModal.classList.remove('is-active')
+})

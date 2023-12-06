@@ -1,4 +1,11 @@
-<h1 class="p-3 has-background-warning-dark"> Welcome, {{ userName }}.</h1>
+<div class="p-3 has-background-warning-dark">
+  <h1>Welcome, {{ userName }}.</h1>
+  <p>Would you care to
+    <a class="js-modal-trigger nav-item px-2">
+      <button class="no-button" id="add-ls-btn" data-target="add-ls-modal">Add a Listing</button>
+    </a>?
+  </p>
+</div>
 
 <h2 class="p-3 bbdouble">Here are your listings:</h2>
 <div class="bbdouble">
@@ -16,7 +23,7 @@
         <img id="listingImage" src="data:image/png;base64,{{image}}" />
       </div>
       <div>
-        <button class="delete-btn" data-id="{{id}}">Delete</button>
+        <button class="delete-btn button is-danger is-small" data-id="{{id}}">Delete</button>
       </div>
     </div>
     {{/each}}
@@ -29,7 +36,7 @@
   <div>
     {{#each orders}}
     <div>
-     <p> This is an id number: {{id}} </p>
+      <p> This is an id number: {{id}} </p>
     </div>
     {{/each}}
 </section>
@@ -37,42 +44,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{{!-- ADD LISTING FORM --}}
 <form class="" id="listing-form" style="display: block;">
 
+
+
   <div data-id="{{id}}" class="">
-    <h3>Sell any game or console:</h3>
-    {{!-- all the fields and their input forms --}}
+ 
 
     {{!-- listing title --}}
     <div class="" id="ls-title">
@@ -202,6 +180,25 @@
 </div>
 {{/each}} --}}
 
+
+{{!-- modal to add a list --}}
+<div class="modal" id="add-ls-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Sell ANY retro game or console:</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+
+      CONTENT GOES HERE
+
+    </section>
+    <footer class="modal-card-foot">
+
+    </footer>
+  </div>
+</div>
 
 
 <script src="/js/listing.js"></script>

@@ -90,7 +90,7 @@ footer {
 }
 
 
-#logout, #login-nav {
+#logout, #login-nav, #add-ls-btn {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
     background: none;
