@@ -73,7 +73,7 @@ footer {
 
 #inner-listing {
     background-color: rgba(250, 234, 214, 0.4);
-    border: 10px double antiquewhite;
+    border: 10px double antiquewhite !important;
     border-radius: 25px;
     height: 100%;
 }
@@ -84,7 +84,8 @@ footer {
     box-shadow: 20px 20px 3px 3px black;
 }
 
-#logout {
+
+#logout, #login-nav {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
     background: none;
