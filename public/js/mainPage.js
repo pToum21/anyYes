@@ -4,7 +4,8 @@ const navMenu = document.querySelector('#menu');
 
 burger.addEventListener('click', () => {
     navMenu.classList.toggle('is-active');
-    navMenu.setAttribute('style', 'text-align: center')
+    navMenu.setAttribute('style', 'text-align: center');
+    navMenu.classList.remove('m-5', 'p-2');
 
     const navItems = document.querySelectorAll('#menu .nav-item');
 
