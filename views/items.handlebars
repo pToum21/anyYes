@@ -9,13 +9,13 @@
 
 {{#each items}}
 
-<div>
+
 
     {{#if console_name}}
     <!-- Console-specific content -->
-    <section class="is-multiline columns is-centered mx-3 p-6">
+    <section class="is-flex is-justify-content center mx-3 p-6">
         <div id="other-listing" class="column m-3 p-5 is-one-fifth"
-            style="line-height: 1.5; min-width: 200px; min-height: 200px;">
+            style="line-height: 1.5; min-width: 200px; min-height: 300px;">
 
             {{!-- title; if sold, title will just say such --}}
             {{#if sold}}
@@ -38,9 +38,6 @@
             {{else}}
             <img id="listingImage" src="data:image/png;base64,{{image}}" />
             {{/if}}
-
-
-
         </div>
     </section>
 
@@ -50,7 +47,7 @@
 
     <section class="is-multiline columns is-centered mx-3 p-6">
         <div id="other-listing" class="column m-3 p-5 is-one-fifth"
-            style="line-height: 1.5; min-width: 200px; min-height: 200px;">
+            style="line-height: 1.5; min-width: 200px; min-height: 300px;">
 
             {{!-- title; if sold, title will just say such --}}
             {{#if sold}}
@@ -63,11 +60,11 @@
             </strong>
             {{/if}}
 
-             <p class="my-2">{{console_name}}</p>
+            <p class="my-2">{{console_name}}</p>
             <p class="my-2">{{price}}</p>
             <p class="my-2">{{condition}} {{category.category_name}}</p>
 
-             {{#if sold}}
+            {{#if sold}}
             <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
             {{else}}
             <img id="listingImage" src="data:image/png;base64,{{image}}" />
@@ -76,28 +73,14 @@
         </div>
     </section>
 
-    
 
-        {{#if sold}}
-        <strong>
-            <p style="height:10%">SOLD</p>
-        </strong>
-        {{else}}
-        <a href="/category/{{category.category_name}}/{{id}}">
-            <strong>
-                <p style="height:10%">{{title}}</p>
-            </strong>
-        </a>
-        {{/if}}
-    </p>
-    <p>{{description}}</p>
-    <p>{{price}}</p>
-    <p>{{condition}}</p>
-</div>
+
+
+
 
 
 {{/if}}
-</div>
+
 
 
 {{/each}}
