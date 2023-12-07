@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
         });
 
         res.redirect(303, session.url);
-
+// fix
     } catch (error) {
         res.status(400).json(error);
     }
