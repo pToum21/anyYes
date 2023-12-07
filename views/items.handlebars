@@ -42,6 +42,30 @@
             {{!-- if not console listings... --}}
             {{else}}
 
+            {{#if sold}}
+            <strong>
+                <p style="height:10%">SOLD</p>
+            </strong>
+            {{else}}
+            <strong>
+                <p style="height:10%">{{title}}</p>
+            </strong>
+            {{/if}}
+            <p class="my-2">{{ game_name }}</p>
+            <p class="my-2">{{ price }}</p>
+            <p class="my-2">{{condition}} {{category.category_name}}</p>
+
+            {{!-- if item is sold, image will be greyed out--}}
+            {{#if sold}}
+            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
+                <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+            </div>
+            {{else}}
+            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
+                <img id="listingImage" src="data:image/png;base64,{{image}}" />
+            </div>
+            {{/if}}
+
         </div>
         {{/each}}
     </section>
