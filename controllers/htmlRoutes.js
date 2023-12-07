@@ -57,15 +57,15 @@ router.get('/', async (req, res) => {
    }
 });
 
-
+// May not need this anymore, since it is rendered in modal
 //login
-router.get('/login', async (req, res) => {
-   if (req.session.logged_in) {
-      res.redirect('/')
-      return;
-   }
-   res.render('login')
-});
+// router.get('/login', async (req, res) => {
+//    if (req.session.logged_in) {
+//       res.redirect('/')
+//       return;
+//    }
+//    res.render('login')
+// });
 
 
 //viewing listings of all games and consoles
@@ -157,9 +157,7 @@ router.get('/category/:category/:id', async (req, res) => {
       } else {
          item.image = null
       }
-
-
-
+console.log(item)
       res.render(`${specificPage}`, {
          ...item,
          currentId: req.session.user_id,

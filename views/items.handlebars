@@ -1,15 +1,14 @@
+{{!-- if items from htmlroutes has game_name, view games page, otherwise view consoles page --}}
+
 {{#if items.[0].game_name}}
 <h1 class="p-3">Viewing AnyGame</h1>
 {{else}}
 <h1 class="p-3">Viewing AnyConsole</h1>
 {{/if}}
 
-
-
 <section class="is-multiline columns is-centered mx-3 p-6">
+
     {{#each items}}
-
-
 
     {{#if console_name}}
     <!-- Console-specific content -->
@@ -44,11 +43,8 @@
         {{/if}}
     </div>
 
-
-
     {{else}}
     <!-- Game-specific content -->
-
 
     <div id="other-listing" class="column m-3 p-5 is-one-fifth"
         style="line-height: 1.5; min-width: 200px; min-height: 300px;">
