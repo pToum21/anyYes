@@ -1,6 +1,47 @@
+{{#if (category_name)}}
+<h1>fsdf</h1>
+{{else}}
+<h3>assdad</h3>
+{{/if}}
+
+
 {{#each items}}
 
 <div>
+
+    {{#if console_name}}
+    <!-- Console-specific content -->
+
+
+    {{#if sold}}
+    <strong>
+        <p style="height:10%">SOLD</p>
+    </strong>
+    {{else}}
+    <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+        <strong>
+            <p style="height:10%">{{title}}</p>
+        </strong>
+    </a>
+    {{/if}}
+
+    <p>{{ price }}</p>
+    <p>{{condition}}</p>
+    <br>
+
+    {{#if sold}}
+    <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+    {{else}}
+    <img id="listingImage" src="data:image/png;base64,{{image}}" />
+    {{/if}}
+
+    <br>
+    <h3>{{ console_name }}</h3>
+    <p>{{ description }}</p>
+
+    {{else}}
+    <!-- Game-specific content -->
+    
     <div>
         <a>
             <div>
@@ -10,36 +51,32 @@
             </div>
             <div>
                 <p class="text-3xl">
-                <div>
+
                     {{#if sold}}
                     <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
                     {{else}}
                     <img id="listingImage" src="data:image/png;base64,{{image}}" />
                     {{/if}}
-                </div>
-                {{#if sold}}
-                <strong>
-                    <p style="height:10%">SOLD</p>
-                </strong>
-                {{else}}
-                <a href="/category/{{category.category_name}}/{{id}}">
+
+                    {{#if sold}}
                     <strong>
-                        <p style="height:10%">{{title}}</p>
+                        <p style="height:10%">SOLD</p>
                     </strong>
-                </a>
-                {{/if}}
+                    {{else}}
+                    <a href="/category/{{category.category_name}}/{{id}}">
+                        <strong>
+                            <p style="height:10%">{{title}}</p>
+                        </strong>
+                    </a>
+                    {{/if}}
                 </p>
-                <p>
-                    {{description}}
-                </p>
-                <p>
-                    {{price}}
-                </p>
-                <p>
-                    {{condition}}
-                </p>
+                <p>{{description}}</p>
+                <p>{{price}}</p>
+                <p>{{condition}}</p>
             </div>
         </a>
     </div>
+
+    {{/if}}
 </div>
 {{/each}}
