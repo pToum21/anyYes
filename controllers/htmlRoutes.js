@@ -93,8 +93,6 @@ router.get('/category/:category', async (req, res) => {
            
          })
         
-
-
          res.render('consoles', { items, logged_in: req.session.logged_in });
 
       } else if (req.params.category === 'games') {
