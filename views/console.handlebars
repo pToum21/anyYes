@@ -1,14 +1,19 @@
 <header class="antique p-3">
     <h1>{{title}}</h1>
+    <p> Seller: {{user.user_name}}</p>
 </header>
 
-<main class="p-3">
+<main class="blacktrs px-3 py-6 has-text-white">
     {{!-- image --}}
     <figure class="gameImg" alt="">
-        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        <img id="listingImage" src="data:image/png;base64,{{image}}" style=" max-width: 640px;" />
     </figure>
     {{!-- console name --}}
-    <h2>Console: {{console_name}} by {{console_brand}} from {{year}} </h2>
+    <h2>{{console_name}} by {{console_brand}} from {{year}} </h2>
+
+    <p>Posted on: {{format_date date_created}}</p>
+
+    <p>Description: {{description}}</p>
 
     <p>Price: {{price}}</p>
     <p>Condition: {{condition}}</p>
@@ -20,9 +25,7 @@
     <p>Special Edition: No</p>
     {{/if}}
 
-    <p>Posted on: {{format_date date_created}}</p>
 
-    <p>Description: {{description}}</p>
 
     {{!-- add to cart button --}}
     {{#if (ifCond sold user_id currentId)}}
@@ -30,19 +33,6 @@
     {{else}}
     <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
     {{/if}}
-
-
-
-    <p>{{price}}</p>
-
-
-
-    <p>{{description}}</p>
-    <p>{{condition}}</p>
-    <p>{{color}}</p>
-    <p>Is Special Editiion?{{is_special_edition}}</p>
-    <p>Year: {{year}}</p>
-    <p>{{console_brand}}</p>
 
 </main>
 

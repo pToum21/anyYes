@@ -156,6 +156,10 @@ footer {
     border-bottom: 5px double antiquewhite;
 }
 
+.blacktrs {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .crsl-img {
     border-radius: 25px;
 }

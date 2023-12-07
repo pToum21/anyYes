@@ -157,7 +157,7 @@ router.get('/category/:category/:id', async (req, res) => {
       } else {
          item.image = null
       }
-
+console.log(item)
       res.render(`${specificPage}`, {
          ...item,
          currentId: req.session.user_id,
