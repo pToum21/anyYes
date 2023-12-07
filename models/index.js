@@ -1,4 +1,4 @@
-const User = require('./apple');
+const User = require('./User');
 const Listing = require('./Listing');
 const Category = require('./Category');
 const Order = require('./Order');
