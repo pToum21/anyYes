@@ -44,328 +44,6 @@
 </section>
 
 
-{{!-- example --}}
-
-<div class="field is-horizontal">
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Department</label>
-    </div>
-    <div class="field-body">
-      <div class="field is-narrow">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select>
-              <option>Business development</option>
-              <option>Marketing</option>
-              <option>Sales</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Subject</label>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <input class="input is-danger" type="text" placeholder="e.g. Partnership opportunity">
-        </div>
-        <p class="help is-danger">
-          This field is required
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Question</label>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="field is-horizontal">
-    <div class="field-label">
-      <!-- Left empty for spacing -->
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <button class="button is-primary">
-            Send message
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- ADD LISTING FORM --}}
-<form class="p-1" id="listing-form" style="background-color:antiquewhite;">
-
-  <div data-id="{{id}}" class="container is-block is-centered">
-    {{!-- listing title --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal" id="ls-title">
-        <label class="label" for="title">Title:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" id="title" name="title" placeholder="Enter a listing title">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- listing description --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label" for="description">Description:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <textarea id="description" class="textarea" name="description"
-              placeholder="Describe your listing here."></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{!-- select category --}}
-    <div class="field is-horizontal" id="ls-category">
-      <div class="field-label is-normal">
-        <label class="label" for="cat-drop">What kind of item are you selling?</label>
-      </div>
-      <div class="field-body">
-        <div class="field is-narrow">
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select id="cat-drop" name="category_name">
-                <option value="1">Console</option>
-                <option value="2">Game</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{!-- Item name --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal" id="ls-name">
-        <label class="label" for="item">Name of game or console:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" id="item" name="item_name" placeholder="ex: Fallout 3//Gameboy Color">
-          </div>
-        </div>
-      </div>
-    </div>
-    {{!-- console_brand; company name --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal" id="ls-brand">
-        <label class="label" for="brand">Name of game or console:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" id="brand" name="console_brand" placeholder="ex: Microsoft, Yukes, etc.">
-          </div>
-        </div>
-      </div>
-    </div>
-    {{!-- year --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal" id="ls-year">
-        <label class="label" for="year">Year published:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="number" id="year" name="year" min="1950" max="2012" placeholder="ex: 1996">
-          </div>
-        </div>
-      </div>
-    </div>
-    {{!-- Condition --}}
-    <div class="field is-horizontal" id="ls-condition">
-      <div class="field-label is-normal">
-        <label class="label" for="cond-drop">What kind of item are you selling?</label>
-      </div>
-      <div class="field-body">
-        <div class="field is-narrow">
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select id="cond-drop" name="condition">
-                <option value="sealed">SEALED</option>
-                <option value="CIB">COMPLETE IN BOX</option>
-                <option value="used">USED</option>
-                <option value="damaged">DAMAGED</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-   {{!-- price --}}
-    <div class="field is-horizontal">
-      <div class="field-label is-normal" id="ls-price">
-        <label class="label" for="price">Price:  $</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" id="price" name="price" placeholder="ex:125.00">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- <div class="field is-grouped" id="ls-title">
-      <label class="label" for="title">Title:</label>
-      <div class="control is-centered">
-        <input class="" type="text" id="title" name="title" placeholder="Enter a listing title" />
-      </div>
-    </div> --}}
-
-    {{!-- listing description --}}
-    {{!-- <div class="" id="ls-des">
-      <label for="description">Description:</label>
-      <textarea class="" id="description" name="description"></textarea>
-    </div> --}}
-
-    {{!-- date posted will should be rendered on the actual listing, nothing for that in form --}}
-
-
-    {{!-- category dropdown --}}
-    {{!-- <div class="" id="ls-category">
-      <label for="cat-drop">What kind of item are you selling?</label>
-      <select id="cat-drop" name="category_name">
-        <option value="1">Console</option>
-        <option value="2">Game</option>
-        {{!-- <option value="accessory">Accessory</option> --}}
-      </select>
-    </div> --}}
-
-    {{!-- item name; js condition for this will be "if category is game, pass the value
-    of this following form into game_name. if category is console, pass user input value
-    into console_name --}}
-
-    {{!-- <div class="" id="ls-name">
-      <label for="item">Name of item being sold:</label>
-      <input class="" type="text" id="item" name="item_name" />
-    </div> --}}
-
-    {{!-- console_brand; company name --}}
-    {{!-- <div class="" id="ls-brand">
-      <label for="brand">Brand Name:</label>
-      <input class="" type="text" id="brand" name="console_brand" />
-    </div> --}}
-
-    {{!-- year item came out --}}
-    {{!-- <div class="" id="ls-year">
-      <label for="year">Year Item Released:</label>
-      <input type="number" id="year" name="year" min="1950" max="2012" value="2012" />
-    </div> --}}
-
-    {{!-- condition --}}
-    {{!-- <div class="" id="ls-condition">
-      <label for="cond-drop">Condition:</label>
-      <select id="cond-drop" name="condition">
-        <option value="sealed">SEALED</option>
-        <option value="CIB">COMPLETE IN BOX</option>
-        <option value="used">USED</option>
-        <option value="damaged">DAMAGED</option> --}}
-
-
-      </select>
-    </div>
-
-    {{!-- price --}}
-    {{!-- <div class="" id="ls-price">
-      <label for="price">Price:</label>
-      <input class="" type="text" id="price" name="price" />
-    </div> --}}
-
-    {{!-- color --}}
-    <div class="" id="ls-color">
-      <label for="clr-drop">Color:</label>
-      <select id="clr-drop" name="color">
-        <option value="black">Black</option>
-        <option value="white">White</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="yellow">Yellow</option>
-        <option value="green">Green</option>
-        <option value="orangle">Orange</option>
-        <option value="purple">Purple</option>
-        <option value="brown">Brown</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="grey">Grey</option>
-        <option value="pink">Pink</option>
-        <option value="off-white">Off-White</option>
-        <option value="clear">Clear</option>
-        <option value="lime-green">Lime Green</option>
-        <option value="teal">Teal</option>
-        <option value="atmoic-purple">Atomic Purple</option>
-      </select>
-    </div>
-
-    {{!-- special edition? --}}
-    <div class="" id="ls-special">
-      <label>Is this a special edition?</label> <br>
-      <input type="radio" id="sp-yes" name="is_special_edition" value="true">
-      <label for="sp-yes">Yes</label><br>
-      <input type="radio" id="sp-no" name="is_special_edition" value="false">
-      <label for="sp-no">No</label><br>
-    </div>
-
-    {{!-- image --}}
-    <div class="" id="ls-image">
-      <label for="img-up">Upload image here:</label>
-      <input class="" type="text" id="img-up" name="image" />
-
-      {{!-- need frontend js to implement checks to ensure user only uploads inages --}}
-      <div enctype="multipart/form-data" action="/action_page.php">
-        <input type="file" id="myFile" name="filename" accept="image/*">
-      </div>
-    </div>
-
-
-    {{!-- submit button for making a listing form --}}
-    <div class="button is-info">
-      <button id="ls-submit" type="submit" class="" style="color:#fff">Yes! Submit</button>
-    </div>
-  </div>
-</form>
-
-{{!-- i dont think we need this --}}
-{{!-- {{#each myListings }}
-<div>
-
-  <h2>One listing: {{ title }}</h2>
-  <p> Order was made on {{ order.created_at }}</p>
-
-</div>
-{{/each}} --}}
-
-
 {{!-- modal to add a list --}}
 <div class="modal" id="add-ls-modal">
   <div class="modal-background"></div>
@@ -376,10 +54,210 @@
     </header>
     <section class="modal-card-body">
 
-      CONTENT GOES HERE
+      {{!-- ADD LISTING FORM --}}
+      <form class="p-3 my-2" id="listing-form" style="background-color:antiquewhite;">
+
+        <div data-id="{{id}}" class="container is-block is-centered">
+          {{!-- listing title --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-title">
+              <label class="label" for="title">Title:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="text" id="title" name="title" placeholder="Enter a listing title">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{!-- listing description --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label" for="description">Description:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea id="description" class="textarea" name="description"
+                    placeholder="Describe your listing here."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- select category --}}
+          <div class="field is-horizontal" id="ls-category">
+            <div class="field-label is-normal">
+              <label class="label" for="cat-drop">What kind of item are you selling?</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="cat-drop" name="category_name">
+                      <option value="1">Console</option>
+                      <option value="2">Game</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- Item name --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-name">
+              <label class="label" for="item">Name of game or console:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="text" id="item" name="item_name"
+                    placeholder="ex: Fallout 3//Gameboy Color">
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- console_brand; company name --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-brand">
+              <label class="label" for="brand">Brand/Company Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="text" id="brand" name="console_brand"
+                    placeholder="ex: Microsoft, Yukes, etc.">
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- year --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-year">
+              <label class="label" for="year">Year published:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="number" id="year" name="year" min="1950" max="2012" placeholder="ex: 1996">
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- Condition --}}
+          <div class="field is-horizontal" id="ls-condition">
+            <div class="field-label is-normal">
+              <label class="label" for="cond-drop">What kind of item are you selling?</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="cond-drop" name="condition">
+                      <option value="sealed">SEALED</option>
+                      <option value="CIB">COMPLETE IN BOX</option>
+                      <option value="used">USED</option>
+                      <option value="damaged">DAMAGED</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- price --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-price">
+              <label class="label" for="price">Price: $</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="text" id="price" name="price" placeholder="ex:125.00">
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- Color --}}
+          <div class="field is-horizontal" id="ls-color">
+            <div class="field-label is-normal">
+              <label class="label" for="clr-drop">Color:</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select id="clr-drop" name="color">
+                      <option value="black">Black</option>
+                      <option value="white">White</option>
+                      <option value="red">Red</option>
+                      <option value="blue">Blue</option>
+                      <option value="yellow">Yellow</option>
+                      <option value="green">Green</option>
+                      <option value="orangle">Orange</option>
+                      <option value="purple">Purple</option>
+                      <option value="brown">Brown</option>
+                      <option value="gold">Gold</option>
+                      <option value="silver">Silver</option>
+                      <option value="grey">Grey</option>
+                      <option value="pink">Pink</option>
+                      <option value="off-white">Off-White</option>
+                      <option value="clear">Clear</option>
+                      <option value="lime-green">Lime Green</option>
+                      <option value="teal">Teal</option>
+                      <option value="atomic-purple">Atomic Purple</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- special edition --}}
+          <div class="field is-horizontal">
+            <div class="field-label" id="ls-special">
+              <label class="label">Is this a special edition?</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <label class="sp-yes">
+                    <input type="radio" id="sp-yes" name="is_special_edition" value="true">
+                    Yes
+                  </label>
+                  <label class="radio" for="sp-no">
+                    <input type="radio" id="sp-no" name="is_special_edition" value="false">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{!-- img upload --}}
+          <div class="field is-horizontal">
+            <div class="field-label is-normal" id="ls-image">
+              <label class="label" for="myFile">Upload image here:</label>
+            </div>
+
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div enctype="multipart/form-data" action="/action_page.php">
+                    <input type="file" id="myFile" name="filename" accept="image/*">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons is-centered is-info my-2">
+          <button id="ls-submit" type="submit" class="button is-info">YES!</button>
+        </div>
+      </form>
 
     </section>
-    <footer class="modal-card-foot">
+    <footer id="modal-footer" class="modal-card-foot">
 
     </footer>
   </div>

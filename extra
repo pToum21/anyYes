@@ -205,68 +205,145 @@
 <script src="/js/login.js"></script> */} -->
 
 
+// {{!-- <div class="field is-grouped" id="ls-title">
+//   <label class="label" for="title">Title:</label>
+//   <div class="control is-centered">
+//     <input class="" type="text" id="title" name="title" placeholder="Enter a listing title" />
+//   </div>
+// </div> --}}
+
+// {{!-- listing description --}}
+// {{!-- <div class="" id="ls-des">
+//   <label for="description">Description:</label>
+//   <textarea class="" id="description" name="description"></textarea>
+// </div> --}}
+
+// {{!-- date posted will should be rendered on the actual listing, nothing for that in form --}}
+
+
+// {{!-- category dropdown --}}
+// {{!-- <div class="" id="ls-category">
+//   <label for="cat-drop">What kind of item are you selling?</label>
+//   <select id="cat-drop" name="category_name">
+//     <option value="1">Console</option>
+//     <option value="2">Game</option>
+//     {{!-- <option value="accessory">Accessory</option>
+//   </select>
+// </div> --}}
+
+// {{!-- item name; js condition for this will be "if category is game, pass the value
+// of this following form into game_name. if category is console, pass user input value
+// into console_name --}}
+
+// {{!-- <div class="" id="ls-name">
+//   <label for="item">Name of item being sold:</label>
+//   <input class="" type="text" id="item" name="item_name" />
+// </div> --}}
+
+// {{!-- console_brand; company name --}}
+// {{!-- <div class="" id="ls-brand">
+//   <label for="brand">Brand Name:</label>
+//   <input class="" type="text" id="brand" name="console_brand" />
+// </div> --}}
+
+// {{!-- year item came out --}}
+// {{!-- <div class="" id="ls-year">
+//   <label for="year">Year Item Released:</label>
+//   <input type="number" id="year" name="year" min="1950" max="2012" value="2012" />
+// </div> --}}
+
+// {{!-- condition --}}
+// {{!-- <div class="" id="ls-condition">
+//   <label for="cond-drop">Condition:</label>
+//   <select id="cond-drop" name="condition">
+//     <option value="sealed">SEALED</option>
+//     <option value="CIB">COMPLETE IN BOX</option>
+//     <option value="used">USED</option>
+//     <option value="damaged">DAMAGED</option>
+
+
+//   </select>
+// </div> --}}
+
+// {{!-- price --}}
+// {{!-- <div class="" id="ls-price">
+//   <label for="price">Price:</label>
+//   <input class="" type="text" id="price" name="price" />
+// </div> --}}
+
+// {{!-- color --}}
+// {{!-- <div class="" id="ls-color">
+//   <label for="clr-drop">Color:</label>
+//   <select id="clr-drop" name="color">
+//     <option value="black">Black</option>
+//     <option value="white">White</option>
+//     <option value="red">Red</option>
+//     <option value="blue">Blue</option>
+//     <option value="yellow">Yellow</option>
+//     <option value="green">Green</option>
+//     <option value="orangle">Orange</option>
+//     <option value="purple">Purple</option>
+//     <option value="brown">Brown</option>
+//     <option value="gold">Gold</option>
+//     <option value="silver">Silver</option>
+//     <option value="grey">Grey</option>
+//     <option value="pink">Pink</option>
+//     <option value="off-white">Off-White</option>
+//     <option value="clear">Clear</option>
+//     <option value="lime-green">Lime Green</option>
+//     <option value="teal">Teal</option>
+//     <option value="atmoic-purple">Atomic Purple</option>
+//   </select>
+// </div> --}}
+
+// {{!-- special edition? --}}
+// {{!-- <div class="" id="ls-special">
+//   <label>Is this a special edition?</label> <br>
+//   <input type="radio" id="sp-yes" name="is_special_edition" value="true">
+//   <label for="sp-yes">Yes</label><br>
+//   <input type="radio" id="sp-no" name="is_special_edition" value="false">
+//   <label for="sp-no">No</label><br>
+// </div> --}}
 
 
 
-<!-- my attempt to gets orders to show on profile  -->
-router.get('/', async (req, res) => {
-   //use :user_name, + user_name: req.params.user_name
-   try {
 
-      const userListings = await Listing.findAll({
-         where: {
-            user_id: req.session.user_id
-         },
-         include: [
-            {
-            model: User,
-            include: {
-               model: Order
-            }
-         },
-            Order],
-         order: [['date_created', 'DESC']]
-      });
 
-      if (!userListings) {
-         return res.status(404).json({ message: 'Oh, no! User does not exist!' })
-      };
+// {{!--
+// <div class="field" id="ls-image">
+//   <label class="label" for="img-up">Upload image here:</label>
+//   <div class="control">
+//     <input class="input" type="text" id="img-up" name="image" />
+//   </div>
+// </div> --}}
 
-      let myListings = userListings.map(u => u.get({ plain: true }));
 
-      //if statement to render listings for user in profile, but if no listings exist, can still show user_name
 
-      if (myListings.length > 0) {
-         //turns image base 64
-         myListings.forEach(listing => {
-            if (listing.image) {
-               listing.image = listing.image.toString('base64')
-            } else {
-               listing.image = null
-            }
-         });
+// {{!-- image --}}
 
-         const userName = myListings[0].user.user_name;
+// {{!-- <div class="" id="ls-image">
+//   <label for="img-up">Upload image here:</label>
+//   <input class="" type="text" id="img-up" name="image" />
 
-         const orders = [];
-         myListings.forEach(listing => {
-            if (listing.User && listing.User.Order) {
-               orders.push(...listing.User.Order);
-             }
-         });
+//   <div class="button" enctype="multipart/form-data" action="/action_page.php">
+//     <input type="file" id="myFile" name="filename" accept="image/*">
+//   </div>
+// </div> --}}
 
-         //if there is a listing, we will render myListings and userName to profile.hbs
-         res.render('profile', { myListings, userName, orders, logged_in: req.session.logged_in });
 
-      } else {
-         const user = await User.findByPk(req.session.user_id);
-         const userName = user.user_name
+// {{!-- submit button for making a listing form
+// <div class="button is-info">
+//   <button id="ls-submit" type="submit" class="">YES!</button>
+// </div>
+// </div>
+// </form> --}}
 
-         // if no listing, pass empty array for myListings, userName will show
-         res.render('profile', { myListings: [], userName, orders:[], logged_in: req.session.logged_in })
-      }
-   } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: 'User could not load.' });
-   }
-});
+// {{!-- i dont think we need this --}}
+// {{!-- {{#each myListings }}
+// <div>
+
+//   <h2>One listing: {{ title }}</h2>
+//   <p> Order was made on {{ order.created_at }}</p>
+
+// </div>
+// {{/each}} --}}
