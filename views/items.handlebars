@@ -1,80 +1,87 @@
 {{#if items.[0].game_name}}
-<h1>Viewing AnyGame</h1>
+<h1 class="p-3">Viewing AnyGame</h1>
 {{else}}
-<h1>Viewing AnyConsole</h1>
+<h1 class="p-3">Viewing AnyConsole</h1>
 {{/if}}
-{{#each items}}
 
-<div>
+
+
+<section class="is-multiline columns is-centered mx-3 p-6">
+    {{#each items}}
+
+
 
     {{#if console_name}}
     <!-- Console-specific content -->
 
+    <div id="other-listing" class="column m-3 p-5 is-one-fifth"
+        style="line-height: 1.5; min-width: 200px; min-height: 300px;">
 
-    {{#if sold}}
-    <strong>
-        <p style="height:10%">SOLD</p>
-    </strong>
-    {{else}}
-    <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+        {{!-- title; if sold, title will just say such --}}
+        {{#if sold}}
         <strong>
-            <p style="height:10%">{{title}}</p>
+            <p class="my-2">SOLD</p>
         </strong>
-    </a>
-    {{/if}}
+        {{else}}
+        <strong>
+            <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+                <strong>
+                    <p class="my-2">{{title}}</p>
+                </strong>
+            </a>
+        </strong>
+        {{/if}}
 
-    <p>{{ price }}</p>
-    <p>{{condition}}</p>
-    <br>
+        <p class="my-2">{{console_name}}</p>
+        <p class="my-2">{{price}}</p>
+        <p class="my-2">{{condition}} {{category.category_name}}</p>
 
-    {{#if sold}}
-    <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
-    {{else}}
-    <img id="listingImage" src="data:image/png;base64,{{image}}" />
-    {{/if}}
+        {{!-- image; if sold, is greyed out --}}
+        {{#if sold}}
+        <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+        {{else}}
+        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        {{/if}}
+    </div>
 
-    <br>
-    <h3>{{ console_name }}</h3>
-    <p>{{ description }}</p>
+
 
     {{else}}
     <!-- Game-specific content -->
 
-    <div>
-        <a>
-            <div>
-                <span>
-                    <img src="">
-                </span>
-            </div>
-            <div>
-                <p class="text-3xl">
 
-                    {{#if sold}}
-                    <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
-                    {{else}}
-                    <img id="listingImage" src="data:image/png;base64,{{image}}" />
-                    {{/if}}
+    <div id="other-listing" class="column m-3 p-5 is-one-fifth"
+        style="line-height: 1.5; min-width: 200px; min-height: 300px;">
 
-                    {{#if sold}}
-                    <strong>
-                        <p style="height:10%">SOLD</p>
-                    </strong>
-                    {{else}}
-                    <a href="/category/{{category.category_name}}/{{id}}">
-                        <strong>
-                            <p style="height:10%">{{title}}</p>
-                        </strong>
-                    </a>
-                    {{/if}}
-                </p>
-                <p>{{description}}</p>
-                <p>{{price}}</p>
-                <p>{{condition}}</p>
-            </div>
-        </a>
+        {{!-- title; if sold, title will just say such --}}
+        {{#if sold}}
+        <strong>
+            <p class="my-2">SOLD</p>
+        </strong>
+        {{else}}
+        <strong>
+            <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+                <strong>
+                    <p class="my-2">{{title}}</p>
+                </strong>
+            </a>
+        </strong>
+        {{/if}}
+
+        <p class="my-2">{{game_name}}</p>
+        <p class="my-2">{{price}}</p>
+        <p class="my-2">{{condition}} {{category.category_name}}</p>
+
+        {{#if sold}}
+        <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+        {{else}}
+        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+        {{/if}}
+
     </div>
 
+
     {{/if}}
-</div>
-{{/each}}
+
+    {{/each}}
+</section>
