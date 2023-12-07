@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
          where: {
             user_id: req.session.user_id
          },
-         include: [User, Order],
+         include: [User, Order, Category],
          order: [['date_created', 'DESC']]
       });
 
