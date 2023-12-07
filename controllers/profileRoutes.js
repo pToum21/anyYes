@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 
       let myListings = userListings.map(u => u.get({ plain: true }));
 
-      // console.log(myListings);
+
 
       //if statement to render listings for user in profile, but if no listings exist, can still show user_name
 
@@ -48,11 +48,11 @@ router.get('/', async (req, res) => {
             }]
          })
 
-         // console.log('Order data:', orderData);
+
 
 
          let myOrders = orderData.map(u => u.get({ plain: true }));
-         console.log('These are my orders:', myOrders);
+
 
          //if there is a listing, we will render myListings and userName to profile.hbs
          res.render('profile', { myListings, userName, myOrders, logged_in: req.session.logged_in });
@@ -61,12 +61,12 @@ router.get('/', async (req, res) => {
          const user = await User.findByPk(req.session.user_id);
          const userName = user.user_name
 
-         // console.log(userName)
+
          // if no listing, pass empty array for myListings, userName will show
          res.render('profile', { myListings: [], userName, myOrders: [], logged_in: req.session.logged_in })
       }
    } catch (error) {
-      console.log(error);
+
       res.status(500).json({ message: 'User could not load.' });
    }
 });

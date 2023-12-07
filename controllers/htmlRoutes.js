@@ -83,7 +83,7 @@ router.get('/category/:category', async (req, res) => {
             order: [['date_created', 'DESC']]
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
-         console.log(items)
+
 
          items.forEach(listing => {
             if (listing.image) {
@@ -93,7 +93,7 @@ router.get('/category/:category', async (req, res) => {
             }
 
          })
-        
+
          res.render('items', { items, logged_in: req.session.logged_in });
 
       } else if (req.params.category === 'games') {
@@ -157,7 +157,7 @@ router.get('/category/:category/:id', async (req, res) => {
       } else {
          item.image = null
       }
-console.log(item)
+
       res.render(`${specificPage}`, {
          ...item,
          currentId: req.session.user_id,

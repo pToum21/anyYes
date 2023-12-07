@@ -12,11 +12,13 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// this is the length of the cookie amking it last one week
+const oneWeekInMilliseconds = 7 * 24 * 60 * 60 * 1000;
 const sess = {
   secret: 'Super secret secret',
   cookie: {
     // cookie expires after 30 min
-    maxAge: 1800000,
+    maxAge: oneWeekInMilliseconds,
     httpOnly: true,
     secure: false,
     sameSite: 'lax',
@@ -29,10 +31,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
-// this is in the utils folder
-// app.use(sessionMiddleware);
-
 
 const hbs = exphbs.create({ helpers });
 
