@@ -1,18 +1,30 @@
-<header>
+<header class="antique p-3">
     <h1>{{title}}</h1>
 </header>
 
-<main class="game">
+<main class="p-3">
+    {{!-- image --}}
+    <figure class="gameImg" alt="">
+        <img id="listingImage" src="data:image/png;base64,{{image}}" />
+    </figure>
+    {{!-- console name --}}
+    <h2>Console: {{console_name}} by {{console_brand}} from {{year}} </h2>
 
-    <section class="gameImg" alt="">
-        <img src="">
-    </section>
+    <p>Price: {{price}}</p>
+    <p>Condition: {{condition}}</p>
+    <p>Color: {{color}}</p>
 
-    <h2>{{console_name}}</h2>
+    {{#if is_special_edition}}
+    <p>Special Edition: Yes</p>
+    {{else}}
+    <p>Special Edition: No</p>
+    {{/if}}
 
-    <img id="listingImage" src="data:image/png;base64,{{image}}" />
+    <p>Posted on: {{format_date date_created}}</p>
 
+    <p>Description: {{description}}</p>
 
+    {{!-- add to cart button --}}
     {{#if (ifCond sold user_id currentId)}}
     <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
     {{else}}

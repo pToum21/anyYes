@@ -148,6 +148,10 @@ footer {
 
 /* classes */
 
+.antique {
+    background-color: rgba(250, 234, 214, 0.4);
+}
+
 .bbdouble {
     border-bottom: 5px double antiquewhite;
 }
