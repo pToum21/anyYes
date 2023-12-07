@@ -7,11 +7,13 @@
   </p>
 </div>
 
+{{!-- User's listings --}}
 <h2 class="p-3 bbdouble">Here are your listings:</h2>
 <div class="bbdouble">
   <section class="is-multiline columns is-centered mx-3 p-6">
     {{#each myListings}}
-    <div id="other-listing" class="column m-3 p-5 is-one-fifth" style="line-height: 1.5">
+    <div id="other-listing" class="column m-3 p-5 is-one-fifth"
+      style="line-height: 1.5; min-width: 200px; min-height: 200px;">
       <a href="/category/{{category.category_name}}/{{id}}">
         <strong>
           <p class="my-2">{{title}}</p>
@@ -30,18 +32,56 @@
   </section>
 </div>
 
+{{!-- User's orders --}}
+<section class="box bbdouble" id="order-section">
+  <h2 class="title  has-background-info has-text-white p-3">Here are your past orders:</h2>
+  <div class="columns is-multiline" id="order-section">
 
-<section class="bbdouble">
-  <h2 class="p-3 bbdouble">Here are your past orders:</h2>
-  <div>
     {{#each myOrders}}
-    <div>
-      <p>{{listing.title}}</p>
-      <p> This is an id number: {{id}} </p><br>
-      <p> Status: {{status}}</p>
+
+    <div class="column is-full">
+      <div class="box is-flex is-justify-content-space-between has-text-black" id="order-box">
+        <p>
+          {{#if listing.game_name }}
+          <a href="/category/{{listing.category.category_name}}/{{listing.id}}">
+            {{listing.game_name}} from {{listing.user.user_name}}
+          </a>
+          {{else}}
+          <a href="/category/{{listing.category.category_name}}/{{listing.id}}">
+            {{listing.console_name}} from {{listing.user.user_name}}
+          </a>
+          {{/if}}
+          </a>
+        </p>
+        <p>
+          Price: ${{listing.price}}
+        </p>
+        <p>
+          Order Number: {{reference_number}}
+        </p>
+        <p>
+          Purchased on: {{format_date created_at}}
+        </p>
+
+
+        <p>Status:
+          {{#if status}}
+          Delivered
+          {{else}}
+          On it's way
+          {{/if}}
+        </p>
+      </div>
+
     </div>
     {{/each}}
+  </div>
 </section>
+
+
+
+
+
 
 
 {{!-- modal to add a list --}}
@@ -258,7 +298,6 @@
 
     </section>
     <footer id="modal-footer" class="modal-card-foot">
-
     </footer>
   </div>
 </div>

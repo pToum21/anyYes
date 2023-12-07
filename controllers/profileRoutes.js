@@ -42,7 +42,10 @@ router.get('/', async (req, res) => {
             where: {
                user_id: req.session.user_id
             },
-            include: [Listing]
+            include: [{
+               model: Listing,
+               include: [User, Category]
+            }]
          })
 
          // console.log('Order data:', orderData);
@@ -60,7 +63,7 @@ router.get('/', async (req, res) => {
 
          // console.log(userName)
          // if no listing, pass empty array for myListings, userName will show
-         res.render('profile', { myListings: [], userName, myOrders:[], logged_in: req.session.logged_in })
+         res.render('profile', { myListings: [], userName, myOrders: [], logged_in: req.session.logged_in })
       }
    } catch (error) {
       console.log(error);

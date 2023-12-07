@@ -93,10 +93,8 @@ router.get('/category/:category', async (req, res) => {
             }
 
          })
-
-
-
-         res.render('games', { items, logged_in: req.session.logged_in });
+        
+         res.render('items', { items, logged_in: req.session.logged_in });
 
       } else if (req.params.category === 'games') {
 
@@ -118,7 +116,7 @@ router.get('/category/:category', async (req, res) => {
             }
          })
 
-         res.render('games', { items, logged_in: req.session.logged_in });
+         res.render('items', { items, logged_in: req.session.logged_in });
 
       } else {
          res.status(404).json({ message: 'no category of that nature exists.' });
