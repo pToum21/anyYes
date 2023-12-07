@@ -3,7 +3,7 @@
     <p> Seller: {{user.user_name}}</p>
 </header>
 
-<main class="blacktrs px-3 py-6 has-text-white">
+<main class="blacktrs px-3 py-6 has-text-white is-centered" style="line-height: 40px">
     {{!-- image --}}
     <figure class="gameImg" alt="">
         <img id="listingImage" src="data:image/png;base64,{{image}}" style=" max-width: 640px;" />
@@ -25,7 +25,7 @@
     <p>Special Edition: No</p>
     {{/if}}
 
-
+    Contact Seller: <a href="mailto:{{user.email}}"> {{user.user_name}} </a>
 
     {{!-- add to cart button --}}
     {{#if (ifCond sold user_id currentId)}}
