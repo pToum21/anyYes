@@ -47,6 +47,18 @@ if (loginNav) {
     });
 };
 
+const sessionCheck = setInterval(async () => {
+    const response = await fetch('/api/users/check-expiration')
+    const expired = await response.json()
+
+    if (expired === "session expired") {
+        alert("session expired")
+        window.location.assign('/')
+        //button click for log in goes here.
+        clearInterval(sessionCheck)
+    }
+}, 10000 )
+
 xClose.addEventListener('click', (event) => {
     event.preventDefault();
     loginModal.classList.remove('is-active')
