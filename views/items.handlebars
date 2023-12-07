@@ -63,16 +63,20 @@
             </strong>
             {{/if}}
 
+             <p class="my-2">{{console_name}}</p>
+            <p class="my-2">{{price}}</p>
+            <p class="my-2">{{condition}} {{category.category_name}}</p>
+
+             {{#if sold}}
+            <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
+            {{else}}
+            <img id="listingImage" src="data:image/png;base64,{{image}}" />
+            {{/if}}
+
         </div>
     </section>
 
-    <p class="text-3xl">
-
-        {{#if sold}}
-        <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
-        {{else}}
-        <img id="listingImage" src="data:image/png;base64,{{image}}" />
-        {{/if}}
+    
 
         {{#if sold}}
         <strong>
