@@ -73,7 +73,7 @@ footer {
 #circle {
     background: lightblue;
     border-radius: 50%;
-    width: auto;
+    width: 450px;
     height: 450px;
     margin:auto;
     text-align: center;
@@ -206,8 +206,6 @@ footer {
     }
 }
 
-;
-
 /* mquery for mobile effects */
 @media only screen and (max-width : 768px) {
     #search-bar {
@@ -215,4 +213,9 @@ footer {
     }
 }
 
-;
+@media only screen and (max-width : 460px) {
+    #circle {
+        width:auto;
+        min-height:300px;
+    }
+}
