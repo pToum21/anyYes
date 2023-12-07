@@ -82,7 +82,7 @@ router.get('/category/:category', async (req, res) => {
             }
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
-         
+         console.log(items)
 
          items.forEach(listing => {
             if (listing.image) {
@@ -95,7 +95,7 @@ router.get('/category/:category', async (req, res) => {
         
 
 
-         res.render('consoles', { items, logged_in: req.session.logged_in });
+         res.render('games', { items, logged_in: req.session.logged_in });
 
       } else if (req.params.category === 'games') {
 
