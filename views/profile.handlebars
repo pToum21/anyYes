@@ -34,9 +34,11 @@
 <section class="bbdouble">
   <h2 class="p-3 bbdouble">Here are your past orders:</h2>
   <div>
-    {{#each orders}}
+    {{#each myOrders}}
     <div>
-      <p> This is an id number: {{id}} </p>
+      <p>{{listing.title}}</p>
+      <p> This is an id number: {{id}} </p><br>
+      <p> Status: {{status}}</p>
     </div>
     {{/each}}
 </section>
