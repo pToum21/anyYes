@@ -55,7 +55,8 @@
 {{!-- all other listings --}}
 <section id="allotherlistings" class="is-multiline columns is-centered mx-3 p-6">
     {{#each allOtherListings}}
-    <div id="other-listing" class="column m-3 p-3 is-one-fifth" style="line-height: 1.5; min-width: 200px; min-height: 350px;">
+    <div id="other-listing" class="column m-3 p-3 is-one-fifth"
+        style="line-height: 1.5; min-width: 200px; min-height: 350px;">
         {{#if sold}}
         <strong>
             <p style="height:10%">SOLD</p>
@@ -71,7 +72,8 @@
         <p class="my-2">{{condition}} {{category.category_name}}</p>
         <div class="image is-128x128  my-1" style=" display: block; margin: auto;">
             {{#if sold}}
-            <img id="listingImage" style="filter: grayscale(1); max-width: 100%;" src="data:image/png;base64,{{image}}" />
+            <img id="listingImage" style="filter: grayscale(1); max-width: 100%;"
+                src="data:image/png;base64,{{image}}" />
             {{else}}
             <img id="listingImage" style="max-width: 100%;" src="data:image/png;base64,{{image}}" />
             {{/if}}
