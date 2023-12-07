@@ -82,7 +82,7 @@ router.get('/category/:category', async (req, res) => {
             }
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
-         
+         console.log(items)
 
          items.forEach(listing => {
             if (listing.image) {
