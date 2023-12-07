@@ -52,7 +52,7 @@ router.get('/', async (req, res) => {
       });
 
    } catch (error) {
-      
+
       res.status(500).json({ message: 'No listings showing.' });
    }
 });
@@ -79,7 +79,8 @@ router.get('/category/:category', async (req, res) => {
             include: Category,
             where: {
                category_id: itemId
-            }
+            },
+            order: [['date_created', 'DESC']]
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
          console.log(items)
@@ -90,9 +91,9 @@ router.get('/category/:category', async (req, res) => {
             } else {
                listing.image = null
             }
-           
+
          })
-        
+
 
 
          res.render('games', { items, logged_in: req.session.logged_in });
@@ -104,7 +105,8 @@ router.get('/category/:category', async (req, res) => {
             include: Category,
             where: {
                category_id: itemId
-            }
+            },
+            order: [['date_created', 'DESC']]
          });
          const items = itemData.map((individualConsole) => individualConsole.get({ plain: true }));
 
@@ -123,7 +125,7 @@ router.get('/category/:category', async (req, res) => {
       }
 
    } catch (error) {
-     
+
       res.status(500).json({ message: 'List of consoles is not showing.' });
    }
 });
@@ -166,7 +168,7 @@ router.get('/category/:category/:id', async (req, res) => {
          logged_in: req.session.logged_in
       });
    } catch (error) {
-     
+
       res.status(500).json({ message: 'This console does not exist.' });
    }
 }
@@ -177,7 +179,7 @@ router.get('/cart', async (req, res) => {
    try {
       res.render('cart', { logged_in: req.session.logged_in });
    } catch (error) {
-      
+
       res.status(500).json({ message: 'This cart does not exist.' });
    }
 });

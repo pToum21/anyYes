@@ -15,6 +15,11 @@ module.exports = {
     } else {
       return false;
     }
+  },
+
+  hasNonNullValue: function (array, property, options) {
+    const hasNonNullValue = array.some(item => item[property] !== null);
+    return hasNonNullValue ? options.fn(this) : options.inverse(this);
   }
 
 };
