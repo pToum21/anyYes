@@ -130,12 +130,26 @@ footer {
     border-radius: 25px;
     /* height: 100%; */
 }
+#order-box {
+    background-color: rgba(250, 234, 214, 0.3);
+}
+
+#order-section {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#userOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 
 
 /* classes */
+
 .bbdouble {
     border-bottom: 5px double antiquewhite;
-    ;
 }
 
 .crsl-img {

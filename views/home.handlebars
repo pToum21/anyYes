@@ -25,7 +25,7 @@
 <h1 class="p-3"> LISTINGS </h1>
 <main id="recent" class="columns m-3">
     {{#each listings as |listing|}}
-    <div id="listing" class="column m-3 p-5">
+    <div id="listing" class="column m-3 p-5" style="line-height: 1.5; min-width: 200px; min-height: 200px;">
         <div id="inner-listing" class="p-3">
             {{#if sold}}
             <strong>
@@ -55,7 +55,7 @@
 {{!-- all other listings --}}
 <section id="allotherlistings" class="is-multiline columns is-centered mx-3 p-6">
     {{#each allOtherListings}}
-    <div id="other-listing" class="column m-3 p-3 is-one-fifth" style="line-height: 1.5; min-width: 200px;">
+    <div id="other-listing" class="column m-3 p-3 is-one-fifth" style="line-height: 1.5; min-width: 200px; min-height: 200px;">
         {{#if sold}}
         <strong>
             <p style="height:10%">SOLD</p>
