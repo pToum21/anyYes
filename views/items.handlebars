@@ -5,16 +5,17 @@
 {{/if}}
 
 
+
+
+{{#each items}}
+
 <div>
+
+    {{#if console_name}}
+    <!-- Console-specific content -->
     <section class="is-multiline columns is-centered mx-3 p-6">
-
-        {{#each items}}
-
         <div id="other-listing" class="column m-3 p-5 is-one-fifth"
             style="line-height: 1.5; min-width: 200px; min-height: 200px;">
-
-            {{#if console_name}}
-            {{!-- if item is sold, it will say sold sted of title --}}
             {{#if sold}}
             <strong>
                 <p style="height:10%">SOLD</p>
@@ -23,63 +24,12 @@
             <strong>
                 <p style="height:10%">{{title}}</p>
             </strong>
-            {{/if}}
-            <p class="my-2">{{ console_name }}</p>
-            <p class="my-2">{{ price }}</p>
-            <p class="my-2">{{condition}} {{category.category_name}}</p>
-
-            {{!-- if item is sold, image will be greyed out--}}
-            {{#if sold}}
-            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
-                <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
-            </div>
-            {{else}}
-            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
-                <img id="listingImage" src="data:image/png;base64,{{image}}" />
-            </div>
-            {{/if}}
-
-            {{!-- if not console listings... --}}
-            {{else}}
-
-            {{#if sold}}
-            <strong>
-                <p style="height:10%">SOLD</p>
-            </strong>
-            {{else}}
-            <strong>
-                <p style="height:10%">{{title}}</p>
-            </strong>
-            {{/if}}
-            <p class="my-2">{{ game_name }}</p>
-            <p class="my-2">{{ price }}</p>
-            <p class="my-2">{{condition}} {{category.category_name}}</p>
-
-            {{!-- if item is sold, image will be greyed out--}}
-            {{#if sold}}
-            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
-                <img id="listingImage" style="filter: grayscale(1);" src="data:image/png;base64,{{image}}" />
-            </div>
-            {{else}}
-            <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
-                <img id="listingImage" src="data:image/png;base64,{{image}}" />
-            </div>
             {{/if}}
 
         </div>
-        {{/each}}
     </section>
-</div>
 
-
-
-
-
-
-<div>
-    {{#if console_name}}
-    <!-- Console-specific content -->
-    {{#if sold}}
+    {{!-- {{#if sold}}
     <strong>
         <p style="height:10%">SOLD</p>
     </strong>
@@ -89,7 +39,7 @@
             <p style="height:10%">{{title}}</p>
         </strong>
     </a>
-    {{/if}}
+    {{/if}} --}}
 
     <p>{{ price }}</p>
     <p>{{condition}}</p>
