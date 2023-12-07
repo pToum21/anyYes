@@ -30,10 +30,6 @@ const sess = {
 
 app.use(session(sess));
 
-// this is in the utils folder
-// app.use(sessionMiddleware);
-
-
 const hbs = exphbs.create({ helpers });
 
 

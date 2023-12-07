@@ -3,26 +3,6 @@ const router = require('express').Router();
 // import the User model
 const { User } = require('../../models');
 
-// router.get('/check-expiration', (req, res) => {
-
-//     if (req.session.cookie._expires) {
-//         // Check if the session expiration time is in the past
-//         const isExpired = new Date(req.session.cookie._expires) < new Date();
-
-//         if (isExpired) {
-//             // Session has expired
-//             res.json('session expired');
-//         } else {
-//             // Session is still valid
-//             res.json('session valid');
-//         }
-//     } else {
-//         // Session does not have an expiration time
-//         res.json('Session does not have an expiration time.');
-//     }
-// });
-
-
 // sign up new user
 router.post('/', async (req, res) => {
     try {
