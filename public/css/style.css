@@ -70,6 +70,21 @@ footer {
     align-items: center;
 }
 
+/* credit free code camp */
+#circle {
+    background-color: rgba(250, 234, 214, 0.4);
+    box-shadow: 20px 20px 3px 3px black;
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 30px 30px 30px 30px rgba(250, 234, 214, 0.3);
+}
+
 #hero-banner {
     background-image: url("../photos/pxlart-3.jpeg");
     background-size: cover;
@@ -130,6 +145,7 @@ footer {
     border-radius: 25px;
     /* height: 100%; */
 }
+
 #order-box {
     background-color: rgba(250, 234, 214, 0.3);
 }
@@ -194,8 +210,6 @@ footer {
     }
 }
 
-;
-
 /* mquery for mobile effects */
 @media only screen and (max-width : 768px) {
     #search-bar {
@@ -203,4 +217,9 @@ footer {
     }
 }
 
-;
+@media only screen and (max-width : 460px) {
+    #circle {
+        width: auto;
+        min-height: 300px;
+    }
+}
