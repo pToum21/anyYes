@@ -133,7 +133,7 @@ deleteButtons.forEach((button) => {
 
 //modal logic to add a listing
 const addListingBtn = document.querySelector('#add-ls-btn');
-const xClose = document.querySelector('.delete')
+const closeModal = document.querySelector('.delete')
 const addLsModal = document.querySelector('.modal');
 
 //wrapped in if statement, bc otherwise, error will populate in console when user is logged in bc loginNav will not exist.
@@ -145,7 +145,7 @@ addListingBtn.addEventListener('click', (event) => {
 });
 
 
-xClose.addEventListener('click', (event) => {
+closeModal.addEventListener('click', (event) => {
     event.preventDefault();
     addLsModal.classList.remove('is-active')
 })
