@@ -12,6 +12,7 @@ const upload = multer({
 router.post('/file-upload', upload.single('image'), async (req, res) => {
     try {
         const fileBuffer = req.file.buffer;
+        console.log(req.file.buffer)
         const {
             title,
             price,
