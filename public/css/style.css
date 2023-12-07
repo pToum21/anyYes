@@ -30,6 +30,7 @@ h1 {
     font-size: 2rem;
     color: bisque;
 }
+
 h2 {
     font-family: 'Limelight';
     font-size: 1.5rem;
@@ -90,7 +91,9 @@ footer {
 }
 
 
-#logout, #login-nav, #add-ls-btn {
+#logout,
+#login-nav,
+#add-ls-btn {
     /* removes default HTML button styling */
     /* credit https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit in readme */
     background: none;
@@ -110,6 +113,17 @@ footer {
     line-height: normal;
 }
 
+#modal-footer {
+
+    background-image: url("../photos/mario-gif_1.gif");
+    background-size: auto;
+    background-position: bottom;
+    background-repeat: repeat;
+    height: 100px;
+    width: 100vw;
+
+}
+
 #other-listing {
     background-color: rgba(250, 234, 214, 0.4);
     border: 5px double antiquewhite;
@@ -120,7 +134,8 @@ footer {
 
 /* classes */
 .bbdouble {
-    border-bottom: 5px double antiquewhite;;
+    border-bottom: 5px double antiquewhite;
+    ;
 }
 
 .crsl-img {
@@ -155,11 +170,15 @@ footer {
     .splide {
         padding: 3rem;
     }
-};
+}
+
+;
 
 /* mquery for mobile effects */
 @media only screen and (max-width : 768px) {
     #search-bar {
         text-align: center;
     }
-};
+}
+
+;
