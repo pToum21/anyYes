@@ -33,7 +33,7 @@ function searchForItems(event) {
     window.location.assign(`/?q=${userInput}`);
 };
 
-//modal js
+//modal js FOR LOGIN
 const loginNav = document.querySelector('#login-nav');
 const xClose = document.querySelector('.delete')
 const loginModal = document.querySelector('.modal');
