@@ -58,5 +58,3 @@ const removeFromCartAndDatabase = async (id) => {
 buttons.forEach(button => {
     button.addEventListener('click', addToCart);
 });
-
-
