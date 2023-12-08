@@ -19,9 +19,13 @@ This project uses dotenv and a config folder with a connection js file.
 * [Usage](#usage---💎)
 * [How to Contribute](#how-to-contribute---🍴)
 * [Test](#test---🧪)
-* [Questions](#questions---❓)
+* [Preview Video](#preview-video---📼)
+* [Preview Photo](#preview-photo---📸)
+* [Deployed App](#deployed-app---📲)
 * [Credits](#credits---🤝)
-* [Contributors](#contriubutors)
+* [Contributors](#contributors---💪)
+* [Questions](#questions---❓)
+
 
 ## Usage - 💎
 Please run npm init -y and npm i to install dependencies used.
@@ -37,16 +41,16 @@ You must run mysql -u root then source the schema and use the db
 You must npm run seed to seed the database
 You must npm run start to the open the application view localhost{port}
 
-## Preview Video
+## Preview Video - 📼
 https://github.com/pToum21/anyYes/assets/138056441/0904d40d-3ad2-4217-b29f-5beb79ace532
 
-## Preview Photo
+## Preview Photo - 📸
 ![AnyYes preview](./public/photos/AnyYes%20-%20Google%20Chrome%2012_7_2023%203_09_16%20PM.png)
 
-## Deployed Application
+## Deployed Application - 📲
 https://anyyes-3bf9b8d1cf29.herokuapp.com/
 
-## Credits
+## Credits - 🤝
 D. Murphy, M. Meyers, Xpert AI, Stack Overflow
 
 Carousel art:
@@ -61,7 +65,7 @@ Carousel art:
 
 [https://wall.alphacoders.com/big.php?i=1129294](https://wall.alphacoders.com/big.php?i=1129294)
 
-## Contributors 
+## Contributors - 💪
 * @mintyry
 * @pToum21
 * @SalGonzalez151
