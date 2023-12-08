@@ -28,15 +28,19 @@
     <div id="listing" class="column m-3 p-5" style="line-height: 1.5; min-width: 200px; min-height: 350px;">
         <div id="inner-listing" class="p-3">
             {{#if sold}}
-            <strong>
-                <p style="height:10%">SOLD</p>
-            </strong>
-            {{else}}
-            <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+            <div class="my-2">
                 <strong>
-                    <p style="height:15%">{{listing.title}}</p>
+                    <p style="height:10%">SOLD</p>
                 </strong>
-            </a>
+            </div>
+            {{else}}
+            <div class="my-2">
+                <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+                    <strong>
+                        <p style="height:15%">{{listing.title}}</p>
+                    </strong>
+                </a>
+            </div>
             {{/if}}
             <p style="height:10%" class="my-2">${{price}}</p>
             <p style="height:10%" class="my-2">{{listing.condition}} {{category.category_name}}</p>
@@ -58,15 +62,19 @@
     <div id="other-listing" class="column m-3 p-3 is-one-fifth"
         style="line-height: 1.5; min-width: 200px; min-height: 350px;">
         {{#if sold}}
-        <strong>
-            <p style="height:10%">SOLD</p>
-        </strong>
-        {{else}}
-        <a href="/category/{{category.category_name}}/{{id}}">
+        <div class="my-2">
             <strong>
-                <p style="height:15%">{{title}}</p>
+                <p style="height:10%">SOLD</p>
             </strong>
-        </a>
+        </div>
+        {{else}}
+        <div class="my-2">
+            <a href="/category/{{category.category_name}}/{{id}}" class="my-2">
+                <strong>
+                    <p style="height:15%">{{listing.title}}</p>
+                </strong>
+            </a>
+        </div>
         {{/if}}
         <p class="my-2">${{price}}</p>
         <p class="my-2">{{condition}} {{category.category_name}}</p>
