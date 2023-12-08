@@ -1,4 +1,8 @@
 /* elements */
+
+html {
+    scroll-behavior: smooth;
+}
 body {
     background-image: url("../photos/brickr.png");
     background-size: contain;
