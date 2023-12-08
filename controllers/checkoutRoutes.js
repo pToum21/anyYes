@@ -3,7 +3,7 @@ const { Order, Listing } = require('../models');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const withAuth = require('../utils/auth')
 
-const YOUR_DOMAIN = 'http://localhost:3001';
+const YOUR_DOMAIN = 'https://anyyes-3bf9b8d1cf29.herokuapp.com';
 
 router.get('/', async (req, res) => {
     try {
