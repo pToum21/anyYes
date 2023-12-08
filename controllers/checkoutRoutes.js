@@ -3,7 +3,8 @@ const { Order, Listing } = require('../models');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const withAuth = require('../utils/auth')
 
-const YOUR_DOMAIN = 'https://anyyes-3bf9b8d1cf29.herokuapp.com';
+// if MODE exists, it'll be on local host, otherwise heroku
+const YOUR_DOMAIN = process.env.MODE ? 'http://localhost:3001' : 'https://anyyes-3bf9b8d1cf29.herokuapp.com';
 
 router.get('/', async (req, res) => {
     try {
@@ -38,6 +39,7 @@ router.get('/', async (req, res) => {
                 },
             ],
             mode: 'payment',
+            // goes to success page, but then immediately redirects to profile and orders
             success_url: `${YOUR_DOMAIN}/checkout/success?listing_id=${listing.id}`,
             cancel_url: `${YOUR_DOMAIN}/checkout/cancel`,
         });
@@ -73,7 +75,7 @@ router.get('/success', withAuth, async (req, res) => {
 
         const order = dbRes.get({ plain: true });
 
-        res.render('checkout', { order, listing, logged_in: req.session.logged_in });
+        res.redirect('/profile#order-section');
     } catch (error) {
 
         res.status(500).json({ message: 'This cart does not exist.' });
