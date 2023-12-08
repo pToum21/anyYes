@@ -37,7 +37,7 @@ You must npm run seed to seed the database
 You must npm run start to the open the application view localhost{port}
 
 ## Preview Video
-
+![video demo](./public/photos/AnyYes%20-%20Google%20Chrome%202023-12-07%2018-05-58.mp4)
 
 ## Preview Photo
 ![AnyYes preview](./public/photos/AnyYes%20-%20Google%20Chrome%2012_7_2023%203_09_16%20PM.png)
