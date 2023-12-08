@@ -34,6 +34,9 @@ const addToCart = () => {
                     if (data.listing.sold) {
                         // If sold, remove from both local storage and database
                         removeFromCartAndDatabase(data.listing.id);
+                    } else {
+                        // Redirect to the checkout page
+                        window.location.href = '/cart'; // Replace '/checkout' with the actual path to your checkout page
                     }
                 }
             });
