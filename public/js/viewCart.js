@@ -20,7 +20,7 @@ for (i = 0; i < userCart.length; i++) {
     cart.innerHTML += `
     <section class="is-multiline columns is-centered p-3">
     <div class="column my-2 p-5 is-one-fifth antique crsl-img "
-    style="line-height: 1.5; min-width: 200px; min-height: 200px; border: 5px double antiquewhite;">
+    style="line-height: 1.5; min-width: 300px; min-height: 200px; border: 5px double antiquewhite;">
 
     <a href="/category/${category}/${userCart[i].id}">
     <strong>
@@ -36,18 +36,3 @@ for (i = 0; i < userCart.length; i++) {
 }
 
 document.querySelector('.checkout-btn').addEventListener('click', (event) => { });
-
-
-//   <a href="/category/{{category.category_name}}/{{id}}">
-//     <strong>
-//       <p class="my-2">{{title}}</p>
-//     </strong>
-//   </a>
-//   <p class="my-2">{{price}}</p>
-//   <p class="my-2">{{condition}} {{category.category_name}}</p>
-//   <div class="image is-128x128  my-2" style=" display: block; margin: auto;">
-//     <img id="listingImage" src="data:image/png;base64,{{image}}" />
-//   </div>
-//   <div>
-//     <button class="delete-btn button is-danger is-small" data-id="{{id}}">Delete</button>
-//   </div>
