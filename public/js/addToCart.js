@@ -1,5 +1,8 @@
 //custom function to prevent duplicate items being added to array
 // Define the isDuplicate function
+
+const buttons = document.querySelectorAll('.cart-btn')
+
 const isDuplicate = (title, cart) => {
     const lowerCaseTitle = title.toLowerCase();
     for (let i = 0; i < cart.length; i++) {
@@ -52,6 +55,8 @@ const removeFromCartAndDatabase = async (id) => {
 };
 
 // Add an event listener to the cart button
-document.querySelector('.cart-btn').addEventListener('click', addToCart);
+buttons.forEach(button => {
+    button.addEventListener('click', addToCart);
+});
 
 
