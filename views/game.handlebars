@@ -38,9 +38,9 @@
 
         {{!-- add to cart button --}}
         {{#if (ifCond sold user_id currentId)}}
-        <button id="Cart-Btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
+        <button id="add-btn" class="cart-btn button is-info" style="display:none">Add to Cart</button>
         {{else}}
-        <button id="Cart-Btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
+        <button id="add-btn" class="cart-btn button is-info" style="display:block">Add to Cart</button>
         {{/if}}
     </div>
 </main>
