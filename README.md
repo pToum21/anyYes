@@ -20,7 +20,7 @@ This project uses dotenv and a config folder with a connection js file.
 * [How to Contribute](#how-to-contribute---🍴)
 * [Test](#test---🧪)
 * [Questions](#questions---❓)
-* [Credits](#credits --- 🤝)
+* [Credits](#credits---🤝)
 * [Contributors](#contriubutors)
 
 ## Usage - 💎
@@ -51,15 +51,15 @@ D. Murphy, M. Meyers, Xpert AI, Stack Overflow
 
 Carousel art:
 
-![https://wall.alphacoders.com/big.php?i=1298880](https://wall.alphacoders.com/big.php?i=1298880)
+[https://wall.alphacoders.com/big.php?i=1298880](https://wall.alphacoders.com/big.php?i=1298880)
 
-![https://www.deviantart.com/1tzah/art/Zelda-fanart-Itzah-905057250](https://www.deviantart.com/1tzah/art/Zelda-fanart-Itzah-905057250)
+[https://www.deviantart.com/1tzah/art/Zelda-fanart-Itzah-905057250](https://www.deviantart.com/1tzah/art/Zelda-fanart-Itzah-905057250)
 
-![https://wall.alphacoders.com/big.php?i=1281520](https://wall.alphacoders.com/big.php?i=1281520)
+[https://wall.alphacoders.com/big.php?i=1281520](https://wall.alphacoders.com/big.php?i=1281520)
 
-![https://wall.alphacoders.com/big.php?i=1259209](https://wall.alphacoders.com/big.php?i=1259209)
+[https://wall.alphacoders.com/big.php?i=1259209](https://wall.alphacoders.com/big.php?i=1259209)
 
-![https://wall.alphacoders.com/big.php?i=1129294](https://wall.alphacoders.com/big.php?i=1129294)
+[https://wall.alphacoders.com/big.php?i=1129294](https://wall.alphacoders.com/big.php?i=1129294)
 
 ## Contributors 
 * @mintyry
