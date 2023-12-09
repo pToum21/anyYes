@@ -7,6 +7,7 @@ This application is a full stack e-commerce site that allows the user to buy and
 This project uses dotenv and a config folder with a connection js file.
 * used Sequilize and mySQL2 to create a database using javascript
 * used handlebars with express session, and express handlebars to dynamically generate HTML from a views folder
+* used Bulma CSS and Splidejs for CSS framework and image carousel.
 * added the functionality for a user to log in and out and save cookies
 * all passwords are hashed using bcrypt
 * used seeds to seed user data to be able to test the application before production
