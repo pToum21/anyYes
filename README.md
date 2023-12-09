@@ -5,7 +5,7 @@ This application is a full stack e-commerce site that allows the user to buy and
 * used multer to allow the user to upload photos when making a listing and also, multer allows us to save the images as blob to the database and render them on screen as base64
 * used stripe so that the user is able to check out and purchase the item of their choice
 This project uses dotenv and a config folder with a connection js file.
-* used Sequilize and mySQL2 to create a database using javascript
+* used Sequelize and mySQL2 to create a database using javascript
 * used handlebars with express session, and express handlebars to dynamically generate HTML from a views folder
 * used Bulma CSS and Splidejs for CSS framework and image carousel.
 * added the functionality for a user to log in and out and save cookies
