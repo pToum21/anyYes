@@ -37,11 +37,6 @@ You must install node, Sequelize, mysql2, express-session, express-handlebars, d
 ## Installation - ☢️
  You must run npm i to download the correct packages.
 
-## Test - 🧪
-You must run mysql -u root then source the schema and use the db
-You must npm run seed to seed the database
-You must npm run start to the open the application view localhost{port}
-
 ## Preview Video - 📼
 https://github.com/pToum21/anyYes/assets/138056441/0904d40d-3ad2-4217-b29f-5beb79ace532
 
