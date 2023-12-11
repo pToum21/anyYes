@@ -19,7 +19,6 @@ This project uses dotenv and a config folder with a connection js file.
 * [Installation](#installation---☢️)
 * [Usage](#usage---💎)
 * [How to Contribute](#how-to-contribute---🍴)
-* [Test](#test---🧪)
 * [Preview Video](#preview-video---📼)
 * [Preview Photo](#preview-photo---📸)
 * [Deployed App](#deployed-app---📲)
