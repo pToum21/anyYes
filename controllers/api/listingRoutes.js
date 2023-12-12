@@ -28,7 +28,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             user_id
         } = req.body;
 
-
+// use sharp to resize and convert file buffer; make sure it returns a buffer as well (lines 33-51 into the .then of sharp)
 
         const newListing = await Listing.create({
             title,
