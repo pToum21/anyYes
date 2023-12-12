@@ -51,5 +51,3 @@ xClose.addEventListener('click', (event) => {
     event.preventDefault();
     loginModal.classList.remove('is-active')
 })
-
-console.log('test');
