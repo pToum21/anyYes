@@ -35,4 +35,7 @@ for (i = 0; i < userCart.length; i++) {
     `;
 }
 
+
+
 document.querySelector('.checkout-btn').addEventListener('click', (event) => { });
+

@@ -1,3 +1,5 @@
+//IF WE DECIDE TO MAKE KEY SESSION USER_ID
+
 //custom function to prevent duplicate items being added to array
 // Define the isDuplicate function
 
@@ -23,12 +25,14 @@ const addToCart = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                const userCart = JSON.parse(localStorage.getItem('myCart')) || [];
+                console.log(data.listing.currentUser)
+                const currentUser = data.listing.currentUser;
+                const userCart = JSON.parse(localStorage.getItem(currentUser.toString())) || [];
 
                 // Prevent duplicates in local storage
                 if (!isDuplicate(data.listing.title, userCart)) {
                     userCart.push(data.listing);
-                    localStorage.setItem('myCart', JSON.stringify(userCart));
+                    localStorage.setItem(currentUser.toString(), JSON.stringify(userCart));
 
                     // Check if the item is sold
                     if (data.listing.sold) {
@@ -36,7 +40,7 @@ const addToCart = () => {
                         removeFromCartAndDatabase(data.listing.id);
                     } else {
                         // Redirect to the checkout page
-                        window.location.href = '/cart'; 
+                        window.location.href = '/cart'; // Replace '/checkout' with the actual path to your checkout page
                     }
                 }
             });
