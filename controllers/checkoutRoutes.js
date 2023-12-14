@@ -75,7 +75,7 @@ router.get('/success', withAuth, async (req, res) => {
 
         const order = dbRes.get({ plain: true });
 
-        res.redirect('/profile#order-section');
+        res.render('checkout', { order, listing, logged_in: req.session.logged_in });
     } catch (error) {
 
         res.status(500).json({ message: 'This cart does not exist.' });
