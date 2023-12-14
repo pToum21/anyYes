@@ -28,7 +28,7 @@ router.post('/file-upload', upload.single('image'), async (req, res) => {
             user_id
         } = req.body;
 
-// use sharp to resize and convert file buffer; make sure it returns a buffer as well (lines 33-51 into the .then of sharp)
+        // use sharp to resize and convert file buffer; make sure it returns a buffer as well (lines 33-51 into the .then of sharp)
 
         const newListing = await Listing.create({
             title,
@@ -66,6 +66,8 @@ router.get('/:id', async (req, res) => {
         if (!foundListing) {
             return res.status(404).json({ message: 'Listing not found' });
         }
+        const currentUser = req.session.user_id;
+        console.log(currentUser);
 
         // Send the image buffer along with other listing details
         res.status(200).json({
@@ -84,7 +86,8 @@ router.get('/:id', async (req, res) => {
                 is_special_edition: foundListing.is_special_edition,
                 category_id: foundListing.category_id,
                 user_id: foundListing.user_id,
-                image: foundListing.image ? foundListing.image.toString('base64') : null
+                image: foundListing.image ? foundListing.image.toString('base64') : null,
+                currentUser
             }
         });
     } catch (error) {
