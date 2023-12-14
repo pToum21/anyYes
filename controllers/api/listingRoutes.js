@@ -84,6 +84,7 @@ router.get('/:id', async (req, res) => {
                 condition: foundListing.condition,
                 color: foundListing.color,
                 is_special_edition: foundListing.is_special_edition,
+                sold: foundListing.sold,
                 category_id: foundListing.category_id,
                 user_id: foundListing.user_id,
                 image: foundListing.image ? foundListing.image.toString('base64') : null,

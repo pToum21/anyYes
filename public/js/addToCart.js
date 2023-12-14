@@ -36,7 +36,7 @@ const addToCart = () => {
                         removeFromCartAndDatabase(data.listing.id);
                     } else {
                         // Redirect to the checkout page
-                        window.location.href = '/cart'; // Replace '/checkout' with the actual path to your checkout page
+                        window.location.href = '/cart'; 
                     }
                 }
             });

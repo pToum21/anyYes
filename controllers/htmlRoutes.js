@@ -170,7 +170,7 @@ router.get('/category/:category/:id', async (req, res) => {
 }
 );
 
-// **ryan: i think we can delete these route handlers since cart is handled by local storage
+
 router.get('/cart', async (req, res) => {
    try {
       res.render('cart', { logged_in: req.session.logged_in });
