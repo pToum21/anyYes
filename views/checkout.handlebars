@@ -8,14 +8,13 @@
         id="order-box">
         <div class="column">
             <p> Completed purchase:<br>
-                {{#if listing.dataValues.game_name }}
-
-                {{listing.dataValues.game_name}}
-
-                {{else}}
+                {{#if (equal listing.dataValues.game_name "N/A") }}
 
                 {{listing.dataValues.console_name}}
 
+                {{else}}
+
+                {{listing.dataValues.game_name}}
 
                 {{/if}}
 
