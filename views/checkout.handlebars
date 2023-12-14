@@ -1,19 +1,56 @@
-<body>
-    <h1>Order Details: </h1>
+{{!-- User's orders --}}
+<section class="box bbdouble" id="order-section">
+    <h2 class="title  has-background-info has-text-white p-3">Your order has been completed!</h2>
 
 
-    <div id="checkout-item">
-        <p>{{listing.dataValues.title}}</p>
-        <p>price: {{listing.dataValues.price}}</p>
-        {{#if (equal order.status false)}}
-        <p>Delivery Status: Pending</p>
-        <p>Referebce Number: {{order.reference_number}}</p>
-        <p>created at: {{format_date order.created_at}}</p>
-        {{else}}
 
-        {{/if}}
+    <div class="columns is-multiline is-full box is-flex is-justify-content-space-between has-text-black"
+        id="order-box">
+        <div class="column">
+            <p> Completed purchase:<br>
+                {{#if listing.dataValues.game_name }}
+
+                {{listing.dataValues.game_name}}
+
+                {{else}}
+
+                {{listing.dataValues.console_name}}
+
+
+                {{/if}}
+
+            </p>
+        </div>
+        <div class="column">
+            <p>
+                Price:<br> ${{listing.dataValues.price}}
+            </p>
+        </div>
+        <div class="column">
+            <p>
+                Order Number:<br> {{order.reference_number}}
+            </p>
+        </div>
+        <div class="column">
+            <p>
+                Purchased on:<br> {{format_date order.created_at}}
+            </p>
+        </div>
+
+        <div class="column">
+            <p>Status:<br>
+                {{#if (equal order.status false)}}
+                On its way
+                {{else}}
+                Delivered
+                {{/if}}
+            </p>
+        </div>
     </div>
 
-</body>
+
+
+
+</section>
 
 <script src="/js/checkout.js"></script>
