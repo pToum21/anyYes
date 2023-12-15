@@ -42,13 +42,13 @@
     <div class="column is-full">
       <div class="box is-flex is-justify-content-space-between has-text-black" id="order-box">
         <p>
-          {{#if listing.game_name }}
+          {{#if (equal listing.game_name "N/A") }}
           <a href="/category/{{listing.category.category_name}}/{{listing.id}}">
-            {{listing.game_name}} from {{listing.user.user_name}}
+            {{listing.console_name}} from {{listing.user.user_name}}
           </a>
           {{else}}
           <a href="/category/{{listing.category.category_name}}/{{listing.id}}">
-            {{listing.console_name}} from {{listing.user.user_name}}
+            {{listing.game_name}} from {{listing.user.user_name}}
           </a>
           {{/if}}
           </a>
